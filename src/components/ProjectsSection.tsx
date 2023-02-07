@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clickSound from "../assets/click.mp3";
 
 const ProjectAssets = [
   {
@@ -52,18 +53,42 @@ const ProjectAssets = [
   },
 ];
 
+const ActionButton = ({ styles, hover, text, href, state }: any) => {
+  return (
+    <button className={`${state && hover} ${styles}`}>
+      {state ? (
+        <a
+          className="w-full h-full flex justify-center items-center"
+          href={href}
+        >
+          {text}
+        </a>
+      ) : (
+        <span>{text}</span>
+      )}
+    </button>
+  );
+};
+
 export const ProjectsSection: any = () => {
   const [current, setCurrent] = useState(3);
 
+  const audio = new Audio(clickSound);
+  audio.volume = 0.05;
+
   return (
-    <section className="flex flex-col overflow-x-hidden">
+    <section className="flex flex-col items-center overflow-x-hidden">
+      <h1 className="text-5xl font-bold mb-16 mt-24">Projects</h1>
       <div
         className={`flex translate-x-[${current * -24 + 72}rem] duration-300`}
       >
         {ProjectAssets.map((project, index) => (
           <div
             key={index}
-            onClick={() => setCurrent(index)}
+            onClick={() => {
+              setCurrent(index);
+              audio.play();
+            }}
             className={`${
               current !== index ? `opacity-40` : `scale-110`
             } shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_-10px_rgba(0,0,0,0.4)] duration-300 min-w-[20rem] h-[28rem] flex flex-col items-center p-4 m-4 rounded-3xl relative box-content cursor-pointer`}
@@ -76,18 +101,20 @@ export const ProjectsSection: any = () => {
             <h3 className="text-2xl mt-4">{project.name}</h3>
             <p>{project.description}</p>
             <div className="flex bottom-6 absolute w-[20rem] h-8 justify-between">
-              <a
+              <ActionButton
+                styles="bg-slate-100 shadow-md rounded h-full w-1/4 duration-300"
+                hover="hover:bg-slate-200"
+                text="</>"
                 href={project.code}
-                className="bg-slate-100 shadow-md rounded h-full w-1/4 flex justify-center items-center hover:bg-slate-200 duration-300"
-              >
-                {"</>"}
-              </a>
-              <a
+                state={current === index}
+              />
+              <ActionButton
+                styles="bg-slate-200 shadow-md rounded h-full w-4/6 duration-300"
+                hover="hover:bg-slate-300"
+                text="Live"
                 href={project.live}
-                className="bg-slate-200 shadow-md rounded h-full w-4/6 flex items-center justify-center hover:bg-slate-300 duration-300"
-              >
-                {"Live"}
-              </a>
+                state={current === index}
+              />
             </div>
           </div>
         ))}
