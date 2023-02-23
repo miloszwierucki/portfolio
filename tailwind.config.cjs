@@ -16,7 +16,7 @@ module.exports = {
           },
           "50%": {
             transform: "translateX(25%)",
-            opacity: 0.75,
+            opacity: 0.6,
             "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
@@ -28,7 +28,7 @@ module.exports = {
           },
           "50%": {
             transform: "translateX(-25%)",
-            opacity: 0.75,
+            opacity: 0.6,
             "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
           },
         },

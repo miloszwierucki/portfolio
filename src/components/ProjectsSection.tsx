@@ -86,13 +86,13 @@ export const ProjectsSection: any = () => {
   audio.volume = 0.05;
 
   return (
-    <section className="flex flex-col h-[100rem] w-full relative z-0">
+    <section className="flex flex-col h-[67.5rem] w-full relative z-0">
       <img
         src={blob}
         alt="wave"
         className="w-1/3 top-[-5rem] absolute z-[-1] pointer-events-none"
       />
-      <h1 className="text-6xl font-bold px-36 mb-24 mt-32">My Projects</h1>
+      <h2 className="text-6xl font-bold px-36 mb-24 mt-32">My Projects</h2>
       <div
         className={`flex justify-center translate-x-[${
           current * -24 + 72
@@ -137,12 +137,12 @@ export const ProjectsSection: any = () => {
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-center mt-12">
+      <div className="h-8 flex justify-center mt-12">
         <button
           onClick={() => setCurrent(current > 0 ? current - 1 : 0)}
-          className="text-3xl text-stone-500 hover:shadow-md rounded-md duration-300"
+          className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300"
         >
-          <RxDoubleArrowLeft />
+          <RxDoubleArrowLeft className="animate-bounceLeft" />
         </button>
         <button
           onClick={() =>
@@ -152,7 +152,7 @@ export const ProjectsSection: any = () => {
                 : ProjectAssets.length - 1
             )
           }
-          className="bg-slate-300 shadow-md rounded-md w-12 h-8 m-4 hover:bg-slate-400 duration-300"
+          className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300"
         >
           <RxDoubleArrowRight className="animate-bounceRight" />
         </button>

@@ -62,7 +62,7 @@ export const Welcome: any = () => {
       />
       <img
         src={waves}
-        alt="wave"
+        alt="waves"
         className="w-full bottom-0 translate-y-[100%] absolute z-[-2] pointer-events-none"
       />
     </div>
