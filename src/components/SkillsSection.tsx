@@ -1,6 +1,4 @@
 import { useState } from "react";
-import blob from "../assets/blobSkill.svg";
-import waves from "../assets/wave2.svg";
 
 const SkillsAssets = [
   {
@@ -53,11 +51,11 @@ const SkillsAssets = [
 const Skill: any = ({ name, img }: { name: any; img: any }) => {
   const [showName, setShowName] = useState(false);
   return (
-    <div className="m-4 text-sm h-28 flex flex-col items-center justify-between hover:drop-shadow-md duration-1000">
+    <div className="m-2 w-24 text-md h-[7.5rem] flex flex-col items-center justify-between hover:drop-shadow-md duration-1000 2xl:h-32 2xl:text-lg 2xl:m-4">
       <img
         src={img}
         alt={name}
-        className="w-20 h-20 hover:scale-110 duration-300"
+        className="w-20 h-20 hover:scale-110 duration-300 2xl:w-[5.5rem] 2xl:h-[5.5rem]"
         onMouseEnter={() => setShowName(true)}
         onMouseLeave={() => setShowName(false)}
       />
@@ -68,8 +66,8 @@ const Skill: any = ({ name, img }: { name: any; img: any }) => {
 
 export const SkillsSection: any = () => {
   return (
-    <div className="relative bg-[#FCF6EC] w-full h-72 flex flex-col">
-      <h2 className="text-[2rem] font-semibold px-36 mb-10 mt-16">
+    <div className="relative bg-[#FCF6EC] w-full h-72 flex flex-col 2xl:h-80">
+      <h2 className="text-[2rem] font-semibold px-36 mb-10 mt-16 2xl:text-4xl 2xl:mt-20">
         I'm currently developing and using:
       </h2>
       <div className="flex justify-between px-32 z-10">
@@ -88,18 +86,6 @@ export const SkillsSection: any = () => {
           )}
         </div>
       </div>
-
-      <img
-        src={blob}
-        alt="blob"
-        className="absolute w-1/3 right-0 top-0 translate-x-[15%] translate-y-[-15%] z-0"
-      />
-
-      <img
-        src={waves}
-        alt="waves"
-        className="w-full bottom-0 translate-y-[100%] absolute pointer-events-none z-[-1]"
-      />
     </div>
   );
 };
