@@ -8,8 +8,8 @@ export const TextareaField: FC<IFieldProps> = ({
   handleChange,
 }) => {
   return (
-    <div className="mb-5 w-full 2xl:mb-8">
-      <label className="text-md 2xl:text-lg" htmlFor={name}>
+    <div className="mb-5 w-full 2xl:mb-8 md:mb-8">
+      <label className="text-md 2xl:text-lg md:text-lg" htmlFor={name}>
         {label}
       </label>
       <textarea

@@ -2,6 +2,12 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      "2xl": "1536px",
+      md: { max: "1350px" },
+      sm: { max: "1024px" },
+      xs: { max: "768px" },
+    },
     extend: {
       animation: {
         bounceLeft: "bounceLeft 1.5s infinite",

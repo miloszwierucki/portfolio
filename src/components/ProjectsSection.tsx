@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";
 import clickSound from "../assets/click.mp3";
-const blob = "src/assets/blobCorner.svg";
 
 const ProjectAssets = [
   {
@@ -86,11 +85,9 @@ export const ProjectsSection: any = () => {
   audio.volume = 0.05;
 
   return (
-    <section className="flex flex-col h-[67.5rem] w-full relative z-0 2xl:h-[77.5rem]">
-      <div
-        className={`absolute w-1/3 h-screen top-[-5rem] z-[-1] bg-[url('${blob}')] bg-[100%,100%] bg-no-repeat bg-left-top`}
-      ></div>
-      <h2 className="text-6xl font-bold px-36 mb-24 mt-32 2xl:text-[5rem] 2xl:mt-48">
+    <section className="flex flex-col h-[67.5rem] w-full relative z-0 2xl:h-[77.5rem] mt-12 md:h-[65rem] xs:mt-0">
+      <div className="absolute w-1/3 h-screen top-0 translate-y-[-7%] z-[-1] bg-[url('src/assets/blobCorner.svg')] bg-[100%,100%] bg-no-repeat bg-left-top xs:w-[0]"></div>
+      <h2 className="text-6xl font-bold ml-36 mb-20 mt-32 2xl:text-[5rem] 2xl:mt-48 md:ml-28 md:mt-48 md:text-[3.5rem] md:mb-16 xs:flex xs:ml-0 xs:justify-center">
         My Projects
       </h2>
       <div
@@ -107,7 +104,7 @@ export const ProjectsSection: any = () => {
             }}
             className={`${
               current !== index ? `opacity-50` : `scale-110`
-            } shadow-[0_0_15px_-5px_rgba(0,0,0,0.25)] hover:shadow-[0_0_15px_-5px_rgba(0,0,0,0.4)] duration-300 min-w-[22rem] h-[32rem] flex flex-col items-center m-6 rounded-2xl relative box-content cursor-pointer z-10 2xl:min-w-[24rem] 2xl:h-[36rem] 2xl:m-8`}
+            } shadow-[0_0_15px_-5px_rgba(0,0,0,0.25)] hover:shadow-[0_0_15px_-5px_rgba(0,0,0,0.4)] duration-300 min-w-[22rem] h-[32rem] flex flex-col items-center m-6 rounded-2xl relative box-content cursor-pointer z-10 2xl:min-w-[24rem] 2xl:h-[36rem] 2xl:m-8 md:min-w-[22rem] md:h-[28rem] xs:min-w-[20rem] xs:h-[30rem]`}
           >
             <img
               src={project.image}
