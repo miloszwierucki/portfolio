@@ -5,6 +5,6 @@ export interface ProjectCardProps {
   isCode: boolean;
   codeLink: string;
   previewLink: string;
-  disable: boolean;
+  disable?: boolean;
   onClick?: () => void;
 }

@@ -21,7 +21,10 @@ export const NavBar = () => {
         <ul className="flex text-3xl">
           {menuData.map(({ name, link }) => (
             <li key={name}>
-              <a href={link} className="px-8 hover:shadow-md">
+              <a
+                href={link}
+                className="px-8 py-2 rounded-md hover:shadow-sm duration-300"
+              >
                 {name}
               </a>
             </li>

@@ -50,7 +50,7 @@ export const ContactSection = () => {
 
   return (
     <section className="contact-background pt-80 px-28">
-      <h2 className="text-6xl font-bold flex">
+      <h2 id="contact" className="text-6xl font-bold flex">
         Contact
         <FaPaperPlane className="text-4xl ml-4" />
       </h2>
@@ -86,9 +86,9 @@ export const ContactSection = () => {
           value={values.message}
           handleChange={handleChange}
         />
-        <div className="row-start-4 col-span-full w-full text-center mt-8">
+        <div className="row-start-4 col-span-full w-full text-center mt-12">
           <button
-            className="text-2xl font-bold w-[22rem] h-12 text-white bg-contactBtn rounded-md duration-300"
+            className="text-2xl font-bold w-[22rem] h-12 text-white bg-contactBtn drop-shadow rounded-md hover:bg-contactBtnHover hover:translate-y-[-0.2rem] duration-300"
             type="submit"
           >
             Send

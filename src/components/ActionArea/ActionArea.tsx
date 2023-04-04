@@ -19,15 +19,18 @@ const SocialData = [
 
 const Social = ({ link, icons }: { link: string; icons: any }) => {
   return (
-    <a href={link} className="text-[2.75rem] mr-3">
-      {icons()}
+    <a
+      href={link}
+      className="text-[2.75rem] mr-3 hover:text-[#453A3A] duration-300"
+    >
+      {icons({ className: "drop-shadow" })}
     </a>
   );
 };
 
 export const ActionArea = () => (
   <div className="flex items-center mt-8 text-secondary">
-    <div className="bg-secondary text-white text-2xl font-bold w-[22rem] h-12 rounded-md mr-3">
+    <div className="bg-secondary text-white text-2xl font-bold w-[22rem] h-12 drop-shadow rounded-md mr-3 hover:bg-[#453A3A] duration-300">
       <a href="#contact" className="flex h-full justify-center items-center">
         Contact me
       </a>

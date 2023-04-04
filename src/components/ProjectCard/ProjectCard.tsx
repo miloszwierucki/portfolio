@@ -2,6 +2,29 @@ import { ProjectCardProps } from "./ProjectCard.types";
 import { HiOutlineCode } from "react-icons/hi";
 import { FC } from "react";
 
+const ActionButton = ({ styles, text, href, state }: any) => {
+  return (
+    <button
+      className={`${
+        state && "hover:translate-y-[-0.2rem] duration-300"
+      } ${styles}`}
+    >
+      {state ? (
+        <a
+          className="w-full h-full flex justify-center items-center"
+          href={href}
+        >
+          {text}
+        </a>
+      ) : (
+        <div className="w-full h-full flex justify-center items-center">
+          {text}
+        </div>
+      )}
+    </button>
+  );
+};
+
 export const ProjectCard: FC<ProjectCardProps> = ({
   name,
   description,
@@ -28,30 +51,29 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <h2 className="text-2xl font-semibold mt-6">{name}</h2>
         <p className="text-[1rem] mt-2">{description}</p>
       </div>
-      <div className="flex justify-between mb-7 text-xl font-semibold w-[18.75rem]">
+      <div className="flex justify-between mb-7 text-xl font-semibold w-[18.75rem] text-white">
         {isCode ? (
           <>
-            <a
+            <ActionButton
+              styles="w-16 h-10 text-3xl rounded-md shadow-md text-black"
+              text={<HiOutlineCode />}
               href={codeLink}
-              className="flex items-center justify-center w-16 h-10 text-3xl rounded-md  shadow-md"
-            >
-              <HiOutlineCode />
-            </a>
-
-            <a
+              state={!disable}
+            />
+            <ActionButton
+              styles="w-2/3 h-10 rounded-md bg-gradient-to-tr from-teal-600 to-emerald-200 shadow-md"
+              text="Live code"
               href={previewLink}
-              className="flex items-center justify-center w-2/3 h-10 rounded-md bg-gradient-to-tr from-teal-600 to-emerald-200 shadow-md"
-            >
-              Live code
-            </a>
+              state={!disable}
+            />
           </>
         ) : (
-          <a
+          <ActionButton
+            styles="w-full h-10 rounded-md bg-gradient-to-tr from-teal-600 to-emerald-200 shadow-md"
+            text="Preview"
             href={previewLink}
-            className="flex items-center justify-center w-full h-10 rounded-md bg-gradient-to-tr from-teal-600 to-emerald-200 shadow-md"
-          >
-            Preview
-          </a>
+            state={!disable}
+          />
         )}
       </div>
     </div>

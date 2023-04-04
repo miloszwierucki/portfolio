@@ -12,7 +12,7 @@ export const WelcomeSection = () => (
           className="w-10 h-10 mr-2"
         />
         Hello, I’m
-        <span className="text-text font-bold">&nbsp;Miłosz</span>!
+        <span className="text-highlight font-bold">&nbsp;Miłosz</span>!
       </h1>
       <div className="mt-4">
         <p className="text-3xl">
@@ -20,9 +20,10 @@ export const WelcomeSection = () => (
           visualizations.
         </p>
         <p className="text-2xl mt-2">
-          I'm currently studying applied computer science at the Lodz University
-          of Technology. I'm passionate about tech, design, and the role they
-          play in our everyday lives.
+          I'm currently studying applied computer science at the{" "}
+          <span className="text-highlight">Lodz University of Technology</span>.
+          I'm passionate about tech, design, and the role they play in our
+          everyday lives.
         </p>
       </div>
       <ActionArea />

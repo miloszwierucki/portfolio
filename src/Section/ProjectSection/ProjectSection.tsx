@@ -13,7 +13,6 @@ const projectData: ProjectCardProps[] = [
     isCode: true,
     codeLink: "",
     previewLink: "",
-    disable: false,
   },
   {
     name: "Lorem ipsum dolor 2",
@@ -23,7 +22,6 @@ const projectData: ProjectCardProps[] = [
     isCode: true,
     codeLink: "",
     previewLink: "",
-    disable: true,
   },
   {
     name: "Lorem ipsum dolor 3",
@@ -33,7 +31,6 @@ const projectData: ProjectCardProps[] = [
     isCode: false,
     codeLink: "",
     previewLink: "",
-    disable: true,
   },
   {
     name: "Lorem ipsum dolor 4",
@@ -43,7 +40,6 @@ const projectData: ProjectCardProps[] = [
     isCode: true,
     codeLink: "",
     previewLink: "",
-    disable: true,
   },
 ];
 
@@ -67,7 +63,6 @@ export const ProjectSection = () => {
       indexCondition = index < length ? index + 1 : length;
     }
     setCurrent(indexCondition);
-    audio.play();
 
     if (lgWidthScreen.matches) {
       widthProjectPattern = 22.5;
@@ -83,7 +78,7 @@ export const ProjectSection = () => {
   }, [current]);
 
   return (
-    <section className="mt-96 px-28">
+    <section id="projects" className="pt-16 mt-80 px-28">
       <h2 className="text-6xl font-bold">Projects</h2>
       <p className="text-2xl mt-2">Here are some of my works</p>
       <div
@@ -94,13 +89,17 @@ export const ProjectSection = () => {
           <ProjectCard
             key={index}
             {...{ ...project, disable: index !== current }}
-            onClick={() => translateCondition(index)}
+            onClick={() => {
+              translateCondition(index);
+              audio.play();
+            }}
           />
         ))}
       </div>
       <div className="h-8 flex justify-center mt-12">
         <button
           onClick={() => {
+            audio.play();
             translateCondition(current, "left");
           }}
           className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300 2xl:text-4xl"
@@ -109,6 +108,7 @@ export const ProjectSection = () => {
         </button>
         <button
           onClick={() => {
+            audio.play();
             translateCondition(current, "right");
           }}
           className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300 2xl:text-4xl"

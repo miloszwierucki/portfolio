@@ -58,7 +58,10 @@ const Skill: any = ({ name, img }: { name: any; img: any }) => {
 
 export const SkillSection = () => {
   return (
-    <section className="skill-background relative mt-32 pt-20 bg-background px-28">
+    <section
+      id="skills"
+      className="skill-background relative mt-32 pt-20 bg-background px-28"
+    >
       <h2 className="text-6xl font-bold">Skills</h2>
       <p className="text-2xl mt-2">I'm currently developing and using</p>
       <div className="flex mt-8">
