@@ -1,8 +1,10 @@
 export const Footer = () => {
   return (
-    <footer className="flex justify-between items-center h-10 px-4 mx-24 text-background mt-36 opacity-40 border-t border-background">
-      <p className="text-base">©2023 All rights reserved</p>
-      <p className="text-base">Designed & Built by myself</p>
+    <footer className="bg-[#746E6E]">
+      <div className="text-background text-xs border-background h-10 px-4 mx-5 mt-20 opacity-40 border-t flex justify-between items-center md:mx-12 lg:text-base lg:mt-36 xl:mx-24">
+        <p>©2023 All rights reserved</p>
+        <p>Designed & Built by myself</p>
+      </div>
     </footer>
   );
 };

@@ -49,14 +49,17 @@ export const ContactSection = () => {
   }, [status]);
 
   return (
-    <section className="contact-background pt-80 px-28">
-      <h2 id="contact" className="text-6xl font-bold flex">
+    <section className="px-5 pt-56 md:px-12 lg:pt-72 xl:px-28 xl:pt-80 contact-background">
+      <h2
+        id="contact"
+        className="text-[2.5rem] leading-9 font-bold flex lg:text-5xl xl:text-6xl"
+      >
         Contact
-        <FaPaperPlane className="text-4xl ml-4" />
+        <FaPaperPlane className="text-3xl ml-2 lg:text-4xl lg:ml-4" />
       </h2>
       {status && sentAlert()}
       <form
-        className="mt-12 grid grid-rows-4 grid-cols-2 gap-x-4"
+        className="mt-12 grid gap-x-4 lg:grid-cols-2 lg:grid-rows-4"
         onSubmit={sendEmail}
       >
         <InputField
@@ -86,9 +89,9 @@ export const ContactSection = () => {
           value={values.message}
           handleChange={handleChange}
         />
-        <div className="row-start-4 col-span-full w-full text-center mt-12">
+        <div className="text-center w-full mt-8 lg:mt-12 lg:row-start-4 lg:col-span-full">
           <button
-            className="text-2xl font-bold w-[22rem] h-12 text-white bg-contactBtn drop-shadow rounded-md hover:bg-contactBtnHover hover:translate-y-[-0.2rem] duration-300"
+            className="text-white text-lg font-bold w-48 h-10 bg-contactBtn drop-shadow rounded-md hover:bg-contactBtnHover hover:translate-y-[-0.2rem] lg:text-2xl lg:w-[22rem] lg:h-12 duration-300"
             type="submit"
           >
             Send
@@ -101,10 +104,8 @@ export const ContactSection = () => {
 
 const sentAlert = () => {
   return (
-    <div className="bg-green-100 rounded-md w-4/5 px-4 py-2 mb-8 shadow-sm shadow-grey-100 duration-300">
-      <span className="text-sm text-center w-full block text-green-600">
-        Message sent successfully!
-      </span>
+    <div className="text-green-600 text-sm bg-green-100 w-full px-4 py-2 mt-4 text-center rounded-md shadow-sm shadow-grey-100 duration-300">
+      Message sent successfully!
     </div>
   );
 };

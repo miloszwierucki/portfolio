@@ -8,12 +8,12 @@ export const TextareaField: FC<IFieldProps> = ({
   handleChange,
 }) => {
   return (
-    <div className="w-full row-start-1 col-start-2 row-span-3">
+    <div className="w-full lg:row-start-1 lg:col-start-2 lg:row-span-3">
       <label className="text-md" htmlFor={name}>
         {label}
       </label>
       <textarea
-        className="input rounded-md outline-none text-gray-600 w-full h-60 p-4 text-lg resize-none"
+        className="text-gray-600 text-lg w-full h-48 p-4 rounded-md outline-none resize-none lg:h-60 input"
         name={name}
         value={value}
         onChange={handleChange}

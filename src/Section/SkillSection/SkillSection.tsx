@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TitleSection } from "../../components/TitleSection/TitleSection";
 
 const SkillsAssets = [
   {
@@ -43,11 +44,11 @@ const Skill: any = ({ name, img }: { name: any; img: any }) => {
   const [showName, setShowName] = useState(false);
 
   return (
-    <div className="w-24 h-24 flex flex-col items-center justify-between hover:drop-shadow-md duration-1000">
+    <div className="w-[4.5rem] h-28 flex flex-col items-center z-10 hover:drop-shadow-md lg:w-24 duration-1000">
       <img
         src={img}
         alt={`Logo of ${name}`}
-        className="w-[4.5rem] hover:scale-110 duration-300 mb-4"
+        className="w-[3.5rem] mb-3 hover:scale-110 lg:w-[4.5rem] lg:mb-4 duration-300"
         onMouseEnter={() => setShowName(true)}
         onMouseLeave={() => setShowName(false)}
       />
@@ -60,11 +61,13 @@ export const SkillSection = () => {
   return (
     <section
       id="skills"
-      className="skill-background relative mt-32 pt-20 bg-background px-28"
+      className="bg-background mt-24 pt-20 relative lg:mt-32 skill-background"
     >
-      <h2 className="text-6xl font-bold">Skills</h2>
-      <p className="text-2xl mt-2">I'm currently developing and using</p>
-      <div className="flex mt-8">
+      <TitleSection
+        title="Skills"
+        description="I'm currently developing and using"
+      />
+      <div className="px-5 mx-auto mt-12 flex flex-wrap md:px-12 lg:mt-8 xl:px-28 lg:mx-0 lg:justify-normal">
         {SkillsAssets.map(({ name, image }, index) => (
           <Skill key={index} name={name} img={image} />
         ))}

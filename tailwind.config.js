@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "3xl": "1920px",
+      },
       colors: {
         primary: "#FAFAFA",
         highlight: "#927B7B",
@@ -14,6 +17,9 @@ export default {
       },
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
+      },
+      scale: {
+        80: "0.8",
       },
       animation: {
         bounceLeft: "bounceLeft 1.5s infinite",

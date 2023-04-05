@@ -1,3 +1,6 @@
+import { BsList } from "react-icons/bs";
+import { useState } from "react";
+
 const menuData = [
   {
     name: "Projects",
@@ -14,22 +17,46 @@ const menuData = [
 ];
 
 export const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="flex justify-between items-center pt-8 px-28">
-      <div className="text-5xl font-semibold">Miłosz Wierucki</div>
-      <nav>
-        <ul className="flex text-3xl">
+    <header className="px-5 pt-5 flex justify-between items-center md:px-12 md:pt-6 xl:px-28 xl:pt-8">
+      <div className="text-2xl font-semibold sm:text-3xl lg:text-4xl xl:text-5xl">
+        Miłosz Wierucki
+      </div>
+      <nav className="relative">
+        <ul
+          className={
+            isMenuOpen
+              ? "text-white w-full h-[100vh] bg-black left-0 top-0 flex-col justify-center items-center fixed z-[2]"
+              : "text-2xl hidden md:flex xl:text-3xl"
+          }
+        >
           {menuData.map(({ name, link }) => (
-            <li key={name}>
+            <li
+              key={name}
+              className={`hover:scale-110 duration-300 ${
+                isMenuOpen && "my-12"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
               <a
                 href={link}
-                className="px-8 py-2 rounded-md hover:shadow-sm duration-300"
+                className="rounded-md px-6 py-2 hover:shadow-sm lg:px-8 duration-300"
               >
                 {name}
               </a>
             </li>
           ))}
         </ul>
+        <div
+          className={`text-4xl drop-shadow-sm cursor-pointer z-10 hover:scale-110 md:hidden ${
+            isMenuOpen && "text-white top-5 right-5 fixed"
+          } duration-300`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <BsList />
+        </div>
       </nav>
     </header>
   );

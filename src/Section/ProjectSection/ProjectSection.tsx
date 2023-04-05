@@ -3,6 +3,7 @@ import { ProjectCardProps } from "../../components/ProjectCard/ProjectCard.types
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import clickSound from "../../assets/click.mp3";
 import { useEffect, useRef, useState } from "react";
+import { TitleSection } from "../../components/TitleSection/TitleSection";
 
 const projectData: ProjectCardProps[] = [
   {
@@ -45,32 +46,27 @@ const projectData: ProjectCardProps[] = [
 
 export const ProjectSection = () => {
   const [current, setCurrent] = useState(1);
-  const length = projectData.length - 1;
+  const length = projectData.length;
   const audio = new Audio(clickSound);
   audio.volume = 0.05;
 
-  //const lgWidthScreen = window.matchMedia("(min-width: 1536px)");
-  const lgWidthScreen = window.matchMedia("(min-width: 1024px)");
   const translateContainerRef = useRef(null) as any; // TODO: Someday fix this
 
   const translateCondition = (index: number, condition?: string) => {
+    const widthContainer = translateContainerRef.current?.offsetWidth;
+    const widthCard = widthContainer / length;
     let indexCondition = index;
-    let widthProjectPattern = 22;
 
     if (condition === "left") {
       indexCondition = index === 0 ? 0 : index - 1;
     } else if (condition === "right") {
-      indexCondition = index < length ? index + 1 : length;
+      indexCondition = index < length - 1 ? index + 1 : length - 1;
     }
     setCurrent(indexCondition);
 
-    if (lgWidthScreen.matches) {
-      widthProjectPattern = 22.5;
-    }
-
     translateContainerRef.current!.style.transform = `translateX(${
-      4.25 - widthProjectPattern * (indexCondition - 1)
-    }rem)`;
+      -widthCard * (indexCondition + 1 / 2)
+    }px)`;
   };
 
   useEffect(() => {
@@ -78,12 +74,11 @@ export const ProjectSection = () => {
   }, [current]);
 
   return (
-    <section id="projects" className="pt-16 mt-80 px-28">
-      <h2 className="text-6xl font-bold">Projects</h2>
-      <p className="text-2xl mt-2">Here are some of my works</p>
+    <section id="projects" className="pt-16 mt-32 sm:mt-44 xl:mt-80">
+      <TitleSection title="Projects" description="Here are some of my works" />
       <div
         ref={translateContainerRef}
-        className="inline-flex mt-10 duration-300"
+        className="ml-[50vw] mt-10 inline-flex duration-300"
       >
         {projectData.map((project, index) => (
           <ProjectCard
@@ -96,13 +91,13 @@ export const ProjectSection = () => {
           />
         ))}
       </div>
-      <div className="h-8 flex justify-center mt-12">
+      <div className="h-8 mt-4 flex justify-center xl:mt-12">
         <button
           onClick={() => {
             audio.play();
             translateCondition(current, "left");
           }}
-          className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300 2xl:text-4xl"
+          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl duration-300"
         >
           <RxDoubleArrowLeft className="animate-bounceLeft" />
         </button>
@@ -111,7 +106,7 @@ export const ProjectSection = () => {
             audio.play();
             translateCondition(current, "right");
           }}
-          className="text-3xl text-stone-500 hover:shadow-sm rounded-md px-4 duration-300 2xl:text-4xl"
+          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl duration-300"
         >
           <RxDoubleArrowRight className="animate-bounceRight" />
         </button>

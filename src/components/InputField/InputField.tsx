@@ -9,12 +9,12 @@ export const InputField: FC<IFieldProps> = ({
   handleChange,
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-ful mb-4 lg:mb-0">
       <label className="text-md" htmlFor={name}>
         {label}
       </label>
       <input
-        className="input rounded-md outline-none text-gray-600 w-full h-12 px-4 text-lg"
+        className="text-gray-600 text-lg w-full h-12 px-4 rounded-md outline-none input"
         type={type}
         name={name}
         value={value}
