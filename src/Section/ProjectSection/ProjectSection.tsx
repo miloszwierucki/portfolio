@@ -74,7 +74,10 @@ export const ProjectSection = () => {
   }, [current]);
 
   return (
-    <section id="projects" className="pt-16 mt-32 sm:mt-44 xl:mt-80">
+    <section
+      id="projects"
+      className="pt-16 mt-32 sm:mt-44 xl:mt-[22rem] 3xl:mt-[23rem]"
+    >
       <TitleSection title="Projects" description="Here are some of my works" />
       <div
         ref={translateContainerRef}
@@ -91,13 +94,13 @@ export const ProjectSection = () => {
           />
         ))}
       </div>
-      <div className="h-8 mt-4 flex justify-center xl:mt-12">
+      <div className="h-8 mt-4 flex justify-center xl:mt-12 3xl:h-14">
         <button
           onClick={() => {
             audio.play();
             translateCondition(current, "left");
           }}
-          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl duration-300"
+          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl 3xl:text-5xl 3xl:px-8 duration-300"
         >
           <RxDoubleArrowLeft className="animate-bounceLeft" />
         </button>
@@ -106,7 +109,7 @@ export const ProjectSection = () => {
             audio.play();
             translateCondition(current, "right");
           }}
-          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl duration-300"
+          className="text-stone-500 text-3xl rounded-md px-4 hover:shadow-sm 2xl:text-4xl 3xl:text-5xl 3xl:px-8 duration-300"
         >
           <RxDoubleArrowRight className="animate-bounceRight" />
         </button>

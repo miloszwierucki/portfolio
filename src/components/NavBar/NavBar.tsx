@@ -20,8 +20,8 @@ export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="px-5 pt-5 flex justify-between items-center md:px-12 md:pt-6 xl:px-28 xl:pt-8">
-      <div className="text-2xl font-semibold sm:text-3xl lg:text-4xl xl:text-5xl">
+    <header className="px-5 pt-5 flex justify-between items-center md:px-12 md:pt-6 xl:px-28 xl:pt-8 3xl:px-32 3xl:pt-10">
+      <div className="text-2xl font-semibold sm:text-3xl lg:text-4xl xl:text-5xl 3xl:text-[3.25rem]">
         Miłosz Wierucki
       </div>
       <nav className="relative">
@@ -29,7 +29,7 @@ export const NavBar = () => {
           className={
             isMenuOpen
               ? "text-white w-full h-[100vh] bg-black left-0 top-0 flex-col justify-center items-center fixed z-[2]"
-              : "text-2xl hidden md:flex xl:text-3xl"
+              : "text-2xl hidden md:flex xl:text-3xl 3xl:text-4xl"
           }
         >
           {menuData.map(({ name, link }) => (
@@ -42,7 +42,7 @@ export const NavBar = () => {
             >
               <a
                 href={link}
-                className="rounded-md px-6 py-2 hover:shadow-sm lg:px-8 duration-300"
+                className="rounded-md px-6 py-2 hover:shadow-sm lg:px-8 3xl:px-10 duration-300"
               >
                 {name}
               </a>

@@ -1,6 +1,9 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html {
   scroll-behavior: smooth;
@@ -71,9 +74,6 @@ body {
 .skill-background::before {
   content: "";
   position: absolute;
-  height: 100vh;
-  right: 0;
-  top: -4rem;
   background-image: url("/Blob-5.svg");
   background-position: right top;
   background-repeat: no-repeat;
@@ -134,6 +134,14 @@ body {
     bottom: -80px;
     background-size: 180px;
   }
+
+  .skill-background::before {
+    width: 320px;
+    height: 200%;
+    right: 0;
+    top: -3rem;
+    background-size: 320px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -156,6 +164,36 @@ body {
 
   .skill-background::before {
     width: 384px;
+    height: 200%;
+    right: 0;
+    top: -4rem;
     background-size: 384px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .background {
+    background-size: 610px, 500px, 750px, 100%, 100%, 480px, 420px;
+    background-position: left top, 0 870px, right 120px, left 900px,
+      left 0 bottom -50px, left bottom, right bottom;
+  }
+
+  .background::before {
+    height: 900px;
+  }
+
+  .cover::after {
+    width: 250px;
+    right: -7rem;
+    bottom: -4rem;
+    background-size: 250px;
+  }
+
+  .skill-background::before {
+    width: 450px;
+    height: 200%;
+    right: 0;
+    top: -7.5rem;
+    background-size: 450px;
   }
 }
