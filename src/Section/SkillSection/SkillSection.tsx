@@ -63,10 +63,7 @@ export const SkillSection = () => {
       id="skills"
       className="bg-background mt-24 pt-20 relative lg:mt-32 3xl:mt-48 skill-background"
     >
-      <TitleSection
-        title="Skills"
-        description="I'm currently developing and using"
-      />
+      <TitleSection title="skills" description="sDescription" />
       <div className="px-5 mx-auto mt-12 flex flex-wrap md:px-12 lg:mt-8 xl:px-28 lg:mx-0 lg:justify-normal 3xl:px-32">
         {SkillsAssets.map(({ name, image }, index) => (
           <Skill key={index} name={name} img={image} />

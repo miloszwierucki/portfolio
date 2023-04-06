@@ -1,14 +1,16 @@
+import { TextareaField } from "../../components/TextareaField/TextareaField";
+import { InputField } from "../../components/InputField/InputField";
+import { useTranslation } from "react-i18next";
+import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { InputField } from "../../components/InputField/InputField";
-import { TextareaField } from "../../components/TextareaField/TextareaField";
-import { FaPaperPlane } from "react-icons/fa";
 
 const service: string = import.meta.env.VITE_SERVICE_ID;
 const template: string = import.meta.env.VITE_TEMPLATE_ID;
 const user: string = import.meta.env.VITE_PUBLIC_KEY;
 
 export const ContactSection = () => {
+  const { t } = useTranslation();
   const [status, setStatus] = useState(false);
   const [values, setValues] = useState({
     name: "",
@@ -54,10 +56,13 @@ export const ContactSection = () => {
         id="contact"
         className="text-[2.5rem] leading-9 font-bold flex lg:text-5xl xl:text-6xl 3xl:text-7xl"
       >
-        Contact
+        {t("contact")}
         <FaPaperPlane className="text-3xl ml-2 lg:text-4xl lg:ml-4 3xl:text-5xl" />
       </h2>
-      {!status && sentAlert()}
+      <p className="text-lg mt-2 lg:text-xl xl:text-2xl 3xl:text-3xl">
+        {t("contactSection.description")}
+      </p>
+      {status && sentAlert()}
       <div className="2xl:w-11/12 2xl:mx-auto">
         <form
           className="mt-12 grid gap-x-4 lg:grid-cols-2 lg:grid-rows-4"
@@ -66,27 +71,27 @@ export const ContactSection = () => {
           <InputField
             type="text"
             name="subject"
-            label="Subject"
+            label="contactSection.subject"
             value={values.subject}
             handleChange={handleChange}
           />
           <InputField
             type="text"
             name="name"
-            label="Name"
+            label="contactSection.name"
             value={values.name}
             handleChange={handleChange}
           />
           <InputField
             type="email"
             name="email"
-            label="E-mail"
+            label="contactSection.email"
             value={values.email}
             handleChange={handleChange}
           />
           <TextareaField
             name="message"
-            label="Message"
+            label="contactSection.message"
             value={values.message}
             handleChange={handleChange}
           />
@@ -95,7 +100,7 @@ export const ContactSection = () => {
               className="text-white text-lg font-bold w-48 h-10 bg-contactBtn drop-shadow rounded-md hover:bg-contactBtnHover hover:translate-y-[-0.2rem] lg:text-2xl lg:w-[22rem] lg:h-12 3xl:text-3xl 3xl:w-96 3xl:h-14 3xl:rounded-lg duration-300"
               type="submit"
             >
-              Send
+              {t("contactSection.button")}
             </button>
           </div>
         </form>
@@ -105,9 +110,11 @@ export const ContactSection = () => {
 };
 
 const sentAlert = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="text-green-600 text-sm bg-green-100 w-full px-4 py-2 mt-4 text-center rounded-md shadow-sm shadow-grey-100 2xl:w-11/12 2xl:mx-auto 2xl:text-base 2xl:mt-6 duration-300">
-      Message sent successfully!
+      {t("contactSection.success")}
     </div>
   );
 };

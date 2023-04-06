@@ -1,0 +1,37 @@
+{
+  "projects": "Projekty",
+  "skills": "Umiejetności",
+  "contact": "Kontakt",
+
+  "welcomeSection": {
+    "hello": "Cześć, jestem",
+    "introduce": "Jestem młodym hobbyistą z Polski. Piszę strony internetowe i tworzę wizualizacje 3D.",
+    "education": "Obecnie studiuję informatykę stosowaną na ",
+    "school": "Politechnice Łódzkiej",
+    "interests": ". Pasjonuję się technologią, projektowaniem i rolą, jaką odgrywają w naszym codziennym życiu.",
+    "button": "Napisz do mnie"
+  },
+
+  "projectsSection": {
+    "description": "Tu znajdziesz kilka moich prac",
+    "live": "Zobacz na żywo",
+    "preview": "Zobacz"
+  },
+
+  "sDescription": "Obecnie rozwijam / używam",
+
+  "contactSection": {
+    "description": "Jeśli chcesz się ze mną skontaktować, skorzystaj z poniższego formularza",
+    "subject": "Temat",
+    "name": "Imię",
+    "message": "Wiadomość",
+    "email": "Email",
+    "button": "Wyślij",
+    "success": "Wiadomość została wysłana!"
+  },
+
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone",
+    "made": "Stworzone przez Miłosz Wierucki"
+  }
+}

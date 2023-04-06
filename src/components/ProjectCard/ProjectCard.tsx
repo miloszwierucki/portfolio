@@ -1,8 +1,11 @@
 import { ProjectCardProps } from "./ProjectCard.types";
 import { HiOutlineCode } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 import { FC } from "react";
 
 const ActionButton = ({ styles, text, href, state }: any) => {
+  const { t } = useTranslation();
+
   return (
     <button
       className={`${
@@ -14,11 +17,11 @@ const ActionButton = ({ styles, text, href, state }: any) => {
           className="w-full h-full flex justify-center items-center"
           href={href}
         >
-          {text}
+          {typeof text === "string" ? t(text) : text}
         </a>
       ) : (
         <div className="w-full h-full flex justify-center items-center">
-          {text}
+          {typeof text === "string" ? t(text) : text}
         </div>
       )}
     </button>
@@ -64,7 +67,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             />
             <ActionButton
               styles="bg-gradient-to-tr from-teal-600 to-emerald-200 w-2/3 h-10 rounded-md  shadow-md 3xl:text-2xl 3xl:h-12"
-              text="Live code"
+              text="projectsSection.live"
               href={previewLink}
               state={!disable}
             />
@@ -72,7 +75,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         ) : (
           <ActionButton
             styles="bg-gradient-to-tr from-teal-600 to-emerald-200 w-full h-10 rounded-md  shadow-md 3xl:text-2xl 3xl:h-12"
-            text="Preview"
+            text="projectsSection.preview"
             href={previewLink}
             state={!disable}
           />

@@ -1,9 +1,9 @@
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";
 import { ProjectCardProps } from "../../components/ProjectCard/ProjectCard.types";
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
-import clickSound from "../../assets/click.mp3";
-import { useEffect, useRef, useState } from "react";
 import { TitleSection } from "../../components/TitleSection/TitleSection";
+import { useEffect, useRef, useState } from "react";
+import clickSound from "../../assets/click.mp3";
 
 const projectData: ProjectCardProps[] = [
   {
@@ -78,7 +78,10 @@ export const ProjectSection = () => {
       id="projects"
       className="pt-16 mt-32 sm:mt-44 xl:mt-[22rem] 3xl:mt-[23rem]"
     >
-      <TitleSection title="Projects" description="Here are some of my works" />
+      <TitleSection
+        title="projects"
+        description="projectsSection.description"
+      />
       <div
         ref={translateContainerRef}
         className="ml-[50vw] mt-10 inline-flex duration-300"
