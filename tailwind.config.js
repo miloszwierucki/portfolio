@@ -21,6 +21,13 @@ export default {
       scale: {
         80: "0.8",
       },
+      backgroundSize: {
+        "size-200": "200% 200%",
+      },
+      backgroundPosition: {
+        "pos-0": "right 0% top 0%",
+        "pos-100": "right 100% top 100%",
+      },
       animation: {
         bounceLeft: "bounceLeft 1.5s infinite",
         bounceRight: "bounceRight 1.5s infinite",

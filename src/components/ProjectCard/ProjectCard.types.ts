@@ -2,9 +2,10 @@ export interface ProjectCardProps {
   name: string;
   description: string;
   img: string;
-  isCode: boolean;
+  type: string;
   codeLink: string;
   previewLink: string;
   disable?: boolean;
+  cos: boolean;
   onClick?: () => void;
 }

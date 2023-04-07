@@ -8,7 +8,7 @@ export const WelcomeSection = () => {
 
   return (
     <section className="px-5 md:px-12 xl:px-28 3xl:px-32">
-      <div className="min-h-[31rem] mt-24 sm:min-h-0 sm:w-[48rem] md:w-[54rem] md:mt-36 lg:w-[70rem] xl:w-[80rem] xl:mt-48 2xl:mt-52 3xl:w-[100rem] 3xl:mt-64">
+      <div className="min-h-[31rem] mt-24 sm:min-h-0 sm:w-[48rem] md:w-[54rem] md:mt-40 lg:w-[70rem] xl:w-[80rem] xl:mt-48 2xl:mt-52 3xl:w-[100rem] 3xl:mt-64">
         <h1 className="text-[1.75rem] font-semibold flex items-center lg:text-[2rem] xl:text-[2.5rem] 3xl:text-[3rem]">
           <img
             src={hello}
@@ -18,7 +18,7 @@ export const WelcomeSection = () => {
           {t("welcomeSection.hello")}
           <span className="text-highlight font-bold">&nbsp;Miłosz</span>!
         </h1>
-        <div className="font-medium w-1/2 min-w-[11rem] mt-8 xl:mt-4">
+        <div className="font-medium w-1/2 min-w-[11rem] mt-8 md:mt-4">
           <p className="text-[1.125rem] leading-[1.5rem] sm:text-xl lg:text-2xl xl:text-3xl 3xl:text-4xl">
             {t("welcomeSection.introduce")}
           </p>

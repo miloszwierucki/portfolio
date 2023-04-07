@@ -9,7 +9,7 @@ const ActionButton = ({ styles, text, href, state }: any) => {
   return (
     <button
       className={`${
-        state && "hover:translate-y-[-0.2rem] duration-300"
+        state && "hover:translate-y-[-0.2rem] transition-transform duration-300"
       } ${styles}`}
     >
       {state ? (
@@ -32,12 +32,14 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   name,
   description,
   img,
-  isCode,
+  type,
   codeLink,
   previewLink,
   disable,
   onClick,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       onClick={onClick}
@@ -47,17 +49,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
     >
       <img
         src={img}
-        alt={`Photo of ${name}`}
+        alt={`Photo of ${t(name)}`}
         className="w-full h-60 rounded-t-2xl object-cover 3xl:h-64"
       />
       <div className="text-center w-[18.75rem] h-full 3xl:w-[23rem]">
         <h2 className="text-2xl font-semibold mt-6 3xl:text-[1.75rem]">
-          {name}
+          {t(name)}
         </h2>
-        <p className="text-[1rem] mt-2 3xl:text-xl">{description}</p>
+        <p className="text-[1rem] mt-2 3xl:text-xl">{t(description)}</p>
       </div>
       <div className="text-white text-xl font-semibold w-[18.75rem] mb-7 flex justify-between 3xl:w-[23rem]">
-        {isCode ? (
+        {type === "code" ? (
           <>
             <ActionButton
               styles="text-black text-3xl w-16 h-10 rounded-md shadow-md 3xl:text-4xl 3xl:w-20 3xl:h-12"

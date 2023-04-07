@@ -1,56 +1,20 @@
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";
-import { ProjectCardProps } from "../../components/ProjectCard/ProjectCard.types";
 import { ProjectCard } from "../../components/ProjectCard/ProjectCard";
 import { TitleSection } from "../../components/TitleSection/TitleSection";
+import { projectSort, projectData } from "../../data/projectData";
 import { useEffect, useRef, useState } from "react";
 import clickSound from "../../assets/click.mp3";
 
-const projectData: ProjectCardProps[] = [
-  {
-    name: "Lorem ipsum dolor 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus.",
-    img: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
-    isCode: true,
-    codeLink: "",
-    previewLink: "",
-  },
-  {
-    name: "Lorem ipsum dolor 2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus.",
-    img: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
-    isCode: true,
-    codeLink: "",
-    previewLink: "",
-  },
-  {
-    name: "Lorem ipsum dolor 3",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus.",
-    img: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
-    isCode: false,
-    codeLink: "",
-    previewLink: "",
-  },
-  {
-    name: "Lorem ipsum dolor 4",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus.",
-    img: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
-    isCode: true,
-    codeLink: "",
-    previewLink: "",
-  },
-];
-
 export const ProjectSection = () => {
   const [current, setCurrent] = useState(1);
-  const length = projectData.length;
+  const [selected, setSelected] = useState(projectSort.all);
   const audio = new Audio(clickSound);
   audio.volume = 0.05;
 
   const translateContainerRef = useRef(null) as any; // TODO: Someday fix this
+  const length = projectData.filter((project) =>
+    selected === "all" ? project : project.type === selected
+  ).length;
 
   const translateCondition = (index: number, condition?: string) => {
     const widthContainer = translateContainerRef.current?.offsetWidth;
@@ -82,20 +46,50 @@ export const ProjectSection = () => {
         title="projects"
         description="projectsSection.description"
       />
+      <div className="px-5 mt-4 md:px-12 xl:px-28 3xl:px-32">
+        <button
+          onClick={() => {
+            setSelected((cur) =>
+              cur === projectSort.code ? projectSort.all : projectSort.code
+            );
+            setCurrent(0);
+          }}
+          className="bg-gradient-to-tr from-teal-500 via-emerald-300 to-lime-300 px-4 mr-2 shadow-md rounded-xl hover:scale-105 bg-size-200 bg-pos-100 hover:bg-pos-0 duration-300"
+        >
+          Code
+        </button>
+        <button
+          onClick={() => {
+            setSelected((cur) =>
+              cur === projectSort.visualisation
+                ? projectSort.all
+                : projectSort.visualisation
+            );
+            setCurrent(0);
+          }}
+          className="bg-gradient-to-tr from-teal-500 via-emerald-300 to-lime-300 px-4 mr-2 shadow-md rounded-xl hover:scale-105 bg-size-200 bg-pos-100 hover:bg-pos-0 duration-300"
+        >
+          Visualisation
+        </button>
+      </div>
       <div
         ref={translateContainerRef}
-        className="ml-[50vw] mt-10 inline-flex duration-300"
+        className="ml-[50vw] mt-4 inline-flex lg:mt-10 duration-300"
       >
-        {projectData.map((project, index) => (
-          <ProjectCard
-            key={index}
-            {...{ ...project, disable: index !== current }}
-            onClick={() => {
-              translateCondition(index);
-              audio.play();
-            }}
-          />
-        ))}
+        {projectData
+          .filter((project) =>
+            selected === "all" ? project : project.type === selected
+          )
+          .map((project, index) => (
+            <ProjectCard
+              key={index}
+              {...{ ...project, disable: index !== current }}
+              onClick={() => {
+                translateCondition(index);
+                audio.play();
+              }}
+            />
+          ))}
       </div>
       <div className="h-8 mt-4 flex justify-center xl:mt-12 3xl:h-14">
         <button

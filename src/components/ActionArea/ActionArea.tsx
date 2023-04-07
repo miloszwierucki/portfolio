@@ -24,7 +24,7 @@ const Social = ({ link, icons }: { link: string; icons: any }) => {
       href={link}
       className="text-4xl mr-3 hover:text-[#453A3A] xl:text-[2.75rem] 3xl:text-[3.25rem] duration-300"
     >
-      {icons({ className: "drop-shadow" })}
+      {icons({ className: "drop-shadow-md" })}
     </a>
   );
 };
@@ -34,7 +34,7 @@ export const ActionArea = () => {
 
   return (
     <div className="text-secondary mt-8 flex flex-col-reverse xl:flex-row xl:items-center">
-      <div className="text-white text-lg font-bold bg-secondary drop-shadow rounded-md w-64 h-10 mr-3 hover:bg-[#453A3A] xl:text-2xl xl:w-[22rem] xl:h-12 3xl:text-3xl 3xl:w-96 3xl:h-14 3xl:rounded-lg duration-300">
+      <div className="text-white text-lg font-bold bg-secondary drop-shadow-md rounded-md w-64 h-10 mr-3 hover:bg-[#453A3A] xl:text-2xl xl:w-[22rem] xl:h-12 3xl:text-3xl 3xl:w-96 3xl:h-14 3xl:rounded-lg duration-300">
         <a href="#contact" className="h-full flex justify-center items-center">
           {t("welcomeSection.button")}
         </a>
