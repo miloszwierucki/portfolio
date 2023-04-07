@@ -35,12 +35,12 @@ export const NavBar = () => {
 
   return (
     <header className="px-5 pt-5 flex justify-between items-center md:px-12 md:pt-6 xl:px-28 xl:pt-8 3xl:px-32 3xl:pt-10">
-      <div className="text-2xl font-semibold sm:text-3xl lg:text-4xl xl:text-5xl 3xl:text-[3.25rem]">
+      <div className="text-2xl font-semibold sm:text-3xl lg:text-4xl xl:text-[2.5rem] 3xl:text-[3.25rem]">
         Miłosz Wierucki
       </div>
       <nav className="relative">
         <ul
-          className={`text-2xl flex items-center xl:text-3xl 3xl:text-4xl ${
+          className={`text-2xl flex items-center xl:text-2xl 3xl:text-4xl ${
             isMenuOpen
               ? "text-white w-full h-[100vh] bg-black left-0 top-0 flex-col justify-center  fixed z-[2]"
               : "hidden md:flex"
@@ -56,7 +56,7 @@ export const NavBar = () => {
             >
               <a
                 href={link}
-                className="rounded-md px-2 py-2 hover:shadow-sm 3xl:px-10 lg:px-6 duration-300"
+                className="rounded-md px-2 py-2 hover:shadow-sm 3xl:px-10 lg:px-4 lg:mx-2 duration-300"
               >
                 {t(name)}
               </a>

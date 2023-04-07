@@ -3,7 +3,17 @@ import { HiOutlineCode } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import { FC } from "react";
 
-const ActionButton = ({ styles, text, href, state }: any) => {
+const ActionButton = ({
+  styles,
+  text,
+  href,
+  state,
+}: {
+  styles: string;
+  text: string | JSX.Element;
+  href: string;
+  state: boolean;
+}) => {
   const { t } = useTranslation();
 
   return (

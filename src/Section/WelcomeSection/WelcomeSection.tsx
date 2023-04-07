@@ -18,11 +18,11 @@ export const WelcomeSection = () => {
           {t("welcomeSection.hello")}
           <span className="text-highlight font-bold">&nbsp;Miłosz</span>!
         </h1>
-        <div className="font-medium w-1/2 min-w-[11rem] mt-8 md:mt-4">
-          <p className="text-[1.125rem] leading-[1.5rem] sm:text-xl lg:text-2xl xl:text-3xl 3xl:text-4xl">
+        <div className="w-1/2 min-w-[11rem] mt-8 md:mt-4">
+          <p className="font-medium text-[1.125rem] leading-[1.5rem] sm:text-xl lg:text-2xl  3xl:text-4xl">
             {t("welcomeSection.introduce")}
           </p>
-          <p className="text-[0.95rem] mt-2 sm:text-base lg:text-lg xl:text-2xl 3xl:text-3xl 3xl:mt-3">
+          <p className="text-[0.95rem] mt-2 sm:text-base lg:text-lg xl:text-xl 3xl:text-3xl 3xl:mt-3">
             {t("welcomeSection.education")}
             <span className="text-highlight">{t("welcomeSection.school")}</span>
             {t("welcomeSection.interests")}

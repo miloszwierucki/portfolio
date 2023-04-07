@@ -1,18 +1,34 @@
 {
+  "0": {
+    "name": "To Do List",
+    "description": "To Do List made with HTML5, SCSS and JavaScript, using Local Storage. Created during the Bootcamp of the Student Self-Government of the Lodz University of Technology. (2023)"
+  },
   "1": {
-    "name": "Project1",
-    "description": "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus."
+    "name": "Dashboard for crypto currency",
+    "description": "Javascript App that allows you to organize the list of your cryptocurrencies or tokens. Based on Local Storage. App uses the Coingecko API. (2023)"
   },
   "2": {
-    "name": "Project2",
-    "description": "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus."
+    "name": "Landing Page",
+    "description": "Landing page made with HTML, SCSS during the Bootcamp of the Student Self-Government of the Lodz University of Technology. (2022)"
   },
   "3": {
-    "name": "Project3",
-    "description": "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus."
+    "name": "Discord Sidebar Price Bots",
+    "description": "JavaScript App to display cryptocurrency data (price, percentage change in 24 hours, and symbol) as a Discord bot in users' sidebar. The current online status displays the RSI indicator. App uses the Coingecko API. (2022)"
   },
   "4": {
-    "name": "Project4",
-    "description": "Lorem ipsum dolor sit amet consectetur. Maecenas enim non vulputate elementum cras nunc mauris donec tellus. Ultrices sit pulvinar habitant odio ac dignissim etiam et in. Accumsan congue enim sagittis et faucibus."
+    "name": "Portfolio - old version",
+    "description": "First portfolio made in HTML, SCSS and JavaScript. (2022)"
+  },
+  "5": {
+    "name": "Woonerf POW",
+    "description": "Visualization for the Woonerf POW project, which involves the reconstruction of a fragment of Polska Organizacja Wojskowej street in Łódź into a woonerf. The aim of the redevelopment is to create an attractive space with a high level of security, non-exclusive and, above all, green space. (2022)"
+  },
+  "6": {
+    "name": "Bedroom",
+    "description": "Visualization of a room that combines the function of an office and a bedroom. Project made in Blender. (2022)"
+  },
+  "7": {
+    "name": "Mouse Bungee",
+    "description": "Visualization made in Fusion 360. Later, the project was printed on a 3D printer. (2022)"
   }
 }

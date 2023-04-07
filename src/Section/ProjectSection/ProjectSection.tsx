@@ -40,7 +40,7 @@ export const ProjectSection = () => {
   return (
     <section
       id="projects"
-      className="pt-16 mt-32 sm:mt-44 xl:mt-[22rem] 3xl:mt-[23rem]"
+      className="pt-16 mt-32 sm:mt-44 lg:mt-48 xl:mt-96 3xl:mt-[23rem]"
     >
       <TitleSection
         title="projects"
@@ -91,7 +91,7 @@ export const ProjectSection = () => {
             />
           ))}
       </div>
-      <div className="h-8 mt-4 flex justify-center xl:mt-12 3xl:h-14">
+      <div className="h-8 mt-4 flex justify-center xl:mt-10 3xl:h-14">
         <button
           onClick={() => {
             audio.play();

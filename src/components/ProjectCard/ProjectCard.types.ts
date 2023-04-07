@@ -6,6 +6,5 @@ export interface ProjectCardProps {
   codeLink: string;
   previewLink: string;
   disable?: boolean;
-  cos: boolean;
   onClick?: () => void;
 }
