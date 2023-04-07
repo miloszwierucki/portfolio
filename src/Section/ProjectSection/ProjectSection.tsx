@@ -4,8 +4,10 @@ import { TitleSection } from "../../components/TitleSection/TitleSection";
 import { projectSort, projectData } from "../../data/projectData";
 import { useEffect, useRef, useState } from "react";
 import clickSound from "../../assets/click.mp3";
+import { useTranslation } from "react-i18next";
 
 export const ProjectSection = () => {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(1);
   const [selected, setSelected] = useState(projectSort.all);
   const audio = new Audio(clickSound);
@@ -56,7 +58,7 @@ export const ProjectSection = () => {
           }}
           className="bg-gradient-to-tr from-teal-500 via-emerald-300 to-lime-300 px-4 mr-2 shadow-md rounded-xl hover:scale-105 bg-size-200 bg-pos-100 hover:bg-pos-0 duration-300"
         >
-          Code
+          {t("projectsSection.code")}
         </button>
         <button
           onClick={() => {
@@ -69,7 +71,7 @@ export const ProjectSection = () => {
           }}
           className="bg-gradient-to-tr from-teal-500 via-emerald-300 to-lime-300 px-4 mr-2 shadow-md rounded-xl hover:scale-105 bg-size-200 bg-pos-100 hover:bg-pos-0 duration-300"
         >
-          Visualisation
+          {t("projectsSection.visualization")}
         </button>
       </div>
       <div

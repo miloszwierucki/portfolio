@@ -1,3 +1,4 @@
+import { TitleSectionProps } from "./TitleSection.types";
 import { useTranslation } from "react-i18next";
 import { FC } from "react";
 

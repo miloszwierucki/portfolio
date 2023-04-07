@@ -77,12 +77,14 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               href={codeLink}
               state={!disable}
             />
-            <ActionButton
-              styles="bg-gradient-to-tr from-teal-600 to-emerald-200 w-2/3 h-10 rounded-md  shadow-md 3xl:text-2xl 3xl:h-12"
-              text="projectsSection.live"
-              href={previewLink}
-              state={!disable}
-            />
+            {previewLink !== "-" && (
+              <ActionButton
+                styles="bg-gradient-to-tr from-teal-600 to-emerald-200 w-2/3 h-10 rounded-md  shadow-md 3xl:text-2xl 3xl:h-12"
+                text="projectsSection.live"
+                href={previewLink}
+                state={!disable}
+              />
+            )}
           </>
         ) : (
           <ActionButton

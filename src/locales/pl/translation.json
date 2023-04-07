@@ -1,12 +1,12 @@
 {
   "projects": "Projekty",
-  "skills": "Umiejetności",
+  "skills": "Umiejętności",
   "contact": "Kontakt",
 
   "welcomeSection": {
     "hello": "Cześć, jestem",
-    "introduce": "Jestem młodym hobbyistą z Polski. Piszę strony internetowe i tworzę wizualizacje 3D.",
-    "education": "Obecnie studiuję informatykę stosowaną na ",
+    "introduce": "Jestem młodym hobbystą z Polski. Piszę strony internetowe i tworzę wizualizacje 3D.",
+    "education": "Studiuję informatykę stosowaną na ",
     "school": "Politechnice Łódzkiej",
     "interests": ". Pasjonuję się technologią, projektowaniem i rolą, jaką odgrywają w naszym codziennym życiu.",
     "button": "Napisz do mnie"
@@ -14,6 +14,8 @@
 
   "projectsSection": {
     "description": "Tu znajdziesz kilka moich prac",
+    "code": "Aplikacja | Strona",
+    "visualization": "Wizualizacja",
     "live": "Zobacz na żywo",
     "preview": "Zobacz"
   },

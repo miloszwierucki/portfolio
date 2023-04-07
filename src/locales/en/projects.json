@@ -5,7 +5,7 @@
   },
   "1": {
     "name": "Dashboard for crypto currency",
-    "description": "Javascript App that allows you to organize the list of your cryptocurrencies or tokens. Based on Local Storage. App uses the Coingecko API. (2023)"
+    "description": "Javascript Application that allows you to organize the list of your tokens or cryptocurrencies. Based on Local Storage. App uses the Coingecko API. (2023)"
   },
   "2": {
     "name": "Landing Page",
@@ -13,7 +13,7 @@
   },
   "3": {
     "name": "Discord Sidebar Price Bots",
-    "description": "JavaScript App to display cryptocurrency data (price, percentage change in 24 hours, and symbol) as a Discord bot in users' sidebar. The current online status displays the RSI indicator. App uses the Coingecko API. (2022)"
+    "description": "JavaScript Application to display cryptocurrency data (price, percentage change in 24 hours, and symbol) as a Discord bot in users' sidebar. The current online status displays the RSI indicator. App uses the Coingecko API. (2022)"
   },
   "4": {
     "name": "Portfolio - old version",
@@ -21,7 +21,7 @@
   },
   "5": {
     "name": "Woonerf POW",
-    "description": "Visualization for the Woonerf POW project, which involves the reconstruction of a fragment of Polska Organizacja Wojskowej street in Łódź into a woonerf. The aim of the redevelopment is to create an attractive space with a high level of security, non-exclusive and, above all, green space. (2022)"
+    "description": "Visualization of Woonerf POW project, which involves the reconstruction of a fragment of Polska Organizacja Wojskowej street in Łódź into a woonerf. The aim of the redevelopment is to create an attractive space with a high level of security, non-exclusive and, above all, green space. (2022)"
   },
   "6": {
     "name": "Bedroom",

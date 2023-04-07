@@ -45,7 +45,7 @@ export const projectData: ProjectCardProps[] = [
     img: crypto,
     type: projectSort.code,
     codeLink: "https://github.com/miloszwierucki/discord-bot",
-    previewLink: "#",
+    previewLink: "-",
   },
   {
     name: "4.name",

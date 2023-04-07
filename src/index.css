@@ -38,7 +38,7 @@ body {
 
 .background {
   background-image: url("/Blob.svg"), url("/Blob-2.svg"), url("/Blob-3.svg"),
-    url("/Wave.svg"), url("/Wave-3.svg"), url("Blob-6.svg"), url("Blob-7.svg");
+    url("/Wave.svg"), url("/Wave-3.svg"), url("/Blob-6.svg"), url("/Blob-7.svg");
   background-size: 270px, 210px, 390px, 100%, 100%, 250px, 200px;
   background-position: left top, 0 750px, right -150px top 150px, left 800px,
     left 0 bottom 1.5rem, left -100px bottom 0, right -100px bottom 0;
