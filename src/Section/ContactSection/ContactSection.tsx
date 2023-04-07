@@ -62,7 +62,7 @@ export const ContactSection = () => {
       <p className="text-lg mt-2 lg:text-xl xl:text-2xl 3xl:text-3xl">
         {t("contactSection.description")}
       </p>
-      {status && sentAlert()}
+      {status && <SentAlert />}
       <div className="2xl:w-11/12 2xl:mx-auto">
         <form
           className="mt-12 grid gap-x-4 lg:grid-cols-2 lg:grid-rows-4"
@@ -109,7 +109,7 @@ export const ContactSection = () => {
   );
 };
 
-const sentAlert = () => {
+const SentAlert = () => {
   const { t } = useTranslation();
 
   return (

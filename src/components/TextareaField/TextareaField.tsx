@@ -16,7 +16,7 @@ export const TextareaField: FC<IFieldProps> = ({
         {t(label)}
       </label>
       <textarea
-        className="text-gray-600 text-lg w-full h-48 p-4 rounded-md outline-none resize-none lg:h-[17.5rem] 2xl:text-2xl input"
+        className="text-gray-600 text-lg w-full h-48 p-4 rounded-md outline-none resize-none lg:text-xl lg:h-[17.5rem] 2xl:text-2xl input"
         name={name}
         value={value}
         onChange={handleChange}
