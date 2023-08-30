@@ -3,11 +3,11 @@ import { InputField } from "../../components/InputField/InputField";
 import { useTranslation } from "react-i18next";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { template } from "../../template/TemplateEmail";
 
-const service: string = import.meta.env.VITE_SERVICE_ID;
-const template: string = import.meta.env.VITE_TEMPLATE_ID;
-const user: string = import.meta.env.VITE_PUBLIC_KEY;
+const sender: string = import.meta.env.VITE_SENDER;
+const recipient: string = import.meta.env.VITE_RECIPIENT;
+const key: string = import.meta.env.VITE_KEY;
 
 export const ContactSection = () => {
   const { t } = useTranslation();
@@ -25,7 +25,32 @@ export const ContactSection = () => {
 
   const sendEmail = (e: any) => {
     e.preventDefault();
-    emailjs.send(service, template, values, user).then(
+    fetch("/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: key,
+      },
+      body: JSON.stringify({
+        to: [
+          {
+            name: "Miłosz",
+            email: recipient,
+          },
+        ],
+        from: {
+          name: "Website Form",
+          email: sender,
+        },
+        subject: values.subject,
+        message: template(
+          values.name,
+          values.subject,
+          values.email,
+          values.message
+        ),
+      }),
+    }).then(
       (response) => {
         setValues({
           name: "",
