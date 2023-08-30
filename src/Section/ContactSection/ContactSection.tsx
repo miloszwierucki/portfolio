@@ -3,7 +3,7 @@ import { InputField } from "../../components/InputField/InputField";
 import { useTranslation } from "react-i18next";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { template } from "../../template/TemplateEmail";
+import { template } from "../../template/templateEmail";
 
 const sender: string = import.meta.env.VITE_SENDER;
 const recipient: string = import.meta.env.VITE_RECIPIENT;
