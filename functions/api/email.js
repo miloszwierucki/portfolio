@@ -15,11 +15,15 @@ async function handleRequest({ request, env }) {
   const data = await request.json();
   const tokenValidated = await validateToken(ip, data.token, env);
 
+  console.log(`[LOGGING FROM /handleRequest - token]: ${tokenValidated}`);
+
   if (!tokenValidated) {
     return new Response("Token validation failed", { status: 403 });
   }
 
   const emailSent = await forwardMessage(data.values, env);
+
+  console.log(`[LOGGING FROM /handleRequest]: ${emailSent}`);
 
   if (!emailSent) {
     return new Response("Error sending message", { status: 503 });
@@ -54,6 +58,8 @@ async function forwardMessage(values, env) {
     values.message
   );
 
+  console.log(`[LOGGING FROM /forwardMessage]: ${message}`);
+
   const emailResp = await fetch(
     new Request("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
@@ -78,6 +84,7 @@ async function forwardMessage(values, env) {
     })
   );
 
-  console.log(emailResp);
+  console.log(`[LOGGING FROM /forwardMessage]: ${emailResp.status}`);
+
   return emailResp.ok;
 }
