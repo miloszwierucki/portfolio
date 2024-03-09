@@ -22,7 +22,7 @@ async function handleRequest({ request, env }) {
   const emailSent = await forwardMessage(data.values, env);
 
   if (!emailSent) {
-    return new Response("Error sending message", { status: 500 });
+    return new Response("Error sending message", { status: 503 });
   }
 
   return new Response("OK", { status: 200 });
@@ -78,5 +78,6 @@ async function forwardMessage(values, env) {
     })
   );
 
+  console.log(emailResp);
   return emailResp.ok;
 }
