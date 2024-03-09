@@ -23,7 +23,7 @@ async function handleRequest({ request, env }) {
 
   const emailSent = await forwardMessage(data.values, env);
 
-  console.log(`[LOGGING FROM /handleRequest]: ${emailSent}`);
+  console.log(`[LOGGING FROM /handleRequest - email]: ${emailSent}`);
 
   if (!emailSent) {
     return new Response("Error sending message", { status: 503 });
@@ -58,7 +58,7 @@ async function forwardMessage(values, env) {
     values.message
   );
 
-  console.log(`[LOGGING FROM /forwardMessage]: ${message}`);
+  console.log(JSON.stringify(message), "text/html");
 
   const emailResp = await fetch(
     new Request("https://api.mailchannels.net/tx/v1/send", {
@@ -84,7 +84,9 @@ async function forwardMessage(values, env) {
     })
   );
 
-  console.log(`[LOGGING FROM /forwardMessage]: ${emailResp.status}`);
+  console.log(
+    `[LOGGING FROM /forwardMessage - send]: ${emailResp.status} ${emailResp.ok} ${emailResp.statusText} ${emailResp.headers}`
+  );
 
   return emailResp.ok;
 }
