@@ -15,18 +15,14 @@ async function handleRequest({ request, env }) {
   const data = await request.json();
   const tokenValidated = await validateToken(ip, data.token, env);
 
-  console.log(`[LOGGING FROM /handleRequest - token]: ${tokenValidated}`);
-
   if (!tokenValidated) {
     return new Response("Token validation failed", { status: 403 });
   }
 
   const emailSent = await forwardMessage(data.values, env);
 
-  console.log(`[LOGGING FROM /handleRequest - email]: ${emailSent}`);
-
   if (!emailSent) {
-    return new Response("Error sending message", { status: 503 });
+    return new Response("Error sending message", { status: 500 });
   }
 
   return new Response("OK", { status: 200 });

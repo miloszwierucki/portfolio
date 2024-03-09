@@ -24,33 +24,30 @@ export const ContactSection = () => {
   const sendEmail = async (e: any) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("/api/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          values,
-          token,
-        }),
-      });
+    const response = await fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values,
+        token,
+      }),
+    });
 
-      const result = await response.json();
-
-      setValues({
-        name: "",
-        subject: "",
-        email: "",
-        message: "",
-      });
-      setStatus("success");
-
-      console.log("Success:", result);
-    } catch (error) {
+    if (!response.ok) {
       setStatus("error");
-      console.error("Error:", error);
+
+      return;
     }
+
+    setValues({
+      name: "",
+      subject: "",
+      email: "",
+      message: "",
+    });
+    setStatus("success");
   };
 
   useEffect(() => {
