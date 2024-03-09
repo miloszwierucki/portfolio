@@ -58,11 +58,6 @@ async function forwardMessage(values, env) {
     values.message
   );
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(message, "text/html");
-
-  console.log(doc);
-
   const emailResp = await fetch(
     new Request("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
@@ -79,8 +74,8 @@ async function forwardMessage(values, env) {
         subject: values.subject,
         content: [
           {
-            type: "text/html",
-            value: doc,
+            type: "text/plain",
+            value: values.message,
           },
         ],
       }),
