@@ -3,15 +3,13 @@ import { InputField } from "../../components/InputField/InputField";
 import { useTranslation } from "react-i18next";
 import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { template } from "../../template/templateEmail";
-
-const sender: string = import.meta.env.VITE_SENDER;
-const recipient: string = import.meta.env.VITE_RECIPIENT;
-const key: string = import.meta.env.VITE_KEY;
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export const ContactSection = () => {
   const { t } = useTranslation();
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState<"success" | "error" | "">("");
+  const [token, setToken] = useState("");
+
   const [values, setValues] = useState({
     name: "",
     subject: "",
@@ -23,55 +21,43 @@ export const ContactSection = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const sendEmail = (e: any) => {
+  const sendEmail = async (e: any) => {
     e.preventDefault();
-    fetch("/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: key,
-      },
-      body: JSON.stringify({
-        to: [
-          {
-            name: "Miłosz",
-            email: recipient,
-          },
-        ],
-        from: {
-          name: "Website Form",
-          email: sender,
+
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        subject: values.subject,
-        message: template(
-          values.name,
-          values.subject,
-          values.email,
-          values.message
-        ),
-      }),
-    }).then(
-      (response) => {
-        setValues({
-          name: "",
-          subject: "",
-          email: "",
-          message: "",
-        });
-        setStatus(true);
-        console.log("SUCCESS!", response);
-      },
-      (error) => {
-        console.log("FAILED...", error);
-      }
-    );
+        body: JSON.stringify({
+          values,
+          token,
+        }),
+      });
+
+      const result = await response.json();
+
+      setValues({
+        name: "",
+        subject: "",
+        email: "",
+        message: "",
+      });
+      setStatus("success");
+
+      console.log("Success:", result);
+    } catch (error) {
+      setStatus("error");
+      console.error("Error:", error);
+    }
   };
 
   useEffect(() => {
-    if (status === true) {
+    if (status !== "") {
       setTimeout(() => {
-        setStatus(false);
-      }, 5000);
+        setStatus("");
+      }, 4000);
     }
   }, [status]);
 
@@ -87,10 +73,14 @@ export const ContactSection = () => {
       <p className="text-lg mt-2 lg:text-xl xl:text-2xl 3xl:text-3xl">
         {t("contactSection.description")}
       </p>
-      {status && <SentAlert />}
+      {status === "success" ? (
+        <SentAlert />
+      ) : status === "error" ? (
+        <ErrorAlert />
+      ) : null}
       <div className="2xl:w-11/12 2xl:mx-auto">
         <form
-          className="mt-12 grid gap-x-4 lg:grid-cols-2 lg:grid-rows-4"
+          className="mt-12 grid gap-x-4 lg:grid-cols-2 lg:grid-rows-5"
           onSubmit={sendEmail}
         >
           <InputField
@@ -120,13 +110,21 @@ export const ContactSection = () => {
             value={values.message}
             handleChange={handleChange}
           />
-          <div className="text-center w-full mt-8 lg:mt-12 lg:row-start-4 lg:col-span-full">
+
+          <div className="text-center w-full mb-6 lg:mb-0 mt-8 lg:mt-12 lg:row-start-4 lg:col-span-full">
             <button
               className="text-white text-lg font-bold w-48 h-10 bg-contactBtn drop-shadow rounded-md hover:bg-contactBtnHover hover:translate-y-[-0.2rem] lg:text-2xl lg:w-[22rem] lg:h-12 3xl:text-3xl 3xl:w-96 3xl:h-14 3xl:rounded-lg duration-300"
               type="submit"
             >
               {t("contactSection.button")}
             </button>
+          </div>
+
+          <div className="w-full flex justify-center items-center lg:col-span-full">
+            <Turnstile
+              siteKey={import.meta.env.VITE_SITE_KEY!}
+              onSuccess={setToken}
+            />
           </div>
         </form>
       </div>
@@ -140,6 +138,16 @@ const SentAlert = () => {
   return (
     <div className="text-green-600 text-sm bg-green-100 w-full px-4 py-2 mt-4 text-center rounded-md shadow-sm shadow-grey-100 2xl:w-11/12 2xl:mx-auto 2xl:text-base 2xl:mt-6 duration-300">
       {t("contactSection.success")}
+    </div>
+  );
+};
+
+const ErrorAlert = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="text-red-600 text-sm bg-red-100 w-full px-4 py-2 mt-4 text-center rounded-md shadow-sm shadow-grey-100 2xl:w-11/12 2xl:mx-auto 2xl:text-base 2xl:mt-6 duration-300">
+      {t("contactSection.error")}
     </div>
   );
 };
