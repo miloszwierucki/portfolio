@@ -67,15 +67,23 @@ async function forwardMessage(values, env) {
       body: JSON.stringify({
         personalizations: [
           {
-            to: env.CLOUDFLARE_RECIPIENT_EMAIL,
+            to: [
+              {
+                name: "Milosz",
+                email: env.CLOUDFLARE_RECIPIENT_EMAIL,
+              },
+            ],
           },
         ],
-        from: env.CLOUDFLARE_SENDER_EMAIL,
+        from: {
+          name: values.name,
+          email: env.CLOUDFLARE_SENDER_EMAIL,
+        },
         subject: values.subject,
         content: [
           {
-            type: "text/plain",
-            value: values.message,
+            type: "text/html",
+            value: message,
           },
         ],
       }),
