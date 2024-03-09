@@ -58,7 +58,10 @@ async function forwardMessage(values, env) {
     values.message
   );
 
-  console.log(JSON.stringify(message), "text/html");
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(message, "text/html");
+
+  console.log(doc);
 
   const emailResp = await fetch(
     new Request("https://api.mailchannels.net/tx/v1/send", {
@@ -77,7 +80,7 @@ async function forwardMessage(values, env) {
         content: [
           {
             type: "text/html",
-            value: message,
+            value: doc,
           },
         ],
       }),
@@ -85,7 +88,7 @@ async function forwardMessage(values, env) {
   );
 
   console.log(
-    `[LOGGING FROM /forwardMessage - send]: ${emailResp.status} ${emailResp.ok} ${emailResp.statusText} ${emailResp.headers}`
+    `[LOGGING FROM /forwardMessage - send]: ${emailResp.status} ${emailResp.ok} ${emailResp.statusText}`
   );
 
   return emailResp.ok;
