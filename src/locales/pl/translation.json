@@ -29,7 +29,8 @@
     "message": "Wiadomość",
     "email": "Email",
     "button": "Wyślij",
-    "success": "Wiadomość została wysłana!"
+    "success": "Wiadomość została wysłana!",
+    "error": "Wystąpił błąd podczas wysyłania wiadomości :("
   },
 
   "footer": {
