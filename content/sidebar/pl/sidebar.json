@@ -1,0 +1,30 @@
+{
+  "name": "Miłosz Wierucki",
+  "role": "Programista Frontend",
+  "blocks": [
+    {
+      "icon": "mail",
+      "label": "Email",
+      "text": "mail@wierucki.com",
+      "action": "mailto:mail@wierucki.com"
+    },
+    {
+      "icon": "github",
+      "label": "Github",
+      "text": "miloszwierucki",
+      "action": "https://github.com/miloszwierucki"
+    },
+    {
+      "icon": "linkedin",
+      "label": "Linkedin",
+      "text": "milosz-wierucki",
+      "action": "https://www.linkedin.com/in/milosz-wierucki/"
+    },
+    {
+      "icon": "instagram",
+      "label": "Instagram",
+      "text": "m.wierucky",
+      "action": "https://www.instagram.com/m.wierucky/"
+    }
+  ]
+}
