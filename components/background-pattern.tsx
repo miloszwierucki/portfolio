@@ -1,6 +1,6 @@
 import React from "react";
 
-export function BackgroundPattern() {
+export default function BackgroundPattern() {
   return (
     <div className="gradient fixed left-0 top-0 z-[-1] flex h-screen w-screen items-center justify-center bg-zinc-50 bg-dot-black/[0.2] dark:bg-zinc-950 dark:bg-dot-white/[0.2]">
       {/* Radial gradient for the container to give a faded look */}

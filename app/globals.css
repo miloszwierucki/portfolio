@@ -31,12 +31,14 @@ body {
   }
 }
 
-/* .__tina-quick-editing-enabled [data-tina-field] {
-  outline: 2px dashed rgba(254, 34, 56, 0.5);
+.__tina-quick-editing-enabled [data-tina-field] {
+  cursor: none;
+  /* outline: 2px dashed rgba(254, 34, 56, 0.5); */
 }
 .__tina-quick-editing-enabled [data-tina-field]:hover {
-  outline: 2px dashed rgba(254, 34, 56, 1);
-} */
+  cursor: none;
+  /* outline: 2px dashed rgba(254, 34, 56, 1); */
+}
 
 .gradient:after {
   content: "";

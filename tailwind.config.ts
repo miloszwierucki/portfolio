@@ -22,6 +22,16 @@ const config: Config = {
       "3xl": "1680px",
     },
     extend: {
+      keyframes: {
+        backgroundPosition: {
+          "0%": { backgroundPosition: "200% 0, 0 0" },
+          "25%": { backgroundPosition: "-100% 0, 0 0" },
+          "100%": { backgroundPosition: "-100% 0, 0 0" },
+        },
+      },
+      animation: {
+        backgroundMove: "backgroundPosition 6500ms linear infinite",
+      },
       fontFamily: {
         satoshi: ["var(--font-satoshi-sans)"],
       },
@@ -64,9 +74,6 @@ const config: Config = {
       borderRadius: {
         "4xl": "1.75rem",
         "5xl": "2rem",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
     },
   },

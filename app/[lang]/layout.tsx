@@ -1,4 +1,4 @@
-import { BackgroundPattern } from "@/components/background-pattern";
+import BackgroundPattern from "@/components/background-pattern";
 import ToogleButton from "@/components/toggle-theme";
 import CustomCursor from "@/components/custom-cursor";
 import type { Metadata } from "next";
