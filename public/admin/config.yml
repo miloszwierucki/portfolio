@@ -1,0 +1,30 @@
+backend:
+  app_id: portfolio
+  name: github
+  branch: main
+  repo: miloszwierucki/portfolio
+  # site_domain: astrostarter.majestico.it
+  base_url: http://localhost:3000
+  # auth_endpoint: oauth
+  auth_endpoint: api/auth/callback
+  automatic_deployments: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
+
+const { auth } = NextAuth(authConfig);
 
 const locales = ["en", "pl"];
 const defaultLocale = "en";
@@ -21,7 +25,7 @@ function getLocale(request: NextRequest): string {
   return match(languages, locales, defaultLocale);
 }
 
-export function middleware(request: NextRequest) {
+export default auth(function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   const pathnameHasLocale = locales.some(
@@ -37,13 +41,14 @@ export function middleware(request: NextRequest) {
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
   return NextResponse.redirect(request.nextUrl);
-}
+});
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    "/((?!_next/static|_next/image|favicon.ico|admin|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4)$).*)",
+    // "/((?!_next/static|_next/image|favicon.ico|admin|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4)$).*)",
     // Optional: only run on root (/) URL
     // '/'
+    "/((?!api|_next/static|_next/image|admin|login|.*\\.png$).*)",
   ],
 };

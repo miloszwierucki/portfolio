@@ -1,20 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { PageQuery, PageQueryVariables } from "@/tina/__generated__/types";
-import { useTina, tinaField } from "tinacms/dist/react";
 
-export const HomePage = (props: {
-  data: PageQuery;
-  variables: PageQueryVariables;
-  query: string;
-}) => {
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
-
+export const HomePage = () => {
   return (
     <div className="grid items-center justify-items-center">
       <main className="row-start-2 flex flex-col items-center gap-8 sm:items-start">
@@ -34,9 +22,7 @@ export const HomePage = (props: {
             </code>
             .
           </li>
-          <li data-tina-field={tinaField(data.page, "subtitle")}>
-            {data.page.subtitle}
-          </li>
+          <li>cos</li>
         </ol>
         <button> kliknij kurwa</button>
         <div className="m-1 flex flex-col items-center gap-4 sm:flex-row">

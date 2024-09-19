@@ -14,10 +14,10 @@
   }
 }
 
-*,
+/* *,
 button {
   cursor: none;
-}
+} */
 
 body {
   /* color: var(--foreground);
