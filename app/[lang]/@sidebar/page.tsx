@@ -1,4 +1,4 @@
-import { LeftSection } from "@/components/left-section/left-section";
+import { LeftSection } from "@/components/layout/left-section";
 import client from "@/tina/__generated__/client";
 
 export default async function Sidebar({

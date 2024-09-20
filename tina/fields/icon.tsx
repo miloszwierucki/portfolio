@@ -12,7 +12,7 @@ import {
   PopoverPanel,
 } from "@headlessui/react";
 
-import Icon from "../../components/icon";
+import Icon from "../../components/ui/icon";
 
 const allIcons = Object.keys(dynamicIconImports);
 

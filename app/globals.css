@@ -48,7 +48,6 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0.05;
   filter: blur(100px) saturate(100%);
   background-image: radial-gradient(
       at 40% 45%,
@@ -62,4 +61,12 @@ body {
     radial-gradient(at 33% 50%, rgb(255, 100, 100) 0px, transparent 50%),
     radial-gradient(at 75% 50%, rgb(87, 93, 144) 0px, transparent 50%),
     radial-gradient(at 10% 95%, rgb(255, 123, 156) 0px, transparent 50%);
+}
+
+.markdown strong {
+  @apply font-medium;
+}
+
+.markdown p {
+  @apply mb-3;
 }

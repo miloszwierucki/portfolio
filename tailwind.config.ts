@@ -6,6 +6,7 @@ import svgToDataUri from "mini-svg-data-uri";
 import type { Config } from "tailwindcss";
 const {
   default: flattenColorPalette,
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
@@ -34,6 +35,7 @@ const config: Config = {
       },
       fontFamily: {
         satoshi: ["var(--font-satoshi-sans)"],
+        jakarta: ["var(--font-plus-jakarta-sans)"],
       },
       gridTemplateColumns: {
         "13": "repeat(13, minmax(0, 1fr))",
@@ -78,6 +80,7 @@ const config: Config = {
     },
   },
   plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("tailwind-scrollbar"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {

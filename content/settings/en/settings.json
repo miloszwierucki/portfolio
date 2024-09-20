@@ -1,0 +1,16 @@
+{
+  "navbar": [
+    {
+      "label": "About",
+      "href": "/"
+    },
+    {
+      "label": "Portfolio",
+      "href": "/portfolio"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ]
+}

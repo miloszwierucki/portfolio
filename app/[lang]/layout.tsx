@@ -1,8 +1,7 @@
-import BackgroundPattern from "@/components/background-pattern";
-import ToogleButton from "@/components/toggle-theme";
-import CustomCursor from "@/components/custom-cursor";
+import BackgroundPattern from "@/components/layout/background-pattern";
+import CustomCursor from "@/components/layout/custom-cursor";
+import { plus_jakarta_sans, satoshi } from "../fonts";
 import type { Metadata } from "next";
-import { satoshi } from "../fonts";
 import "../globals.css";
 
 interface LangParams {
@@ -20,26 +19,29 @@ export const metadata: Metadata = {
 export default function RootLayout({
   sidebar,
   children,
+  controller,
   params,
 }: Readonly<{
   sidebar: React.ReactNode;
   children: React.ReactNode;
+  controller: React.ReactNode;
   params: LangParams;
 }>) {
   return (
     <html lang={params.lang}>
       <body
-        className={`${satoshi.variable} bg-zinc-50 font-satoshi text-neutral-900 antialiased dark:bg-zinc-950 dark:text-neutral-200`}
+        className={`${satoshi.variable} ${plus_jakarta_sans.variable}bg-zinc-50 overflow-hidden font-satoshi text-neutral-900 antialiased dark:bg-zinc-900 dark:text-neutral-200`}
       >
         <BackgroundPattern />
-        <main className="grid h-screen w-screen grid-cols-13 gap-8 px-20 py-16">
-          <ToogleButton />
-          <section className="col-span-3 rounded-2xl bg-cod-gray-100/5 px-4 py-20 shadow-xl ring-1 ring-cod-gray-200/15 backdrop-blur-md">
+        <main className="grid h-screen w-screen grid-cols-13 gap-8 px-20 pb-24 pt-16">
+          <section className="col-span-3 rounded-2xl bg-cod-gray-100/5 px-4 py-20 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
             {sidebar}
           </section>
-          <section className="col-span-10 rounded-2xl bg-cod-gray-100/5 px-4 py-8 shadow-xl ring-1 ring-cod-gray-200/15 backdrop-blur-md">
+          <section className="col-span-10 rounded-2xl bg-cod-gray-100/5 px-8 py-8 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
             {children}
           </section>
+
+          {controller}
         </main>
         <CustomCursor />
       </body>

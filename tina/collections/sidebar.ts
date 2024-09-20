@@ -66,12 +66,6 @@ const sidebar: Collection = {
       },
     },
   ],
-  // ui: {
-  //   allowedActions: {
-  //     create: false,
-  //     delete: false,
-  //   },
-  // },
 };
 
 export default sidebar;

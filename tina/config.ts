@@ -1,5 +1,7 @@
 import { defineConfig } from "tinacms";
 import sidebar from "./collections/sidebar";
+import about from "./collections/about";
+import settings from "./collections/settings";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -30,43 +32,28 @@ export default defineConfig({
   schema: {
     collections: [
       sidebar,
+      about,
       {
         name: "page",
         label: "Pages",
         path: "content/pages",
-        format: "json",
+        format: "md",
         fields: [
           {
             name: "subtitle",
             label: "Subtitle",
             type: "string",
           },
-        ],
-      },
-      {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
-        fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "body",
             label: "Body",
+            name: "body",
             isBody: true,
+            type: "rich-text",
+            toolbarOverride: ["link", "bold", "italic", "code", "raw"],
           },
         ],
-        ui: {
-          // This is an DEMO router. You can remove this to fit your site
-          router: ({ document }) => `/demo/blog/${document._sys.filename}`,
-        },
       },
+      settings,
     ],
   },
 });
