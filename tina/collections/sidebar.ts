@@ -1,5 +1,6 @@
 import { Collection } from "tinacms";
-import { iconSchema } from "../fields/icon";
+
+import { iconSchemaRequired } from "../fields/icon";
 
 const sidebar: Collection = {
   name: "sidebar",
@@ -38,7 +39,7 @@ const sidebar: Collection = {
       fields: [
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-expect-error
-        iconSchema,
+        iconSchemaRequired,
         {
           type: "string",
           label: "Label",

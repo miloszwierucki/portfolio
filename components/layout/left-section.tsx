@@ -1,12 +1,11 @@
 "use client";
 
-// import Image from "next/image";
 import { useTina, tinaField } from "tinacms/dist/react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import Icon from "@/components/ui/icon";
-
 import {
   SidebarQuery,
   SidebarQueryVariables,
@@ -24,16 +23,20 @@ export const LeftSection = (props: {
   });
 
   return (
-    <div className="flex h-[calc(100vh-26rem)] flex-col">
+    <>
       <div className="flex flex-col items-center justify-center gap-4">
-        <div className="mt-2 aspect-square w-3/5 rounded-xl bg-cod-gray-200/20 shadow-lg"></div>
-        {/* <Image
-          className="w-3/5 rounded-xl"
-          src={photo}
-          alt="Miłosz"
-          width={100}
-          height={100}
-        /> */}
+        <div className="mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden rounded-xl bg-cod-gray-200/20 shadow-lg">
+          {data.sidebar.image && (
+            <Image
+              className="pointer-events-none mx-auto w-11/12 object-contain drop-shadow-lg"
+              src={data.sidebar.image}
+              alt="Person profile picture"
+              width={400}
+              height={400}
+            />
+          )}
+        </div>
+
         <h1
           className="text-center font-jakarta text-3xl font-semibold"
           data-tina-field={tinaField(data.sidebar, "name")}
@@ -49,10 +52,10 @@ export const LeftSection = (props: {
         </div>
       </div>
 
-      <div className="my-6 h-[1.5px] w-full bg-cod-gray-200/20 dark:bg-cod-gray-200/15"></div>
+      <div className="my-6 h-[1.5px] w-full bg-cod-gray-200/40 dark:bg-cod-gray-200/15"></div>
 
       {data.sidebar.blocks && (
-        <div className="flex grow overflow-y-auto scrollbar-none">
+        <div className="flex flex-1 overflow-y-scroll scrollbar-none">
           <div className="flex w-full flex-col gap-3">
             {data.sidebar.blocks.map(
               (block) =>
@@ -90,6 +93,6 @@ export const LeftSection = (props: {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };

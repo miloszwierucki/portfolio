@@ -30,30 +30,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
-    collections: [
-      sidebar,
-      about,
-      {
-        name: "page",
-        label: "Pages",
-        path: "content/pages",
-        format: "md",
-        fields: [
-          {
-            name: "subtitle",
-            label: "Subtitle",
-            type: "string",
-          },
-          {
-            label: "Body",
-            name: "body",
-            isBody: true,
-            type: "rich-text",
-            toolbarOverride: ["link", "bold", "italic", "code", "raw"],
-          },
-        ],
-      },
-      settings,
-    ],
+    collections: [sidebar, about, settings],
   },
 });

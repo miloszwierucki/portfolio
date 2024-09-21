@@ -1,8 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { usePathname } from "next/navigation";
-import { useTina } from "tinacms/dist/react";
 import { useParams } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
 import { useEffect } from "react";
@@ -104,6 +104,7 @@ export default function ControllerClient(props: {
               href={item.href}
               onMouseEnter={pointerCursor}
               onMouseLeave={defaultCursor}
+              data-tina-field={tinaField(item, "label")}
               className={`grid max-h-9 place-content-center rounded-lg px-3 py-2 transition-[background] duration-500 hover:bg-cod-gray-200/20 ${
                 pathname.includes(item.href) && "font-medium"
               }`}
@@ -113,7 +114,7 @@ export default function ControllerClient(props: {
           ) : null
         )}
 
-      <p>|</p>
+      <p className="px-0.5">|</p>
 
       <button
         onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}

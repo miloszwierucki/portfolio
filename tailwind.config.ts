@@ -32,6 +32,7 @@ const config: Config = {
       },
       animation: {
         backgroundMove: "backgroundPosition 6500ms linear infinite",
+        "spin-slow": "spin 5s linear infinite",
       },
       fontFamily: {
         satoshi: ["var(--font-satoshi-sans)"],

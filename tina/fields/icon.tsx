@@ -136,6 +136,15 @@ export const iconSchema = {
   type: "string",
   label: "Icon",
   name: "icon",
+  ui: {
+    component: IconPickerInput,
+  },
+};
+
+export const iconSchemaRequired = {
+  type: "string",
+  label: "Icon",
+  name: "icon",
   required: true,
   ui: {
     component: IconPickerInput,

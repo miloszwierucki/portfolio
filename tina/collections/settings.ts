@@ -32,9 +32,11 @@ const settings: Collection = {
           required: true,
           ui: {
             validate: (value) => {
-              const isValid = value.startsWith("/");
+              // const isValid = value.startsWith("/");
+              const isValid = ["/", "/portfolio", "/contact"].includes(value);
               if (!isValid) {
-                return "The href must start with a slash";
+                // return "The href must start with a slash";
+                return "The href must be a valid path (/, /portfolio, /contact)";
               }
             },
           },
@@ -45,8 +47,8 @@ const settings: Collection = {
           label: "",
           href: "/",
         },
-        max: 5,
-        min: 1,
+        max: 3,
+        min: 3,
         itemProps: (item) => {
           // Field values are accessed by item?.<Field name>
           return { label: item?.label };
