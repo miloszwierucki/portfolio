@@ -14,6 +14,7 @@ export const Timeline = ({
   const contentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: containerRef,
+    layoutEffect: false,
   });
 
   const [svgHeight, setSvgHeight] = useState(0);
