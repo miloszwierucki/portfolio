@@ -8,17 +8,17 @@ import { Sun, Moon } from "lucide-react";
 import { useEffect } from "react";
 import Link from "next/link";
 
+import { useThemeStore } from "@/store/useThemeStore";
+import {
+  SettingsQuery,
+  SettingsQueryVariables,
+} from "@/tina/__generated__/types";
 import {
   defaultCursor,
   languageCursor,
   pointerCursor,
   themeCursor,
 } from "@/lib/cursor";
-import { useThemeStore } from "@/store/useThemeStore";
-import {
-  SettingsQuery,
-  SettingsQueryVariables,
-} from "@/tina/__generated__/types";
 
 export default function ControllerClient(props: {
   data: SettingsQuery;

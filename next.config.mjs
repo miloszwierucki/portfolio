@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: "assets.tina.io",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.giphy.com",
+        port: "",
+      },
     ],
   },
 };

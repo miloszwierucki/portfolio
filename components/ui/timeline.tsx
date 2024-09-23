@@ -1,8 +1,9 @@
 "use client";
 
-import { useThemeStore } from "@/store/useThemeStore";
 import { useScroll, motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+
+import { useThemeStore } from "@/store/useThemeStore";
 
 export const Timeline = ({
   children,

@@ -7,7 +7,7 @@ timeline:
       - company: Politechnika Łódzka
         period: 2022 - obecnie
         description: |
-          Jebanie kurewek
+          Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
     _template: timelineBlock
   - icon: briefcase-business
     title: Doświadczenie
@@ -16,7 +16,7 @@ timeline:
         period: 2024 - obecnie
         description: |
           Tworzenie stron dla klientów
-      - company: 'Samorząd Studencki Politechniki Łódzkiej '
+      - company: "Samorząd Studencki Politechniki Łódzkiej "
         period: 2023 - obecnie
         description: "Przewodniczący Komisji ds. IT (lipiec, 2023 - obecnie)\n*Łódź, Łódzkie, Polska*\n\nMoją misją jest stworzenie otwartego i wspierającego środowiska sprzyjającego rozwojowi umiejętności związanych z tworzeniem stron internetowych. Głównym celem jest\L przekazywanie wiedzy na temat skutecznego tworzenia, jak i zarządzania projektami.\L\n\n* Zarządzanie serwerem VPS\n* Utrzymywanie i aktualizacja istniejących stron SSPŁ\n* Nadzorowanie zespółu składającego się z 20 członków, dbając o efektywność zespołu i współpracę\n"
     _template: timelineBlock

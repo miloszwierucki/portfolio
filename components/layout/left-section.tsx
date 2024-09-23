@@ -79,7 +79,7 @@ export const LeftSection = (props: {
                         data-tina-field={tinaField(block, "text")}
                       >
                         <span
-                          className="text-sm opacity-50"
+                          className="text-sm text-neutral-500"
                           data-tina-field={tinaField(block, "label")}
                         >
                           {block.label}

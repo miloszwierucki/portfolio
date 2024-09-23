@@ -1,14 +1,15 @@
 "use client";
 
-import { defaultCursor, pointerCursor } from "@/lib/cursor";
-import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
-import Link from "next/link";
 import { useTina, tinaField } from "tinacms/dist/react";
-import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
-import BlurFade from "@/components/ui/blur-fade";
-import { Timeline } from "@/components/ui/timeline";
-import { useRef } from "react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { CircleDotDashed } from "lucide-react";
+import { useRef } from "react";
+
+import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
+import { MarkdownComponents } from "@/tina/other/markdown-components";
+import { defaultCursor, pointerCursor } from "@/lib/cursor";
+import { Timeline } from "@/components/ui/timeline";
+import BlurFade from "@/components/ui/blur-fade";
 import Icon from "@/components/ui/icon";
 
 export const HomePage = (props: {
@@ -22,21 +23,6 @@ export const HomePage = (props: {
     variables: props.variables,
     data: props.data,
   });
-
-  const components: Components<{
-    a: { url: string; children: React.ReactNode };
-  }> = {
-    a: (props) => (
-      <Link
-        onMouseEnter={pointerCursor}
-        onMouseLeave={defaultCursor}
-        href={props!.url}
-        className="hover:underline hover:underline-offset-4"
-      >
-        {props!.children}
-      </Link>
-    ),
-  };
 
   return (
     <div
@@ -59,7 +45,7 @@ export const HomePage = (props: {
             >
               <TinaMarkdown
                 content={data.about.description}
-                components={components}
+                components={MarkdownComponents(pointerCursor, defaultCursor)}
               />
             </div>
           </BlurFade>
@@ -92,7 +78,7 @@ export const HomePage = (props: {
                           className={`group ml-2 flex flex-row space-x-8 ${i === timeline.items!.length - 1 ? "mb-4" : "mb-7"}`}
                         >
                           <CircleDotDashed
-                            className="group-hover:animate-spin-slow z-50 shrink-0 grow-0"
+                            className="z-50 shrink-0 grow-0 group-hover:animate-spin-slow"
                             stroke="var(--cod-gray-400)"
                           />
 
@@ -117,7 +103,10 @@ export const HomePage = (props: {
                             >
                               <TinaMarkdown
                                 content={item?.description}
-                                components={components}
+                                components={MarkdownComponents(
+                                  pointerCursor,
+                                  defaultCursor
+                                )}
                               />
                             </div>
                           </div>

@@ -1,4 +1,11 @@
-import { Languages, MousePointer2, Palette, Pointer } from "lucide-react";
+import {
+  Languages,
+  MousePointer2,
+  Palette,
+  Pointer,
+  WandSparkles,
+} from "lucide-react";
+
 import { useCursorStore } from "@/store/useCursorStore";
 
 export function pointerCursor() {
@@ -20,5 +27,11 @@ export function languageCursor() {
 export function themeCursor() {
   useCursorStore.setState({
     cursor: <Palette size={28} strokeWidth={1} />,
+  });
+}
+
+export function discoveryCursor() {
+  useCursorStore.setState({
+    cursor: <WandSparkles size={28} strokeWidth={1} />,
   });
 }

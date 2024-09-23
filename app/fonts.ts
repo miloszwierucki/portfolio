@@ -1,9 +1,9 @@
+import localFont from "next/font/local";
 import {
   Inter,
   Architects_Daughter,
   Plus_Jakarta_Sans,
 } from "next/font/google";
-import localFont from "next/font/local";
 
 export const inter = Inter({
   subsets: ["latin"],

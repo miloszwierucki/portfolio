@@ -1,7 +1,9 @@
 import { defineConfig } from "tinacms";
+
+import portfolio from "./collections/portfolio";
+import settings from "./collections/settings";
 import sidebar from "./collections/sidebar";
 import about from "./collections/about";
-import settings from "./collections/settings";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -30,6 +32,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
-    collections: [sidebar, about, settings],
+    collections: [sidebar, about, portfolio, settings],
   },
 });

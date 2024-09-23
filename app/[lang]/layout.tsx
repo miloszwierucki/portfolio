@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
+
 import BackgroundPattern from "@/components/layout/background-pattern";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
 import { plus_jakarta_sans, satoshi } from "../fonts";
-import type { Metadata } from "next";
 import "../globals.css";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 interface LangParams {
   lang: string;
@@ -40,6 +41,7 @@ export default function RootLayout({
           </aside>
           <main className="relative col-span-10 flex h-[calc(100vh-10rem)] overflow-hidden rounded-2xl bg-cod-gray-100/5 px-8 py-8 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
             {children}
+            {/* Gradient to bottom */}
             <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 w-full bg-zinc-50 [mask-image:linear-gradient(transparent,#000000DD_55%,#000000)] dark:bg-zinc-800" />
           </main>
 
