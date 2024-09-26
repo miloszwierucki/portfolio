@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import BackgroundPattern from "@/components/layout/background-pattern";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
+import VercelAnalytics from "@/components/vercel-analytics";
 import { plus_jakarta_sans, satoshi } from "../fonts";
 import "../globals.css";
 
@@ -48,10 +49,11 @@ export default function RootLayout({
           {controller}
         </div>
         <CustomCursor />
-
         <div className="fixed bottom-0 right-0 flex h-16 w-40 items-center p-3">
           <TextHoverEffect text="為了生存我擺脫了感情" />
         </div>
+
+        <VercelAnalytics />
       </body>
     </html>
   );

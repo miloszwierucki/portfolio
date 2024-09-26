@@ -1,19 +1,18 @@
 "use client";
 
-// import { defaultCursor, pointerCursor } from "@/lib/cursor";
+import { useTina, tinaField } from "tinacms/dist/react";
+import { useEffect, useState } from "react";
+
+import { ExpandableCardGrid } from "@/components/ui/ext-cards-grid";
+import { ProjectFilter } from "@/components/ui/project-filter";
 import {
   PortfolioQuery,
   PortfolioQueryVariables,
 } from "@/tina/__generated__/types";
-// import Link from "next/link";
-import { useTina, tinaField } from "tinacms/dist/react";
-import { ExpandableCardGrid } from "../ui/ext-cards-grid";
-// import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
-// import BlurFade from "@/components/ui/blur-fade";
-// import { Timeline } from "@/components/ui/timeline";
-// import { useRef } from "react";
-// import { CircleDotDashed } from "lucide-react";
-// import Icon from "@/components/ui/icon";
+import { MarkdownComponents } from "../markdown-components";
+import { defaultCursor, pointerCursor } from "@/lib/cursor";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import BlurFade from "../ui/blur-fade";
 
 export const PortfolioPage = (props: {
   data: PortfolioQuery;
@@ -25,6 +24,31 @@ export const PortfolioPage = (props: {
     variables: props.variables,
     data: props.data,
   });
+  const [shownProjects, setShownProjects] = useState<
+    PortfolioQuery["portfolio"]["projects"]
+  >(data.portfolio.projects || []);
+  const [activeType, setActiveType] = useState<string | null>(null);
+
+  const types = [
+    "all",
+    ...Array.from(
+      new Set(
+        shownProjects
+          ?.map((project) => project && project.type)
+          .filter((type) => type !== null)
+      )
+    ),
+  ];
+
+  useEffect(() => {
+    activeType
+      ? setShownProjects(
+          data.portfolio.projects?.filter(
+            (project) => project && project.type === activeType
+          )
+        )
+      : setShownProjects(data.portfolio.projects);
+  }, [activeType]);
 
   return (
     <div className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent">
@@ -35,8 +59,31 @@ export const PortfolioPage = (props: {
         {data.portfolio.title}
       </h1>
 
-      {data.portfolio.projects && (
-        <ExpandableCardGrid data={data.portfolio.projects} />
+      {data.portfolio.description && (
+        <BlurFade inView>
+          <div
+            data-tina-field={tinaField(data.portfolio, "description")}
+            className="markdown whitespace-pre-line text-lg"
+          >
+            <TinaMarkdown
+              content={data.portfolio.description}
+              components={MarkdownComponents(pointerCursor, defaultCursor)}
+            />
+          </div>
+        </BlurFade>
+      )}
+
+      {shownProjects && shownProjects.length > 0 && (
+        <div className="flex flex-col gap-4">
+          {types && (
+            <ProjectFilter
+              types={types}
+              activeType={activeType}
+              setActiveType={setActiveType}
+            />
+          )}
+          <ExpandableCardGrid data={shownProjects} />
+        </div>
       )}
     </div>
   );

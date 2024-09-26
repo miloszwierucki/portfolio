@@ -19,6 +19,7 @@ import {
   pointerCursor,
   themeCursor,
 } from "@/lib/cursor";
+import setLang from "@/app/[lang]/@controller/actions/set-lang";
 
 export default function ControllerClient(props: {
   data: SettingsQuery;
@@ -168,7 +169,12 @@ export default function ControllerClient(props: {
               exit={{ opacity: 0.5 }}
               transition={{ duration: 0.2 }}
             >
-              <Link href="/en">🇵🇱</Link>
+              <Link
+                href={`/en/${pathname.split("/")[2] || ""}`}
+                onClick={() => setLang("en")}
+              >
+                🇵🇱
+              </Link>
             </motion.div>
           )}
           {params.lang === "en" && (
@@ -179,7 +185,12 @@ export default function ControllerClient(props: {
               exit={{ opacity: 0.5 }}
               transition={{ duration: 0.2 }}
             >
-              <Link href="/pl">🇬🇧</Link>
+              <Link
+                href={`/pl/${pathname.split("/")[2] || ""}`}
+                onClick={() => setLang("pl")}
+              >
+                🇬🇧
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

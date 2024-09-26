@@ -25,10 +25,13 @@ export const LeftSection = (props: {
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-4">
-        <div className="mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden rounded-xl bg-cod-gray-200/20 shadow-lg">
+        <div
+          className="mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden rounded-xl bg-cod-gray-200/20 shadow-lg"
+          data-tina-field={tinaField(data.sidebar, "image")}
+        >
           {data.sidebar.image && (
             <Image
-              className="pointer-events-none mx-auto w-11/12 object-contain drop-shadow-lg"
+              className="pointer-events-none mx-auto w-11/12 object-contain drop-shadow-lg saturate-[1.25]"
               src={data.sidebar.image}
               alt="Person profile picture"
               width={400}

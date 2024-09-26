@@ -6,7 +6,7 @@ import { CircleDotDashed } from "lucide-react";
 import { useRef } from "react";
 
 import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
-import { MarkdownComponents } from "@/tina/other/markdown-components";
+import { MarkdownComponents } from "@/components/markdown-components";
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";

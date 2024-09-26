@@ -3,6 +3,7 @@
 import { useScroll, motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+import { defaultCursor, pathCursor } from "@/lib/cursor";
 import { useThemeStore } from "@/store/useThemeStore";
 
 export const Timeline = ({
@@ -73,7 +74,12 @@ export const Timeline = ({
   );
 
   return (
-    <section className="relative" ref={contentRef}>
+    <section
+      className="relative"
+      ref={contentRef}
+      onMouseEnter={pathCursor}
+      onMouseLeave={defaultCursor}
+    >
       <svg
         viewBox={`0 0 23 ${svgHeight}`}
         width="23"

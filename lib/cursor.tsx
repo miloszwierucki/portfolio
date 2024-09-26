@@ -1,7 +1,9 @@
 import {
+  Footprints,
   Languages,
   MousePointer2,
   Palette,
+  Pipette,
   Pointer,
   WandSparkles,
 } from "lucide-react";
@@ -33,5 +35,17 @@ export function themeCursor() {
 export function discoveryCursor() {
   useCursorStore.setState({
     cursor: <WandSparkles size={28} strokeWidth={1} />,
+  });
+}
+
+export function pathCursor() {
+  useCursorStore.setState({
+    cursor: <Footprints size={28} strokeWidth={1} />,
+  });
+}
+
+export function filterCursor() {
+  useCursorStore.setState({
+    cursor: <Pipette size={28} strokeWidth={1} />,
   });
 }

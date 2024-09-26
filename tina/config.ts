@@ -2,6 +2,7 @@ import { defineConfig } from "tinacms";
 
 import portfolio from "./collections/portfolio";
 import settings from "./collections/settings";
+import contact from "./collections/contact";
 import sidebar from "./collections/sidebar";
 import about from "./collections/about";
 
@@ -32,6 +33,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
-    collections: [sidebar, about, portfolio, settings],
+    collections: [sidebar, about, portfolio, contact, settings],
   },
 });

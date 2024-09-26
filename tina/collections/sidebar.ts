@@ -12,6 +12,9 @@ const sidebar: Collection = {
       create: false,
       delete: false,
     },
+    router: () => {
+      return "/";
+    },
   },
   fields: [
     {

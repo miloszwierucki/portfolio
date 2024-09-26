@@ -27,7 +27,6 @@ export function middleware(request: NextRequest) {
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
-
   if (pathnameHasLocale) return;
 
   // Redirect if there is no locale
@@ -36,7 +35,11 @@ export function middleware(request: NextRequest) {
 
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
+  const response = NextResponse.redirect(request.nextUrl);
+
+  // Set locale to cookie
+  response.cookies.set(cookieName, locale);
+  return response;
 }
 
 export const config = {

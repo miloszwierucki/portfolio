@@ -10,9 +10,9 @@ const portfolio: Collection = {
       create: false,
       delete: false,
     },
-    // router: () => {
-    //   return "/portfolio";
-    // },
+    router: () => {
+      return "/pl/portfolio";
+    },
   },
   fields: [
     {
@@ -20,6 +20,13 @@ const portfolio: Collection = {
       label: "Title",
       type: "string",
       required: true,
+    },
+    {
+      label: "Portfolio content",
+      name: "description",
+      isBody: true,
+      type: "rich-text",
+      toolbarOverride: ["link", "bold", "italic", "code", "raw"],
     },
     {
       type: "object",
@@ -37,6 +44,7 @@ const portfolio: Collection = {
           name: "type",
           label: "Type",
           type: "string",
+          required: true,
         },
         {
           name: "image",

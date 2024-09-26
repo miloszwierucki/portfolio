@@ -3,14 +3,16 @@
 
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { tinaField } from "tinacms/dist/react";
 
 import { defaultCursor, discoveryCursor, pointerCursor } from "@/lib/cursor";
-import { MarkdownComponents } from "@/tina/other/markdown-components";
+import { MarkdownComponents } from "@/components/markdown-components";
 import { PortfolioQuery } from "@/tina/__generated__/types";
 import { useOutsideClick } from "@/lib/use-outside-click";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { cn } from "@/lib/utils";
 import { CodeXml, ExternalLink } from "lucide-react";
+import BlurFade from "@/components/ui/blur-fade";
+import { cn } from "@/lib/utils";
 
 export function ExpandableCardGrid({
   data,
@@ -76,7 +78,10 @@ export function ExpandableCardGrid({
               ref={ref}
               className="flex h-full w-full max-w-[500px] flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-cod-gray-100/5 after:content-[''] md:h-fit md:max-h-[90%] dark:bg-zinc-900 dark:ring-cod-gray-200/15"
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div
+                layoutId={`image-${active.title}-${id}`}
+                data-tina-field={tinaField(active, "image")}
+              >
                 {active.image && (
                   <div
                     style={
@@ -96,17 +101,19 @@ export function ExpandableCardGrid({
                 )}
               </motion.div>
 
-              <div className="">
+              <div>
                 <div className="flex items-start justify-between p-4">
-                  <div className="">
+                  <div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
+                      data-tina-field={tinaField(active, "title")}
                       className="font-jakarta text-base font-semibold"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`type-${active.title}-${id}`}
+                      data-tina-field={tinaField(active, "type")}
                       className="text-base text-neutral-500"
                     >
                       {active.type}
@@ -117,6 +124,7 @@ export function ExpandableCardGrid({
                     {active.previewLink && (
                       <motion.a
                         layout
+                        data-tina-field={tinaField(active, "previewLink")}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -129,13 +137,14 @@ export function ExpandableCardGrid({
                         <ExternalLink size={20} />
                       </motion.a>
                     )}
-                    {active.previewLink && (
+                    {active.codeLink && (
                       <motion.a
                         layout
+                        data-tina-field={tinaField(active, "codeLink")}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        href={active.previewLink}
+                        href={active.codeLink}
                         onMouseEnter={pointerCursor}
                         onMouseLeave={defaultCursor}
                         target="_blank"
@@ -149,10 +158,11 @@ export function ExpandableCardGrid({
                 <div className="relative px-4">
                   <motion.div
                     layout
+                    data-tina-field={tinaField(active, "content")}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-1 overflow-y-auto pb-8 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] md:h-fit"
+                    className="flex h-40 flex-col items-start gap-1 overflow-y-auto pb-8 scrollbar-none [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] md:h-fit"
                   >
                     <TinaMarkdown
                       content={active.content}
@@ -173,52 +183,59 @@ export function ExpandableCardGrid({
       <ul className="mx-auto grid w-full grid-cols-3 items-start gap-2">
         {data &&
           data.map(
-            (card) =>
+            (card, idx) =>
               card && (
-                <motion.div
-                  layoutId={`card-${card.title}-${id}`}
-                  key={card.title}
-                  onMouseEnter={discoveryCursor}
-                  onMouseLeave={defaultCursor}
-                  onClick={() => setActive(card)}
-                  className="flex flex-col rounded-2xl p-2"
-                >
-                  <div className="flex w-full flex-col gap-2">
-                    <motion.div layoutId={`image-${card.title}-${id}`}>
-                      {card.image && (
-                        <div
-                          style={
-                            {
-                              "--image-url": `url(${card.image})`,
-                              "--preview-url": `url(${card.preview})`,
-                            } as React.CSSProperties
-                          }
-                          className={cn(
-                            "relative h-60 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg",
-                            // Preload hover image by setting it in a pseudo-element
-                            `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
-                            "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
-                            "transition-all duration-500"
-                          )}
-                        />
-                      )}
-                    </motion.div>
-                    <div className="ml-2 flex flex-col items-start justify-center">
-                      <motion.h3
-                        layoutId={`title-${card.title}-${id}`}
-                        className="font-jakarta text-base font-semibold"
+                <BlurFade inView delay={0.25 + idx * 0.05} key={card.title}>
+                  <motion.div
+                    layoutId={`card-${card.title}-${id}`}
+                    data-tina-field={tinaField(card, "title")}
+                    onMouseEnter={discoveryCursor}
+                    onMouseLeave={defaultCursor}
+                    onClick={() => setActive(card)}
+                    className="flex flex-col rounded-2xl p-2"
+                  >
+                    <div className="flex w-full flex-col gap-2">
+                      <motion.div
+                        layoutId={`image-${card.title}-${id}`}
+                        data-tina-field={tinaField(card, "image")}
                       >
-                        {card.title}
-                      </motion.h3>
-                      <motion.p
-                        layoutId={`type-${card.title}-${id}`}
-                        className="text-sm text-neutral-500"
-                      >
-                        {card.type}
-                      </motion.p>
+                        {card.image && (
+                          <div
+                            style={
+                              {
+                                "--image-url": `url(${card.image})`,
+                                "--preview-url": `url(${card.preview})`,
+                              } as React.CSSProperties
+                            }
+                            className={cn(
+                              "relative h-60 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg",
+                              // Preload hover image by setting it in a pseudo-element
+                              `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
+                              "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
+                              "transition-all duration-500"
+                            )}
+                          />
+                        )}
+                      </motion.div>
+                      <div className="ml-2 flex flex-col items-start justify-center">
+                        <motion.h3
+                          layoutId={`title-${card.title}-${id}`}
+                          data-tina-field={tinaField(card, "title")}
+                          className="font-jakarta text-base font-semibold"
+                        >
+                          {card.title}
+                        </motion.h3>
+                        <motion.p
+                          layoutId={`type-${card.title}-${id}`}
+                          data-tina-field={tinaField(card, "type")}
+                          className="text-sm text-neutral-500"
+                        >
+                          {card.type}
+                        </motion.p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </BlurFade>
               )
           )}
       </ul>

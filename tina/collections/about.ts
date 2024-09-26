@@ -75,7 +75,6 @@ const about: Collection = {
       type: "string",
       required: true,
     },
-
     {
       label: "About content",
       name: "description",

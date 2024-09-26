@@ -16,7 +16,7 @@
 
 *,
 button {
-  cursor: none;
+  cursor: none !important;
 }
 
 body {
