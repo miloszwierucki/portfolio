@@ -10,9 +10,9 @@ const contact: Collection = {
       create: false,
       delete: false,
     },
-    // router: () => {
-    //   return "/contact";
-    // },
+    router: () => {
+      return "/contact";
+    },
   },
   fields: [
     {
@@ -79,6 +79,21 @@ const contact: Collection = {
           name: "placeholder",
           label: "Placeholder",
           type: "string",
+        },
+      ],
+    },
+    {
+      label: "Privacy Policy",
+      name: "privacy",
+      type: "object",
+      fields: [
+        {
+          name: "label",
+          label: "Label",
+          isBody: true,
+          type: "rich-text",
+          toolbarOverride: ["link", "bold", "italic", "code", "raw"],
+          required: true,
         },
       ],
     },

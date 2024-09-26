@@ -4,6 +4,7 @@ import portfolio from "./collections/portfolio";
 import settings from "./collections/settings";
 import contact from "./collections/contact";
 import sidebar from "./collections/sidebar";
+import privacy from "./collections/privacy";
 import about from "./collections/about";
 
 // Your hosting provider likely exposes this as an environment variable
@@ -33,6 +34,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
-    collections: [sidebar, about, portfolio, contact, settings],
+    collections: [sidebar, about, portfolio, contact, privacy, settings],
   },
 });

@@ -11,7 +11,7 @@ const portfolio: Collection = {
       delete: false,
     },
     router: () => {
-      return "/pl/portfolio";
+      return "/portfolio";
     },
   },
   fields: [

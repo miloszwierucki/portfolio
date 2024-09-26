@@ -2,7 +2,7 @@
 
 import { Resend } from "resend";
 
-import { EmailTemplate } from "@/components/layout/email-template";
+import EmailTemplate from "@/components/layout/email-template";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -56,8 +56,9 @@ export async function sendEmailAction(state: FormState, formData: FormData) {
   const { data } = await resend.emails.send({
     from: process.env.SENDER_EMAIL as string,
     to: process.env.CONTACT_EMAIL as string,
-    subject: "Hello World",
-    react: `<h1>Hello ${name}!</h1>${message}`,
+    replyTo: email,
+    subject: `New message from ${name}`,
+    react: <EmailTemplate name={name} email={email} message={message} />,
   });
 
   if (data) {

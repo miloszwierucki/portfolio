@@ -37,7 +37,7 @@ export const ContactPage = (props: {
         {data.contact.title}
       </h1>
 
-      <div className="flex h-full flex-col gap-4">
+      <div className="flex h-full flex-col gap-4 px-3">
         {data.contact.description && (
           <BlurFade inView>
             <div
@@ -54,10 +54,11 @@ export const ContactPage = (props: {
 
         <BlurFade inView>
           <ContactForm
-            className="px-4 py-2"
+            className="px-1 py-2"
             email={data.contact.email}
             name={data.contact.name}
             message={data.contact.message}
+            privacy={data.contact.privacy}
             button={data.contact.button}
           />
         </BlurFade>

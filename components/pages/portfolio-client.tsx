@@ -41,13 +41,16 @@ export const PortfolioPage = (props: {
   ];
 
   useEffect(() => {
-    activeType
-      ? setShownProjects(
-          data.portfolio.projects?.filter(
-            (project) => project && project.type === activeType
-          )
+    if (activeType) {
+      setShownProjects(
+        data.portfolio.projects?.filter(
+          (project) => project && project.type === activeType
         )
-      : setShownProjects(data.portfolio.projects);
+      );
+    } else {
+      setShownProjects(data.portfolio.projects);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeType]);
 
   return (
@@ -59,19 +62,21 @@ export const PortfolioPage = (props: {
         {data.portfolio.title}
       </h1>
 
-      {data.portfolio.description && (
-        <BlurFade inView>
-          <div
-            data-tina-field={tinaField(data.portfolio, "description")}
-            className="markdown whitespace-pre-line text-lg"
-          >
-            <TinaMarkdown
-              content={data.portfolio.description}
-              components={MarkdownComponents(pointerCursor, defaultCursor)}
-            />
-          </div>
-        </BlurFade>
-      )}
+      <div className="flex px-3">
+        {data.portfolio.description && (
+          <BlurFade inView>
+            <div
+              data-tina-field={tinaField(data.portfolio, "description")}
+              className="markdown whitespace-pre-line text-lg"
+            >
+              <TinaMarkdown
+                content={data.portfolio.description}
+                components={MarkdownComponents(pointerCursor, defaultCursor)}
+              />
+            </div>
+          </BlurFade>
+        )}
+      </div>
 
       {shownProjects && shownProjects.length > 0 && (
         <div className="flex flex-col gap-4">

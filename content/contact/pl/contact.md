@@ -9,6 +9,10 @@ name:
 message:
   label: Wiadomość*
   placeholder: ...
+privacy:
+  label: >
+    Wysyłając wiadomość zgadzasz się na przetwarzanie danych zgodnie z [Polityką
+    prywatności](/privacy).
 button:
   label: Wyślij
   pendingLabel: Wysyłanie...

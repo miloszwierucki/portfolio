@@ -9,6 +9,8 @@ name:
 message:
   label: Message*
   placeholder: ...
+privacy:
+  label:
 button:
   label: Send
   pendingLabel: Sending...
