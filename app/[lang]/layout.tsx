@@ -33,17 +33,18 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body
-        className={`${satoshi.variable} ${plus_jakarta_sans.variable} overflow-hidden bg-zinc-50 font-satoshi text-neutral-900 antialiased dark:bg-zinc-900 dark:text-neutral-200`}
+        className={`${satoshi.variable} ${plus_jakarta_sans.variable} grid min-h-screen w-screen place-content-center overflow-x-hidden bg-zinc-50 font-satoshi text-neutral-900 antialiased scrollbar-none md:h-screen md:overflow-y-hidden dark:bg-zinc-900 dark:text-neutral-200`}
       >
         <BackgroundPattern />
-        <div className="grid h-screen w-screen grid-cols-13 gap-8 px-20 pb-24 pt-16">
-          <aside className="col-span-3 flex h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-20 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
+
+        <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-8 md:px-20 md:pb-24 md:pt-16">
+          <aside className="hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-20 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-3 md:flex dark:ring-cod-gray-200/15">
             {sidebar}
           </aside>
-          <main className="relative col-span-10 flex h-[calc(100vh-10rem)] overflow-hidden rounded-2xl bg-cod-gray-100/5 px-8 py-8 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
+          <main className="relative flex h-[calc(100vh-4rem)] overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-6 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] md:p-8 dark:ring-cod-gray-200/15">
             {children}
             {/* Gradient to bottom */}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 w-full bg-zinc-50 [mask-image:linear-gradient(transparent,#000000DD_55%,#000000)] dark:bg-zinc-800" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 w-full bg-zinc-50 [mask-image:linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 dark:bg-zinc-800" />
           </main>
 
           {controller}

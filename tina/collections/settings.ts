@@ -33,7 +33,12 @@ const settings: Collection = {
           ui: {
             validate: (value) => {
               // const isValid = value.startsWith("/");
-              const isValid = ["/", "/portfolio", "/contact"].includes(value);
+              const isValid = [
+                "/",
+                "/about",
+                "/portfolio",
+                "/contact",
+              ].includes(value);
               if (!isValid) {
                 // return "The href must start with a slash";
                 return "The href must be a valid path (/, /portfolio, /contact)";

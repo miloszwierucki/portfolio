@@ -2,7 +2,7 @@
   "navbar": [
     {
       "label": "About",
-      "href": "/"
+      "href": "/about"
     },
     {
       "label": "Portfolio",

@@ -8,6 +8,7 @@ import { MarkdownComponents } from "@/components/markdown-components";
 import { ContactForm } from "@/components/layout/contact-form";
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
+import { Header } from "@/components/ui/header";
 import {
   ContactQuery,
   ContactQueryVariables,
@@ -30,19 +31,14 @@ export const ContactPage = (props: {
       className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent"
       ref={containerRef}
     >
-      <h1
-        className="relative mb-7 w-fit font-jakarta text-3xl font-semibold after:absolute after:-bottom-3 after:left-0 after:h-2 after:w-3/4 after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] dark:after:dark:bg-cod-gray-200/5"
-        data-tina-field={tinaField(data.contact, "title")}
-      >
-        {data.contact.title}
-      </h1>
+      <Header content={data.contact} />
 
-      <div className="flex h-full flex-col gap-4 px-3">
+      <div className="flex h-full flex-col gap-4 px-1 md:px-3">
         {data.contact.description && (
-          <BlurFade inView>
+          <BlurFade>
             <div
               data-tina-field={tinaField(data.contact, "description")}
-              className="markdown whitespace-pre-line text-lg"
+              className="markdown whitespace-pre-line text-base md:text-lg"
             >
               <TinaMarkdown
                 content={data.contact.description}
@@ -52,9 +48,9 @@ export const ContactPage = (props: {
           </BlurFade>
         )}
 
-        <BlurFade inView>
+        <BlurFade>
           <ContactForm
-            className="px-1 py-2"
+            className="mb-6 px-1 py-2 md:mb-0"
             email={data.contact.email}
             name={data.contact.name}
             message={data.contact.message}
@@ -64,7 +60,7 @@ export const ContactPage = (props: {
         </BlurFade>
       </div>
 
-      <div className="self-end text-xs opacity-60">
+      <div className="hidden self-end text-xs opacity-60 md:block">
         Designed & Developed by Miłosz Wierucki ©2024
       </div>
     </div>

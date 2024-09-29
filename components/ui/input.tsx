@@ -82,7 +82,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {error && (
           <div
             role="alert"
-            className="ml-2 flex flex-col text-sm text-red-600 md:col-span-2"
+            className="ml-2 mt-1 flex flex-col text-xs text-red-600 md:col-span-2 md:text-sm"
           >
             {error}
           </div>

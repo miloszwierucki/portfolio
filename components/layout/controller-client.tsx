@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
-import { Sun, Moon } from "lucide-react";
-import { useEffect } from "react";
+import { Sun, Moon, EllipsisVertical } from "lucide-react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { useThemeStore } from "@/store/useThemeStore";
@@ -26,6 +26,7 @@ export default function ControllerClient(props: {
   variables: SettingsQueryVariables;
   query: string;
 }) {
+  const [open, setOpen] = useState(false);
   const { theme, changeTheme } = useThemeStore();
   const params = useParams<{ lang: string }>();
   const pathname = usePathname();
@@ -96,105 +97,119 @@ export default function ControllerClient(props: {
   };
 
   return (
-    <nav className="fixed inset-x-0 bottom-5 z-20 mx-auto flex max-w-fit items-center justify-center space-x-1 rounded-xl bg-cod-gray-100/5 px-4 py-2 text-base shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md dark:ring-cod-gray-200/15">
-      {data.settings.navbar &&
-        data.settings.navbar.map((item) =>
-          item ? (
-            <Link
-              key={item.label}
-              href={item.href}
-              onMouseEnter={pointerCursor}
-              onMouseLeave={defaultCursor}
-              data-tina-field={tinaField(item, "label")}
-              className={`grid max-h-9 place-content-center rounded-lg px-3 py-2 transition-[background] duration-500 hover:bg-cod-gray-200/20 ${
-                pathname.includes(item.href) && "font-medium"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ) : null
-        )}
-
-      <p className="px-0.5">|</p>
-
-      <button
-        onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
-        onMouseEnter={themeCursor}
-        onMouseLeave={defaultCursor}
-        className="grid max-h-9 place-content-center rounded-lg px-3 py-2 transition-[background] duration-500 hover:bg-cod-gray-200/20"
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {theme === "dark" && (
-            <motion.div
-              key="dark"
-              initial={{ rotate: 90, opacity: 0.5 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0.5 }}
-              transition={{
-                rotate: { duration: 0.2 },
-                opacity: { duration: 0.2, delay: 0.1 },
-              }}
-            >
-              <Moon size={20} />
-            </motion.div>
-          )}
-          {theme === "light" && (
-            <motion.div
-              key="light"
-              initial={{ rotate: 90, opacity: 0.5 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0.5 }}
-              transition={{
-                rotate: { duration: 0.2 },
-                opacity: { duration: 0.2, delay: 0.1 },
-              }}
-            >
-              <Sun size={20} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </button>
-
-      <button
-        className="grid max-h-9 place-content-center rounded-lg px-3 py-2 text-lg transition-[background] duration-300 hover:bg-cod-gray-200/20"
-        onMouseEnter={languageCursor}
-        onMouseLeave={defaultCursor}
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {params.lang === "pl" && (
-            <motion.div
-              key="pl"
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0.5 }}
-              transition={{ duration: 0.2 }}
-            >
+    <nav className="fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl bg-cod-gray-100/5 px-4 py-2 text-sm shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:bottom-5 md:flex-row md:text-base dark:ring-cod-gray-200/15">
+      <div className="flex items-center space-x-1">
+        {data.settings.navbar &&
+          data.settings.navbar.map((item) =>
+            item ? (
               <Link
-                href={`/en/${pathname.split("/")[2] || ""}`}
-                onClick={() => setLang("en")}
+                key={item.label}
+                href={item.href}
+                onMouseEnter={pointerCursor}
+                onMouseLeave={defaultCursor}
+                data-tina-field={tinaField(item, "label")}
+                className={`grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:py-2 ${
+                  pathname.includes(item.href) && "font-medium"
+                }`}
               >
-                🇵🇱
+                {item.label}
               </Link>
-            </motion.div>
+            ) : null
           )}
-          {params.lang === "en" && (
-            <motion.div
-              key="en"
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0.5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Link
-                href={`/pl/${pathname.split("/")[2] || ""}`}
-                onClick={() => setLang("pl")}
+        <button
+          className="grid max-h-9 place-content-center rounded-lg px-2 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:hidden"
+          onMouseEnter={pointerCursor}
+          onMouseLeave={defaultCursor}
+          onClick={() => setOpen(!open)}
+        >
+          <EllipsisVertical className="size-4" />
+        </button>
+      </div>
+
+      <p className="hidden px-0.5 md:block">|</p>
+
+      <div
+        className={`flex items-center space-x-1 ${open ? "" : "hidden"} md:flex`}
+      >
+        <button
+          onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
+          onMouseEnter={themeCursor}
+          onMouseLeave={defaultCursor}
+          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:py-2"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {theme === "dark" && (
+              <motion.div
+                key="dark"
+                initial={{ rotate: 90, opacity: 0.5 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0.5 }}
+                transition={{
+                  rotate: { duration: 0.2 },
+                  opacity: { duration: 0.2, delay: 0.1 },
+                }}
               >
-                🇬🇧
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </button>
+                <Moon className="size-4 md:size-5" />
+              </motion.div>
+            )}
+            {theme === "light" && (
+              <motion.div
+                key="light"
+                initial={{ rotate: 90, opacity: 0.5 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0.5 }}
+                transition={{
+                  rotate: { duration: 0.2 },
+                  opacity: { duration: 0.2, delay: 0.1 },
+                }}
+              >
+                <Sun size={20} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
+
+        <button
+          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 md:py-2 md:text-lg"
+          onMouseEnter={languageCursor}
+          onMouseLeave={defaultCursor}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {params.lang === "pl" && (
+              <motion.div
+                key="pl"
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0.5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link
+                  href={`/en/${pathname.split("/")[2] || ""}`}
+                  onClick={() => setLang("en")}
+                >
+                  🇵🇱
+                </Link>
+              </motion.div>
+            )}
+            {params.lang === "en" && (
+              <motion.div
+                key="en"
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0.5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link
+                  href={`/pl/${pathname.split("/")[2] || ""}`}
+                  onClick={() => setLang("pl")}
+                >
+                  🇬🇧
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
+      </div>
     </nav>
   );
 }

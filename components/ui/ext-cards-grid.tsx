@@ -91,7 +91,7 @@ export function ExpandableCardGrid({
                       } as React.CSSProperties
                     }
                     className={cn(
-                      "relative h-80 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-md",
+                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-md md:h-80",
                       // Preload hover image by setting it in a pseudo-element
                       `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
                       "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
@@ -162,7 +162,7 @@ export function ExpandableCardGrid({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-1 overflow-y-auto pb-8 scrollbar-none [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] md:h-fit"
+                    className="flex h-56 flex-col items-start gap-1 overflow-y-auto pb-8 scrollbar-none [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] md:h-fit"
                   >
                     <TinaMarkdown
                       content={active.content}
@@ -180,7 +180,7 @@ export function ExpandableCardGrid({
       </AnimatePresence>
 
       {/* Cards */}
-      <ul className="mx-auto grid w-full grid-cols-3 items-start gap-2">
+      <ul className="mx-auto grid w-full grid-cols-1 items-start gap-1 md:grid-cols-3 md:gap-2">
         {data &&
           data.map(
             (card, idx) =>
@@ -208,7 +208,7 @@ export function ExpandableCardGrid({
                               } as React.CSSProperties
                             }
                             className={cn(
-                              "relative h-60 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg",
+                              "relative h-52 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg md:h-60",
                               // Preload hover image by setting it in a pseudo-element
                               `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
                               "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",

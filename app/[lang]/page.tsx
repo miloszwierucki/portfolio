@@ -1,15 +1,15 @@
-import { HomePage } from "@/components/pages/home-client";
-import client from "@/tina/__generated__/client";
+import Sidebar from "./@sidebar/page";
+import About from "./about/page";
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: { lang: string };
-}) {
-  const res = await client.queries.about({
-    relativePath: `${lang}/about.md`,
-  });
+export default async function Home({ params }: { params: { lang: string } }) {
   return (
-    <HomePage data={res.data} variables={res.variables} query={res.query} />
+    <>
+      <div className="md:hidden">
+        <Sidebar params={params} />
+      </div>
+      <div className="hidden md:block">
+        <About params={params} />
+      </div>
+    </>
   );
 }

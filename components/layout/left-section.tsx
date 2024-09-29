@@ -59,7 +59,7 @@ export const LeftSection = (props: {
 
       {data.sidebar.blocks && (
         <div className="flex flex-1 overflow-y-scroll scrollbar-none">
-          <div className="flex w-full flex-col gap-3">
+          <div className="flex w-full flex-col gap-2 md:gap-3">
             {data.sidebar.blocks.map(
               (block) =>
                 block && (
@@ -70,9 +70,9 @@ export const LeftSection = (props: {
                     onMouseLeave={defaultCursor}
                     data-tina-field={tinaField(block, "action")}
                   >
-                    <div className="flex w-full items-center gap-4 rounded-md px-4 py-2 text-lg duration-300 hover:shadow-md">
+                    <div className="flex w-full items-center gap-2 rounded-md px-4 py-2 text-base duration-300 hover:shadow-md md:gap-4 md:text-lg">
                       <div
-                        className="grid size-12 shrink-0 grow-0 place-content-center rounded-lg bg-cod-gray-200/10 dark:bg-cod-gray-200/5"
+                        className="grid size-10 shrink-0 grow-0 place-content-center rounded-lg bg-cod-gray-200/10 md:size-12 dark:bg-cod-gray-200/5"
                         data-tina-field={tinaField(block, "icon")}
                       >
                         <Icon name={block.icon as keyof typeof Icon} />
@@ -82,7 +82,7 @@ export const LeftSection = (props: {
                         data-tina-field={tinaField(block, "text")}
                       >
                         <span
-                          className="text-sm text-neutral-500"
+                          className="text-xs text-neutral-500 md:text-sm"
                           data-tina-field={tinaField(block, "label")}
                         >
                           {block.label}

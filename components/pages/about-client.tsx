@@ -10,9 +10,10 @@ import { MarkdownComponents } from "@/components/markdown-components";
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
+import { Header } from "@/components/ui/header";
 import Icon from "@/components/ui/icon";
 
-export const HomePage = (props: {
+export const AboutPage = (props: {
   data: AboutQuery;
   variables: AboutQueryVariables;
   query: string;
@@ -29,19 +30,14 @@ export const HomePage = (props: {
       className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent"
       ref={containerRef}
     >
-      <h1
-        className="relative mb-7 w-fit font-jakarta text-3xl font-semibold after:absolute after:-bottom-3 after:left-0 after:h-2 after:w-3/4 after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] dark:after:dark:bg-cod-gray-200/5"
-        data-tina-field={tinaField(data.about, "title")}
-      >
-        {data.about.title}
-      </h1>
+      <Header content={data.about} />
 
-      <div className="flex flex-1 flex-col px-3">
+      <div className="flex flex-1 flex-col px-1 md:px-3">
         {data.about.description && (
-          <BlurFade inView>
+          <BlurFade>
             <div
               data-tina-field={tinaField(data.about, "description")}
-              className="markdown whitespace-pre-line text-lg"
+              className="markdown whitespace-pre-line text-base md:text-lg"
             >
               <TinaMarkdown
                 content={data.about.description}
@@ -57,12 +53,13 @@ export const HomePage = (props: {
               (timeline, i) =>
                 timeline && (
                   <BlurFade inView key={i}>
-                    <div className="mb-6 mt-4 flex w-fit items-center gap-4 font-jakarta text-[1.75rem] font-medium">
+                    <div className="mb-3 mt-2 flex w-fit items-center gap-3 font-jakarta text-xl font-medium md:mb-6 md:mt-4 md:gap-4 md:text-[1.75rem]">
                       {timeline.icon && (
-                        <div className="grid size-10 shrink-0 grow-0 place-content-center rounded-lg bg-[#F2F2F1] dark:bg-[#2E3031]">
+                        <div className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-[#F2F2F1] md:size-10 dark:bg-[#2E3031]">
                           <Icon
                             name={timeline.icon as keyof typeof Icon}
                             data-tina-field={tinaField(timeline, "icon")}
+                            className="size-4 md:size-[24px]"
                           />
                         </div>
                       )}
@@ -75,23 +72,23 @@ export const HomePage = (props: {
                       timeline.items.map((item, index) => (
                         <article
                           key={`content-${index}`}
-                          className={`group ml-2 flex flex-row space-x-8 ${i === timeline.items!.length - 1 ? "mb-4" : "mb-7"}`}
+                          className={`group ml-1.5 flex flex-row space-x-6 md:ml-2 md:mt-0 md:space-x-8 ${i === timeline.items!.length - 1 ? "mb-4" : "mb-7"}`}
                         >
                           <CircleDotDashed
-                            className="z-50 shrink-0 grow-0 group-hover:animate-spin-slow"
+                            className="z-50 size-5 shrink-0 grow-0 group-hover:animate-spin-slow md:size-[24px]"
                             stroke="var(--cod-gray-400)"
                           />
 
                           <div className="flex flex-col">
                             <h3
-                              className="relative w-fit font-jakarta text-xl font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%_+_1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] dark:after:dark:bg-cod-gray-200/5"
+                              className="relative w-fit font-jakarta text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%_+_1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] md:text-xl dark:after:dark:bg-cod-gray-200/5"
                               data-tina-field={tinaField(item, "company")}
                             >
                               {item?.company}
                             </h3>
 
                             <p
-                              className="mb-2 text-lg font-medium text-cod-gray-400"
+                              className="mb-2 text-sm font-medium text-cod-gray-400 md:text-lg"
                               data-tina-field={tinaField(item, "period")}
                             >
                               {item?.period}
@@ -99,7 +96,7 @@ export const HomePage = (props: {
 
                             <div
                               data-tina-field={tinaField(item, "description")}
-                              className="markdown whitespace-pre-line text-lg"
+                              className="markdown whitespace-pre-line text-sm md:text-lg"
                             >
                               <TinaMarkdown
                                 content={item?.description}
