@@ -37,7 +37,7 @@ export function ContactForm({
   return (
     <div className={cn("mx-auto w-full", className)}>
       <form
-        className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-6"
+        className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-6"
         action={actionEmail}
       >
         <LabelInputContainer>
@@ -72,7 +72,7 @@ export function ContactForm({
           />
         </LabelInputContainer>
 
-        <LabelInputContainer className="md:col-span-2">
+        <LabelInputContainer className="lg:col-span-2">
           <Label
             htmlFor="message"
             data-tina-field={tinaField(message, "label")}
@@ -95,7 +95,7 @@ export function ContactForm({
         {privacy.label && (
           <div
             data-tina-field={tinaField(privacy, "label")}
-            className="markdown text-sm md:text-base"
+            className="markdown text-sm xl:text-base"
           >
             <TinaMarkdown
               content={privacy.label ?? ""}
@@ -108,7 +108,7 @@ export function ContactForm({
           label={button.label ?? ""}
           pendingLabel={button.pendingLabel ?? ""}
           data-tina-field={tinaField(button, "label")}
-          className="md:col-end-3"
+          className="lg:col-end-3"
         />
         {stateEmail?.message && (
           <p

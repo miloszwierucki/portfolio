@@ -37,11 +37,12 @@ export default function RootLayout({
       >
         <BackgroundPattern />
 
-        <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-8 md:px-20 md:pb-24 md:pt-16">
-          <aside className="hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-20 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-3 md:flex dark:ring-cod-gray-200/15">
+        <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pb-24 md:pt-16 xl:gap-8">
+          <aside className="hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-10 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-3 md:flex xl:py-20 dark:ring-cod-gray-200/15">
             {sidebar}
           </aside>
-          <main className="relative flex h-[calc(100vh-4rem)] overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-6 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] md:p-8 dark:ring-cod-gray-200/15">
+
+          <main className="relative flex h-[calc(100vh-4rem)] overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-6 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8 dark:ring-cod-gray-200/15">
             {children}
             {/* Gradient to bottom */}
             <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 w-full bg-zinc-50 [mask-image:linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 dark:bg-zinc-800" />

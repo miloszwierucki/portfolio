@@ -7,7 +7,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <div className="md:hidden">
         <Sidebar params={params} />
       </div>
-      <div className="hidden md:block">
+      <div className="hidden md:flex">
         <About params={params} />
       </div>
     </>

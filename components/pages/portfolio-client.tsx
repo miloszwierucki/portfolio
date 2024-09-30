@@ -58,12 +58,12 @@ export const PortfolioPage = (props: {
     <div className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent">
       <Header content={data.portfolio} />
 
-      <div className="flex px-1 md:px-3">
+      <div className="flex px-1 md:px-2 xl:px-3">
         {data.portfolio.description && (
           <BlurFade>
             <div
               data-tina-field={tinaField(data.portfolio, "description")}
-              className="markdown whitespace-pre-line text-base md:text-lg"
+              className="markdown whitespace-pre-line text-base xl:text-lg"
             >
               <TinaMarkdown
                 content={data.portfolio.description}
@@ -75,7 +75,7 @@ export const PortfolioPage = (props: {
       </div>
 
       {shownProjects && shownProjects.length > 0 && (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:gap-2 xl:gap-4">
           {types && (
             <ProjectFilter
               types={types}

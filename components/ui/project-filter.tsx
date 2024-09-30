@@ -13,7 +13,7 @@ export const ProjectFilter = ({
   setActiveType: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   return (
-    <div className="inset-x-0 bottom-5 z-20 flex w-full items-center space-x-1 py-2 text-base md:px-4">
+    <div className="inset-x-0 bottom-5 z-20 flex w-full items-center space-x-1 py-2 text-base md:px-2 lg:px-4 lg:py-0 xl:py-2">
       <div className="w-max pr-1 text-neutral-500">Filter:</div>
       <div className="flex w-3/4 flex-1 overflow-x-scroll scrollbar-none">
         <div className="flex w-max flex-row items-center space-x-1">
