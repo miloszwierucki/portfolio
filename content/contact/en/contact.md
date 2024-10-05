@@ -10,13 +10,13 @@ message:
   label: Message*
   placeholder: ...
 privacy:
-  label:
+  label: By sending a message, you agree to the processing of data in accordance with [Privacy Policy](/privacy).
 button:
   label: Send
   pendingLabel: Sending...
 ---
 
-You have a question? - leave a message.
+You have a question? - leave a message
 
 Feel free to contact me directly at\
 [mail@wierucki.com](mailto:mail@wierucki.com)

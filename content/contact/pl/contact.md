@@ -18,7 +18,5 @@ button:
   pendingLabel: Wysyłanie...
 ---
 
-Masz pytanie? - zostaw wiadomość. Chętnie się odezwę.
-
-Bądź odezwij się bezpośrednio na\
-[mail@wierucki.com](mailto:mail@wierucki.com)
+Masz pytanie? - zostaw wiadomość lub odezwij się bezpośrednio na [mail@wierucki.com](mailto:mail@wierucki.com).\
+Chętnie się odezwę.

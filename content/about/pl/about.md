@@ -8,16 +8,14 @@ timeline:
         period: 2024 - obecnie
         description: |
           *Łódź, Łódzkie, Polska*
-      - company: 'Samorząd Studencki Politechniki Łódzkiej '
+      - company: Samorząd Studencki Politechniki Łódzkiej
         period: 2023 - obecnie
         description: >
           **Przewodniczący Komisji ds. IT**
 
           *Łódź, Łódzkie, Polska*
 
-
-          Koordynowanie i współpraca z społecznością SSPŁ nad projektami
-          wspierając rozwój systemów uczelni i jednostek podległych.
+          Koordynowanie i współpraca z społecznością SSPŁ nad projektami wspierając rozwój systemów uczelni i jednostek podległych.
     _template: timelineBlock
   - icon: book-open
     title: Edukacja
@@ -25,8 +23,8 @@ timeline:
       - company: Politechnika Łódzka
         period: 2022 - obecnie
         description: |
-          *Łódź, Łódzkie, Polska*\
-          \
+          *Łódź, Łódzkie, Polska*
+
           Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
     _template: timelineBlock
 ---
