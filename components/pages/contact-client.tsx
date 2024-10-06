@@ -13,11 +13,13 @@ import {
   ContactQuery,
   ContactQueryVariables,
 } from "@/tina/__generated__/types";
+import { cn } from "@/lib/utils";
 
 export const ContactPage = (props: {
   data: ContactQuery;
   variables: ContactQueryVariables;
   query: string;
+  className?: string;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { data } = useTina({
@@ -28,17 +30,20 @@ export const ContactPage = (props: {
 
   return (
     <div
-      className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent"
+      className={cn(
+        "flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent",
+        props.className
+      )}
       ref={containerRef}
     >
       <Header content={data.contact} />
 
-      <div className="flex h-full flex-col gap-4 px-1 md:px-2 xl:px-3">
+      <div className="flex flex-col gap-4 px-1 md:px-2 xl:px-3">
         {data.contact.description && (
           <BlurFade>
             <div
               data-tina-field={tinaField(data.contact, "description")}
-              className="markdown whitespace-pre-line text-base xl:text-lg"
+              className="markdown whitespace-pre-line text-base 2xl:text-lg"
             >
               <TinaMarkdown
                 content={data.contact.description}

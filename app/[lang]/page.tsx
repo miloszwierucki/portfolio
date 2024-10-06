@@ -4,12 +4,8 @@ import About from "./about/page";
 export default async function Home({ params }: { params: { lang: string } }) {
   return (
     <>
-      <div className="md:hidden">
-        <Sidebar params={params} />
-      </div>
-      <div className="hidden md:flex">
-        <About params={params} />
-      </div>
+      <Sidebar params={params} className="md:hidden" />
+      <About params={params} className="hidden md:flex" />
     </>
   );
 }

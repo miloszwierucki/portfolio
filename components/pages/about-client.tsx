@@ -12,11 +12,13 @@ import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import Icon from "@/components/ui/icon";
+import { cn } from "@/lib/utils";
 
 export const AboutPage = (props: {
   data: AboutQuery;
   variables: AboutQueryVariables;
   query: string;
+  className?: string;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { data } = useTina({
@@ -27,7 +29,10 @@ export const AboutPage = (props: {
 
   return (
     <div
-      className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent"
+      className={cn(
+        "flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent",
+        props.className
+      )}
       ref={containerRef}
     >
       <Header content={data.about} />
@@ -37,7 +42,7 @@ export const AboutPage = (props: {
           <BlurFade>
             <div
               data-tina-field={tinaField(data.about, "description")}
-              className="markdown whitespace-pre-line text-base xl:text-lg"
+              className="markdown whitespace-pre-line text-base 2xl:text-lg"
             >
               <TinaMarkdown
                 content={data.about.description}
@@ -53,13 +58,13 @@ export const AboutPage = (props: {
               (timeline, i) =>
                 timeline && (
                   <BlurFade inView key={i}>
-                    <div className="mb-3 mt-2 flex w-fit items-center gap-3 font-jakarta text-xl font-medium xl:mb-6 xl:mt-4 xl:gap-4 xl:text-[1.75rem]">
+                    <div className="mb-3 mt-2 flex w-fit items-center gap-3 font-jakarta text-xl font-medium xl:mb-4 xl:mt-3 xl:gap-4 xl:text-2xl 2xl:mb-6 2xl:mt-4 2xl:text-[1.75rem]">
                       {timeline.icon && (
-                        <div className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-[#F2F2F1] xl:size-10 dark:bg-[#2E3031]">
+                        <div className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-[#F2F2F1] xl:size-9 2xl:size-10 dark:bg-[#2E3031]">
                           <Icon
                             name={timeline.icon as keyof typeof Icon}
                             data-tina-field={tinaField(timeline, "icon")}
-                            className="size-4 xl:size-[24px]"
+                            className="size-4 xl:size-5 2xl:size-6"
                           />
                         </div>
                       )}
@@ -75,20 +80,20 @@ export const AboutPage = (props: {
                           className={`group ml-1.5 flex flex-row space-x-6 xl:ml-2 xl:mt-0 xl:space-x-8 ${i === timeline.items!.length - 1 ? "mb-4" : "mb-7"}`}
                         >
                           <CircleDotDashed
-                            className="z-50 size-5 shrink-0 grow-0 group-hover:animate-spin-slow xl:size-[24px]"
+                            className="z-50 size-5 shrink-0 grow-0 group-hover:animate-spin-slow 2xl:size-6"
                             stroke="var(--cod-gray-400)"
                           />
 
                           <div className="flex flex-col">
                             <h3
-                              className="relative w-fit font-jakarta text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%_+_1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] xl:text-xl dark:after:dark:bg-cod-gray-200/5"
+                              className="relative w-fit font-jakarta text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%_+_1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] 2xl:text-xl dark:after:dark:bg-cod-gray-200/5"
                               data-tina-field={tinaField(item, "company")}
                             >
                               {item?.company}
                             </h3>
 
                             <p
-                              className="mb-2 text-sm font-medium text-cod-gray-400 xl:text-lg"
+                              className="mb-2 text-sm font-medium text-cod-gray-400 xl:text-base 2xl:text-lg"
                               data-tina-field={tinaField(item, "period")}
                             >
                               {item?.period}
@@ -96,7 +101,7 @@ export const AboutPage = (props: {
 
                             <div
                               data-tina-field={tinaField(item, "description")}
-                              className="markdown whitespace-pre-line text-sm xl:text-lg"
+                              className="markdown whitespace-pre-line text-sm xl:text-base 2xl:text-lg"
                             >
                               <TinaMarkdown
                                 content={item?.description}

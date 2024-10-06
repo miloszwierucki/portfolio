@@ -70,7 +70,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               aria-invalid={error ? "true" : undefined}
               aria-describedby={error ? "input-error" : undefined}
               className={cn(
-                "dark:placeholder-text-neutral-600 flex w-full resize-none rounded-lg border-none bg-cod-gray-100/5 px-3.5 py-3 text-base shadow-sm ring-1 ring-cod-gray-200/20 backdrop-blur transition duration-300 placeholder:text-neutral-500 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-3 xl:text-base dark:ring-cod-gray-200/15",
+                "dark:placeholder-text-neutral-600 flex w-full resize-none rounded-lg border-none bg-cod-gray-100/5 px-3.5 py-3 text-base shadow-sm ring-1 ring-cod-gray-200/20 backdrop-blur transition duration-300 placeholder:text-neutral-500 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base dark:ring-cod-gray-200/15",
                 className
               )}
               ref={ref}

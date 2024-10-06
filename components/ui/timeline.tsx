@@ -85,7 +85,7 @@ export const Timeline = ({
         width="23"
         height={svgHeight} // Set the SVG height
         aria-hidden="true"
-        className="absolute left-1.5 top-6 xl:left-2.5"
+        className="absolute left-1.5 top-6 xl:left-2 2xl:left-2.5"
       >
         <motion.path
           d={`M 1 0V -36 l 9.5 24 V ${svgHeight}`}

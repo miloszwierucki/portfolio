@@ -18,7 +18,7 @@ export const SubmitButton = ({
   return (
     <button
       className={cn(
-        "relative z-0 flex h-12 items-center justify-center gap-2 overflow-hidden rounded-lg border-[1px] border-zinc-900/90 py-3 transition-all duration-500 before:absolute before:inset-0 before:-z-10 before:translate-x-[150%] before:translate-y-[150%] before:scale-[2.5] before:rounded-[100%] before:bg-zinc-900/90 before:transition-transform before:duration-1000 before:content-[''] hover:text-neutral-200 hover:before:translate-x-[0%] hover:before:translate-y-[0%] active:scale-95 lg:h-10 lg:text-sm xl:h-12 xl:text-base dark:border-zinc-50/90 dark:before:bg-zinc-50/90 hover:dark:text-neutral-900",
+        "relative z-0 flex h-12 items-center justify-center gap-2 overflow-hidden rounded-lg border-[1px] border-zinc-900/90 py-3 transition-all duration-500 before:absolute before:inset-0 before:-z-10 before:translate-x-[150%] before:translate-y-[150%] before:scale-[2.5] before:rounded-[100%] before:bg-zinc-900/90 before:transition-transform before:duration-1000 before:content-[''] hover:text-neutral-200 hover:before:translate-x-[0%] hover:before:translate-y-[0%] active:scale-95 lg:h-10 lg:text-sm 2xl:h-12 2xl:text-base dark:border-zinc-50/90 dark:before:bg-zinc-50/90 hover:dark:text-neutral-900",
         className
       )}
       aria-disabled={pending}

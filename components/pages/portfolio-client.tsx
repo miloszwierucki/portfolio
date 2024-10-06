@@ -14,11 +14,13 @@ import { MarkdownComponents } from "../markdown-components";
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
+import { cn } from "@/lib/utils";
 
 export const PortfolioPage = (props: {
   data: PortfolioQuery;
   variables: PortfolioQueryVariables;
   query: string;
+  className?: string;
 }) => {
   const { data } = useTina({
     query: props.query,
@@ -55,7 +57,12 @@ export const PortfolioPage = (props: {
   }, [activeType]);
 
   return (
-    <div className="flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent">
+    <div
+      className={cn(
+        "flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent",
+        props.className
+      )}
+    >
       <Header content={data.portfolio} />
 
       <div className="flex px-1 md:px-2 xl:px-3">
@@ -63,7 +70,7 @@ export const PortfolioPage = (props: {
           <BlurFade>
             <div
               data-tina-field={tinaField(data.portfolio, "description")}
-              className="markdown whitespace-pre-line text-base xl:text-lg"
+              className="markdown whitespace-pre-line text-base 2xl:text-lg"
             >
               <TinaMarkdown
                 content={data.portfolio.description}
@@ -75,7 +82,7 @@ export const PortfolioPage = (props: {
       </div>
 
       {shownProjects && shownProjects.length > 0 && (
-        <div className="flex flex-col gap-4 md:gap-2 xl:gap-4">
+        <div className="flex flex-col gap-4 md:gap-2 2xl:gap-4">
           {types && (
             <ProjectFilter
               types={types}

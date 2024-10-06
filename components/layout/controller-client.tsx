@@ -97,7 +97,7 @@ export default function ControllerClient(props: {
   };
 
   return (
-    <nav className="fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl bg-cod-gray-100/5 px-4 py-2 text-sm shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:bottom-5 md:flex-row md:text-base dark:ring-cod-gray-200/15">
+    <nav className="fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl bg-cod-gray-100/5 px-4 py-2 text-sm shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base dark:ring-cod-gray-200/15">
       <div className="flex items-center space-x-1">
         {data.settings.navbar &&
           data.settings.navbar.map((item) =>
@@ -108,7 +108,7 @@ export default function ControllerClient(props: {
                 onMouseEnter={pointerCursor}
                 onMouseLeave={defaultCursor}
                 data-tina-field={tinaField(item, "label")}
-                className={`grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:py-2 ${
+                className={`grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 xl:py-2 ${
                   pathname.includes(item.href) && "font-medium"
                 }`}
               >
@@ -135,7 +135,7 @@ export default function ControllerClient(props: {
           onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
           onMouseEnter={themeCursor}
           onMouseLeave={defaultCursor}
-          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:py-2"
+          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 xl:py-2"
         >
           <AnimatePresence mode="wait" initial={false}>
             {theme === "dark" && (
@@ -149,7 +149,7 @@ export default function ControllerClient(props: {
                   opacity: { duration: 0.2, delay: 0.1 },
                 }}
               >
-                <Moon className="size-4 md:size-5" />
+                <Moon className="size-4 xl:size-5" />
               </motion.div>
             )}
             {theme === "light" && (
@@ -170,7 +170,7 @@ export default function ControllerClient(props: {
         </button>
 
         <button
-          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 md:py-2 md:text-lg"
+          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 xl:py-2 xl:text-lg"
           onMouseEnter={languageCursor}
           onMouseLeave={defaultCursor}
         >

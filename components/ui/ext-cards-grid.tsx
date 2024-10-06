@@ -91,7 +91,7 @@ export function ExpandableCardGrid({
                       } as React.CSSProperties
                     }
                     className={cn(
-                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-md xl:h-80",
+                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
                       // Preload hover image by setting it in a pseudo-element
                       `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
                       "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
@@ -208,7 +208,7 @@ export function ExpandableCardGrid({
                               } as React.CSSProperties
                             }
                             className={cn(
-                              "relative h-52 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-60",
+                              "relative h-52 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
                               // Preload hover image by setting it in a pseudo-element
                               `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
                               "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
@@ -221,14 +221,14 @@ export function ExpandableCardGrid({
                         <motion.h3
                           layoutId={`title-${card.title}-${id}`}
                           data-tina-field={tinaField(card, "title")}
-                          className="font-jakarta text-base font-semibold md:text-sm xl:text-base"
+                          className="font-jakarta text-base font-semibold md:text-sm 2xl:text-base"
                         >
                           {card.title}
                         </motion.h3>
                         <motion.p
                           layoutId={`type-${card.title}-${id}`}
                           data-tina-field={tinaField(card, "type")}
-                          className="text-sm text-neutral-500 md:text-xs xl:text-sm"
+                          className="text-sm text-neutral-500 md:text-xs 2xl:text-sm"
                         >
                           {card.type}
                         </motion.p>

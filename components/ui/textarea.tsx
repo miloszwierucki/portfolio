@@ -70,7 +70,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               aria-describedby={error ? "message-error" : undefined}
               rows={6}
               className={cn(
-                "dark:placeholder-text-neutral-600 scrollbar-thumb-rounded-full flex w-full resize-none rounded-lg border-none bg-cod-gray-100/5 px-3.5 py-3 text-base shadow-sm ring-1 ring-cod-gray-200/20 backdrop-blur transition duration-300 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-zinc-50 placeholder:text-neutral-500 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-3 xl:text-base dark:ring-cod-gray-200/15 dark:scrollbar-thumb-zinc-900",
+                "dark:placeholder-text-neutral-600 scrollbar-thumb-rounded-full flex w-full resize-none rounded-lg border-none bg-cod-gray-100/5 px-3.5 py-3 text-base shadow-sm ring-1 ring-cod-gray-200/20 backdrop-blur transition duration-300 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-zinc-50 placeholder:text-neutral-500 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base dark:ring-cod-gray-200/15 dark:scrollbar-thumb-zinc-900",
                 className
               )}
               ref={ref}

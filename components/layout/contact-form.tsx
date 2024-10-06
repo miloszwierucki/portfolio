@@ -95,7 +95,7 @@ export function ContactForm({
         {privacy.label && (
           <div
             data-tina-field={tinaField(privacy, "label")}
-            className="markdown text-sm xl:text-base"
+            className="markdown text-sm 2xl:text-base"
           >
             <TinaMarkdown
               content={privacy.label ?? ""}
@@ -113,7 +113,7 @@ export function ContactForm({
         {stateEmail?.message && (
           <p
             role="alert"
-            className="col-span-2 w-full text-center text-base opacity-50"
+            className="w-full text-center text-base opacity-50 lg:col-span-2 xl:mb-2"
           >
             {stateEmail.message}
           </p>
