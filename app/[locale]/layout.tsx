@@ -1,3 +1,4 @@
+import { unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
 
@@ -6,15 +7,13 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
 import VercelAnalytics from "@/components/vercel-analytics";
 import { plus_jakarta_sans, satoshi } from "../fonts";
+import { routing } from "@/i18n/routing";
 import "../globals.css";
 
 // export const revalidate = 0;
 
-interface LangParams {
-  locale: string;
-}
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "pl" }];
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export const metadata: Metadata = {
@@ -26,15 +25,17 @@ export default function RootLayout({
   sidebar,
   children,
   controller,
-  params,
+  params: { locale },
 }: Readonly<{
   sidebar: React.ReactNode;
   children: React.ReactNode;
   controller: React.ReactNode;
-  params: LangParams;
+  params: { locale: string };
 }>) {
+  unstable_setRequestLocale(locale);
+
   return (
-    <html lang={params.locale}>
+    <html lang={locale}>
       <body
         className={`${satoshi.variable} ${plus_jakarta_sans.variable} grid min-h-screen w-screen place-content-center overflow-x-hidden bg-zinc-50 font-satoshi text-neutral-900 antialiased scrollbar-none md:h-screen md:overflow-y-hidden dark:bg-zinc-900 dark:text-neutral-200`}
       >

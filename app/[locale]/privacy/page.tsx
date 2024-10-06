@@ -1,3 +1,5 @@
+import { unstable_setRequestLocale } from "next-intl/server";
+
 import { PrivacyPage } from "@/components/pages/privacy-client";
 import client from "@/tina/__generated__/client";
 
@@ -6,6 +8,8 @@ export default async function Privacy({
 }: {
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
+
   const res = await client.queries.privacy({
     relativePath: `${locale}/privacy.md`,
   });
