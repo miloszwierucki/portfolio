@@ -2,12 +2,12 @@ import ControllerClient from "@/components/layout/controller-client";
 import client from "@/tina/__generated__/client";
 
 export default async function Controller({
-  params: { lang },
+  params: { locale },
 }: {
-  params: { lang: string };
+  params: { locale: string };
 }) {
   const res = await client.queries.settings({
-    relativePath: `${lang}/settings.json`,
+    relativePath: `${locale}/settings.json`,
   });
 
   return (

@@ -5,7 +5,7 @@ import { tinaField } from "tinacms/dist/react";
 import { useFormState } from "react-dom";
 import React from "react";
 
-import { sendEmailAction } from "@/app/[lang]/contact/actions/send-email";
+import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
 import { MarkdownComponents } from "@/components/markdown-components";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { pointerCursor, defaultCursor } from "@/lib/cursor";

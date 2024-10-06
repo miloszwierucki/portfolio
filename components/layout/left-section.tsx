@@ -2,10 +2,10 @@
 
 import { useTina, tinaField } from "tinacms/dist/react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import Icon from "@/components/ui/icon";
+import { Link } from "@/i18n/routing";
 import {
   SidebarQuery,
   SidebarQueryVariables,

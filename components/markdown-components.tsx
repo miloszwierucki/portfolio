@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import { Components } from "tinacms/dist/rich-text";
+import { Link } from "@/i18n/routing";
 
 export const MarkdownComponents = (
   pointerEnter: () => void,

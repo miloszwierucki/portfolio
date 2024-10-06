@@ -3,16 +3,16 @@ import { AboutPage } from "@/components/pages/about-client";
 import client from "@/tina/__generated__/client";
 
 export default async function Home({
-  params: { lang },
+  params: { locale },
 }: {
-  params: { lang: string };
+  params: { locale: string };
 }) {
   const resAbout = await client.queries.about({
-    relativePath: `${lang}/about.md`,
+    relativePath: `${locale}/about.md`,
   });
 
   const resSidebar = await client.queries.sidebar({
-    relativePath: `${lang}/sidebar.json`,
+    relativePath: `${locale}/sidebar.json`,
   });
 
   return (

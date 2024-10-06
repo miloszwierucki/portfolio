@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
 import { Sun, Moon, EllipsisVertical } from "lucide-react";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 import { useThemeStore } from "@/store/useThemeStore";
+import { Link } from "@/i18n/routing";
 import {
   SettingsQuery,
   SettingsQueryVariables,
@@ -19,7 +19,6 @@ import {
   pointerCursor,
   themeCursor,
 } from "@/lib/cursor";
-import setLang from "@/app/[lang]/@controller/actions/set-lang";
 
 export default function ControllerClient(props: {
   data: SettingsQuery;
@@ -28,7 +27,7 @@ export default function ControllerClient(props: {
 }) {
   const [open, setOpen] = useState(false);
   const { theme, changeTheme } = useThemeStore();
-  const params = useParams<{ lang: string }>();
+  const params = useParams<{ locale: string }>();
   const pathname = usePathname();
   const { data } = useTina({
     query: props.query,
@@ -170,12 +169,12 @@ export default function ControllerClient(props: {
         </button>
 
         <button
-          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 xl:py-2 xl:text-lg"
+          className="grid max-h-9 place-content-center rounded-lg py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 xl:text-lg"
           onMouseEnter={languageCursor}
           onMouseLeave={defaultCursor}
         >
           <AnimatePresence mode="wait" initial={false}>
-            {params.lang === "pl" && (
+            {params.locale === "pl" && (
               <motion.div
                 key="pl"
                 initial={{ opacity: 0.5 }}
@@ -184,14 +183,15 @@ export default function ControllerClient(props: {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/en/${pathname.split("/")[2] || ""}`}
-                  onClick={() => setLang("en")}
+                  className="size-full px-3 py-1.5 xl:py-2"
+                  href={`${pathname.replace("/pl", "/").replace("//", "/")}`}
+                  locale="en"
                 >
                   🇵🇱
                 </Link>
               </motion.div>
             )}
-            {params.lang === "en" && (
+            {params.locale === "en" && (
               <motion.div
                 key="en"
                 initial={{ opacity: 0.5 }}
@@ -200,8 +200,9 @@ export default function ControllerClient(props: {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/pl/${pathname.split("/")[2] || ""}`}
-                  onClick={() => setLang("pl")}
+                  className="size-full px-3 py-1.5 xl:py-2"
+                  href={`${pathname.replace("/en", "/").replace("//", "/")}`}
+                  locale="pl"
                 >
                   🇬🇧
                 </Link>
