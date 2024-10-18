@@ -21,10 +21,11 @@ const CustomCursor = () => {
       cursorX.set(e.clientX - 8);
       cursorY.set(e.clientY - 8);
 
-      if (visible === false) {
+      if (visible === false && window.innerWidth > 1024) {
         setVisible(true);
       }
     };
+
     window.addEventListener("mousemove", handleMouseMove);
 
     const handleMouseLeave = () => {
