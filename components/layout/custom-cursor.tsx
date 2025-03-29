@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "motion/react";
 import { useEffect, useState } from "react";
 
 import { useCursorStore } from "@/store/useCursorStore";
@@ -11,10 +11,6 @@ const CustomCursor = () => {
   const [visible, setVisible] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-
-  const springConfig = { stiffness: 600, damping: 50 }; // { damping: 25, stiffness: 700 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -44,8 +40,8 @@ const CustomCursor = () => {
     <motion.div
       className="pointer-events-none fixed left-0 top-0 z-50 text-cod-gray-400 drop-shadow-lg"
       style={{
-        translateX: cursorXSpring,
-        translateY: cursorYSpring,
+        translateX: cursorX,
+        translateY: cursorY,
       }}
     >
       {cursor}

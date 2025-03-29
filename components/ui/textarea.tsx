@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
+import { useMotionTemplate, useMotionValue, motion } from "motion/react";
 import React, { forwardRef, useEffect, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";

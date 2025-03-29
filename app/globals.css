@@ -2,27 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 *,
 button {
   cursor: none !important;
 }
 
-body {
-  /* color: var(--foreground);
-  background: var(--background); */
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-scrollbar {
+  cursor: none !important;
 }
 
 @layer utilities {
@@ -49,11 +35,8 @@ body {
   top: 0;
   left: 0;
   filter: blur(100px) saturate(100%);
-  background-image: radial-gradient(
-      at 40% 45%,
-      rgb(0, 139, 248) 0px,
-      transparent 50%
-    ),
+  background-image:
+    radial-gradient(at 40% 45%, rgb(0, 139, 248) 0px, transparent 50%),
     radial-gradient(at 90% 10%, rgb(250, 25, 139) 0px, transparent 50%),
     radial-gradient(at 50% 95%, rgb(0, 255, 255) 0px, transparent 50%),
     radial-gradient(at 20% 35%, rgb(137, 252, 0) 0px, transparent 50%),

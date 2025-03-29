@@ -1,6 +1,6 @@
 "use client";
 
-import { useScroll, motion, useSpring, useTransform } from "framer-motion";
+import { useScroll, motion, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { defaultCursor, pathCursor } from "@/lib/cursor";

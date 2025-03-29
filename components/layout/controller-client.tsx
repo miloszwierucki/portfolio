@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
@@ -27,6 +27,7 @@ export default function ControllerClient(props: {
 }) {
   const [open, setOpen] = useState(false);
   const { theme, changeTheme } = useThemeStore();
+  const [isDark, setIsDark] = useState(false);
   const params = useParams<{ locale: string }>();
   const pathname = usePathname();
   const { data } = useTina({
@@ -66,8 +67,10 @@ export default function ControllerClient(props: {
   const applyTheme = (theme: string) => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      setIsDark(true);
     } else if (theme === "light") {
       document.documentElement.classList.remove("dark");
+      setIsDark(false);
     }
   };
 
@@ -90,8 +93,10 @@ export default function ControllerClient(props: {
     ).matches;
     if (systemPrefersDark) {
       document.documentElement.classList.add("dark");
+      setIsDark(true);
     } else {
       document.documentElement.classList.remove("dark");
+      setIsDark(false);
     }
   };
 
@@ -136,8 +141,8 @@ export default function ControllerClient(props: {
           onMouseLeave={defaultCursor}
           className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 xl:py-2"
         >
-          <AnimatePresence mode="wait" initial={false}>
-            {theme === "dark" && (
+          <AnimatePresence mode="wait">
+            {isDark ? (
               <motion.div
                 key="dark"
                 initial={{ rotate: 90, opacity: 0.5 }}
@@ -148,10 +153,9 @@ export default function ControllerClient(props: {
                   opacity: { duration: 0.2, delay: 0.1 },
                 }}
               >
-                <Moon className="size-4 xl:size-5" />
+                <Moon className="size-4 xl:size-5" strokeWidth={1.5} />
               </motion.div>
-            )}
-            {theme === "light" && (
+            ) : (
               <motion.div
                 key="light"
                 initial={{ rotate: 90, opacity: 0.5 }}
@@ -162,7 +166,7 @@ export default function ControllerClient(props: {
                   opacity: { duration: 0.2, delay: 0.1 },
                 }}
               >
-                <Sun size={20} />
+                <Sun className="size-4 xl:size-5" strokeWidth={1.5} />
               </motion.div>
             )}
           </AnimatePresence>
