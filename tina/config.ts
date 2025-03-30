@@ -7,6 +7,8 @@ import sidebar from "./collections/sidebar";
 import privacy from "./collections/privacy";
 import about from "./collections/about";
 
+import nextConfig from "../next.config.mjs";
+
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -25,6 +27,7 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
+    basePath: nextConfig.basePath?.replace(/^\//, "") || "", // The base path of the app (could be /blog)
   },
   media: {
     tina: {
@@ -35,5 +38,14 @@ export default defineConfig({
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [sidebar, about, portfolio, contact, privacy, settings],
+  },
+
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ["eng"],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
   },
 });

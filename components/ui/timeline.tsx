@@ -11,7 +11,7 @@ export const Timeline = ({
   containerRef,
 }: {
   children: React.ReactNode;
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -47,7 +47,6 @@ export const Timeline = ({
     if (contentRef.current) {
       setSvgHeight(contentRef.current.offsetHeight - 80);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const y1 = useSpring(

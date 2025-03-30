@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { LeftSection } from "@/components/layout/left-section";
 import { AboutPage } from "@/components/pages/about-client";
@@ -9,7 +9,7 @@ export default async function Home({
 }: {
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const resAbout = await client.queries.about({
     relativePath: `${locale}/about.md`,

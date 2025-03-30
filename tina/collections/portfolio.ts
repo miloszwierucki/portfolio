@@ -26,7 +26,9 @@ const portfolio: Collection = {
       name: "description",
       isBody: true,
       type: "rich-text",
-      toolbarOverride: ["link", "bold", "italic", "code", "raw"],
+      overrides: {
+        toolbar: ["link", "bold", "italic", "code", "raw"],
+      },
     },
     {
       type: "object",

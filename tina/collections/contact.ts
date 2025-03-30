@@ -26,7 +26,9 @@ const contact: Collection = {
       name: "description",
       isBody: true,
       type: "rich-text",
-      toolbarOverride: ["link", "bold", "italic", "code", "raw"],
+      overrides: {
+        toolbar: ["link", "bold", "italic", "code", "raw"],
+      },
     },
     {
       label: "E-mail Input",
@@ -92,7 +94,9 @@ const contact: Collection = {
           label: "Label",
           isBody: true,
           type: "rich-text",
-          toolbarOverride: ["link", "bold", "italic", "code", "raw"],
+          overrides: {
+            toolbar: ["link", "bold", "italic", "code", "raw"],
+          },
           required: true,
         },
       ],

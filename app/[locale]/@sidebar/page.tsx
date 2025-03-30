@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { LeftSection } from "@/components/layout/left-section";
 import client from "@/tina/__generated__/client";
@@ -8,7 +8,7 @@ export default async function Sidebar({
 }: {
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const res = await client.queries.sidebar({
     relativePath: `${locale}/sidebar.json`,

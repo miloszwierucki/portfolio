@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   controller: React.ReactNode;
   params: { locale: string };
 }>) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
