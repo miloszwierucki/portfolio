@@ -7,6 +7,7 @@ import { useRef } from "react";
 
 import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
+import { Copyright } from "@/components/layout/copyright";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
@@ -117,9 +118,7 @@ export const AboutPage = (props: {
         )}
       </div>
 
-      <div className="self-end text-xs opacity-60">
-        Designed & Developed by Miłosz Wierucki ©2024
-      </div>
+      <Copyright />
     </div>
   );
 };

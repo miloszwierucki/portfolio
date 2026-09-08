@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import { MarkdownComponents } from "@/components/markdown-components";
 import { ContactForm } from "@/components/layout/contact-form";
+import { Copyright } from "@/components/layout/copyright";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import {
@@ -64,9 +65,7 @@ export const ContactPage = (props: {
         </BlurFade>
       </div>
 
-      <div className="hidden self-end text-xs opacity-60 lg:block">
-        Designed & Developed by Miłosz Wierucki ©2024
-      </div>
+      <Copyright className="hidden lg:block" />
     </div>
   );
 };
