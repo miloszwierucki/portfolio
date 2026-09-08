@@ -81,7 +81,7 @@ export const AboutPage = (props: {
                         >
                           <CircleDotDashed
                             className="z-50 size-5 shrink-0 grow-0 group-hover:animate-spin-slow 2xl:size-6"
-                            stroke="var(--cod-gray-400)"
+                            stroke="var(--color-cod-gray-400)"
                           />
 
                           <div className="flex flex-col">

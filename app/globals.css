@@ -1,5 +1,34 @@
-@config "../tailwind.config.ts";
 @import "tailwindcss";
+@plugin "tailwind-scrollbar";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-satoshi: var(--font-satoshi-sans);
+  --font-jakarta: var(--font-plus-jakarta-sans);
+
+  --color-cod-gray-100: #e7e7e7;
+  --color-cod-gray-200: #d1d1d1;
+  --color-cod-gray-400: #888888;
+
+  --animate-backgroundMove: backgroundPosition 6500ms linear infinite;
+  --animate-spin-slow: spin 5s linear infinite;
+
+  @keyframes backgroundPosition {
+    0% {
+      background-position: 200% 0, 0 0;
+    }
+
+    25%,
+    100% {
+      background-position: -100% 0, 0 0;
+    }
+  }
+}
+
+@utility grid-cols-13 {
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+}
 
 *,
 button {
