@@ -7,8 +7,6 @@ import sidebar from "./collections/sidebar";
 import privacy from "./collections/privacy";
 import about from "./collections/about";
 
-import nextConfig from "../next.config.mjs";
-
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -27,7 +25,7 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    basePath: nextConfig.basePath?.replace(/^\//, "") || "", // The base path of the app (could be /blog)
+    basePath: "",
   },
   media: {
     tina: {

@@ -16,32 +16,22 @@ export const Timeline = ({
   const contentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: containerRef,
-    layoutEffect: false,
   });
 
   const [svgHeight, setSvgHeight] = useState(0);
-  const [variant, setVariant] = useState({
-    track: "var(--cod-gray-200)",
-    thumb: "var(--zinc-50)",
-    opacity: 0.2,
-  });
   const { theme } = useThemeStore();
-
-  useEffect(() => {
-    setVariant(
-      theme === "dark"
-        ? {
-            track: "var(--cod-gray-200)",
-            thumb: "var(--zinc-50)",
-            opacity: 0.2,
-          }
-        : {
-            track: "var(--cod-gray-200)",
-            thumb: "var(--zinc-900)",
-            opacity: 0.4,
-          }
-    );
-  }, [theme]);
+  const variant =
+    theme === "dark"
+      ? {
+          track: "var(--cod-gray-200)",
+          thumb: "var(--zinc-50)",
+          opacity: 0.2,
+        }
+      : {
+          track: "var(--cod-gray-200)",
+          thumb: "var(--zinc-900)",
+          opacity: 0.4,
+        };
 
   useEffect(() => {
     if (contentRef.current) {
@@ -84,7 +74,7 @@ export const Timeline = ({
         width="23"
         height={svgHeight} // Set the SVG height
         aria-hidden="true"
-        className="absolute left-1.5 top-6 xl:left-2 2xl:left-2.5"
+        className="absolute top-6 left-1.5 xl:left-2 2xl:left-2.5"
       >
         <motion.path
           d={`M 1 0V -36 l 9.5 24 V ${svgHeight}`}

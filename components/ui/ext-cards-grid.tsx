@@ -72,11 +72,11 @@ export function ExpandableCardGrid({
       {/* Expandable Card */}
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 z-[100] grid place-items-center">
+          <div className="z-100 fixed inset-0 grid place-items-center">
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-cod-gray-100/5 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit dark:bg-zinc-900 dark:ring-cod-gray-200/15"
+              className="max-w-125 flex h-full w-full flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-cod-gray-100/5 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit dark:bg-zinc-900 dark:ring-cod-gray-200/15"
             >
               <motion.div
                 layoutId={`image-${active.title}-${id}`}
@@ -91,10 +91,10 @@ export function ExpandableCardGrid({
                       } as React.CSSProperties
                     }
                     className={cn(
-                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
+                      "bg-(image:--image-url) relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
                       // Preload hover image by setting it in a pseudo-element
-                      `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
-                      "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
+                      `before:bg-(image:--preview-url) before:absolute before:inset-0 before:z-[-1] before:opacity-0`,
+                      "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
                       "transition-all duration-500"
                     )}
                   />
@@ -208,10 +208,10 @@ export function ExpandableCardGrid({
                               } as React.CSSProperties
                             }
                             className={cn(
-                              "relative h-52 w-full overflow-hidden rounded-2xl bg-[image:var(--image-url)] bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
+                              "bg-(image:--image-url) relative h-52 w-full overflow-hidden rounded-2xl bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
                               // Preload hover image by setting it in a pseudo-element
-                              `before:absolute before:inset-0 before:z-[-1] before:bg-[image:var(--preview-url)] before:opacity-0`,
-                              "hover:bg-[image:var(--preview-url)] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
+                              `before:bg-(image:--preview-url) before:absolute before:inset-0 before:z-[-1] before:opacity-0`,
+                              "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
                               "transition-all duration-500"
                             )}
                           />

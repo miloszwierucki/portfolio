@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import Icon from "@/components/ui/icon";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import {
   SidebarQuery,
   SidebarQueryVariables,
@@ -43,6 +43,7 @@ export const LeftSection = (props: {
               alt="Person profile picture"
               width={400}
               height={400}
+              loading="eager"
             />
           )}
         </div>
@@ -55,7 +56,7 @@ export const LeftSection = (props: {
         </h1>
 
         <div
-          className="relative inline-flex justify-center whitespace-nowrap rounded-lg bg-cod-gray-200/10 px-3.5 py-2.5 text-center text-sm font-medium text-slate-800 shadow before:absolute before:inset-0 before:animate-backgroundMove before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white)_50%,transparent_75%,transparent_100%)] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat focus:outline-none focus:ring focus:ring-slate-500/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-slate-500/50 md:whitespace-normal md:text-xs lg:whitespace-nowrap 2xl:text-sm dark:bg-cod-gray-200/5 dark:text-neutral-200 dark:before:bg-[linear-gradient(45deg,transparent_25%,theme(colors.white/.5)_50%,transparent_75%,transparent_100%)]"
+          className="before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] dark:before:bg-[linear-gradient(45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%)]/50 relative inline-flex justify-center whitespace-nowrap rounded-lg bg-cod-gray-200/10 px-3.5 py-2.5 text-center text-sm font-medium text-slate-800 shadow before:absolute before:inset-0 before:animate-backgroundMove before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%)] before:bg-no-repeat focus:outline-none focus:ring focus:ring-slate-500/50 focus-visible:outline-none focus-visible:ring focus-visible:ring-slate-500/50 md:whitespace-normal md:text-xs lg:whitespace-nowrap 2xl:text-sm dark:bg-cod-gray-200/5 dark:text-neutral-200"
           data-tina-field={tinaField(data.sidebar, "role")}
         >
           {data.sidebar.role}
@@ -94,7 +95,7 @@ export const LeftSection = (props: {
                       >
                         <Icon
                           name={block.icon as keyof typeof Icon}
-                          className="size-[22px] 2xl:size-6"
+                          className="size-5.5 2xl:size-6"
                         />
                       </div>
                       <div

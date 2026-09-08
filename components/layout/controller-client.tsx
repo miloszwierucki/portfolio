@@ -5,10 +5,10 @@ import { tinaField, useTina } from "tinacms/dist/react";
 import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
 import { Sun, Moon, EllipsisVertical } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import {
   SettingsQuery,
   SettingsQueryVariables,
@@ -20,6 +20,18 @@ import {
   themeCursor,
 } from "@/lib/cursor";
 
+const colorSchemeQuery = "(prefers-color-scheme: dark)";
+
+const subscribeToColorScheme = (onStoreChange: () => void) => {
+  const mediaQuery = window.matchMedia(colorSchemeQuery);
+  mediaQuery.addEventListener("change", onStoreChange);
+  return () => mediaQuery.removeEventListener("change", onStoreChange);
+};
+
+const getColorSchemeSnapshot = () =>
+  window.matchMedia(colorSchemeQuery).matches;
+const getColorSchemeServerSnapshot = () => false;
+
 export default function ControllerClient(props: {
   data: SettingsQuery;
   variables: SettingsQueryVariables;
@@ -27,7 +39,12 @@ export default function ControllerClient(props: {
 }) {
   const [open, setOpen] = useState(false);
   const { theme, changeTheme } = useThemeStore();
-  const [isDark, setIsDark] = useState(false);
+  const systemIsDark = useSyncExternalStore(
+    subscribeToColorScheme,
+    getColorSchemeSnapshot,
+    getColorSchemeServerSnapshot
+  );
+  const isDark = theme === "dark" || (theme === "system" && systemIsDark);
   const params = useParams<{ locale: string }>();
   const pathname = usePathname();
   const { data } = useTina({
@@ -35,6 +52,25 @@ export default function ControllerClient(props: {
     variables: props.variables,
     data: props.data,
   });
+
+  const applyTheme = (newTheme: string) => {
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (newTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  const applySystemTheme = () => {
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    if (systemPrefersDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   useEffect(() => {
     // Get saved theme
@@ -63,17 +99,6 @@ export default function ControllerClient(props: {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Apply theme
-  const applyTheme = (theme: string) => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    } else if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      setIsDark(false);
-    }
-  };
-
   // Handle theme change
   const handleThemeChange = (newTheme: string) => {
     changeTheme(newTheme);
@@ -83,20 +108,6 @@ export default function ControllerClient(props: {
       applySystemTheme();
     } else {
       applyTheme(newTheme);
-    }
-  };
-
-  // Apply system theme
-  const applySystemTheme = () => {
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    if (systemPrefersDark) {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setIsDark(false);
     }
   };
 

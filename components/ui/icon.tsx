@@ -7,8 +7,15 @@ export interface IconProps extends LucideProps {
   name: keyof typeof dynamicIconImports;
 }
 
+const icons = Object.fromEntries(
+  Object.entries(dynamicIconImports).map(([name, icon]) => [
+    name,
+    dynamic(icon),
+  ])
+) as Record<keyof typeof dynamicIconImports, React.ComponentType<LucideProps>>;
+
 const Icon = ({ name, ...props }: IconProps) => {
-  const LucideIcon = dynamic(dynamicIconImports[name]);
+  const LucideIcon = icons[name];
 
   return <LucideIcon {...props} />;
 };

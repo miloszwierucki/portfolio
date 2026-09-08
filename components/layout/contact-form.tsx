@@ -2,8 +2,7 @@
 
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
-import { useFormState } from "react-dom";
-import React from "react";
+import React, { useActionState } from "react";
 
 import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
 import { MarkdownComponents } from "@/components/markdown-components";
@@ -30,7 +29,7 @@ export function ContactForm({
   privacy: ContactQuery["contact"]["privacy"];
   button: ContactQuery["contact"]["button"];
 }) {
-  const [stateEmail, actionEmail] = useFormState(sendEmailAction, undefined);
+  const [stateEmail, actionEmail] = useActionState(sendEmailAction, undefined);
 
   if (!email || !name || !message || !button || !privacy) return null;
 

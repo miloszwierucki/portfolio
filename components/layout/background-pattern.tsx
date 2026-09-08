@@ -1,17 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import Particles from "@/components/ui/particles";
 
 export default function BackgroundPattern() {
-  const [color, setColor] = useState("#ffffff");
   const { theme } = useThemeStore();
-
-  useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000");
-  }, [theme]);
+  const color = theme === "dark" ? "#ffffff" : "#000000";
 
   return (
     <div className="gradient after:opacity-[0.03]">

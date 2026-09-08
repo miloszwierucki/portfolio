@@ -2,7 +2,7 @@
 
 import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { ExpandableCardGrid } from "@/components/ui/ext-cards-grid";
 import { ProjectFilter } from "@/components/ui/project-filter";
@@ -27,10 +27,12 @@ export const PortfolioPage = (props: {
     variables: props.variables,
     data: props.data,
   });
-  const [shownProjects, setShownProjects] = useState<
-    PortfolioQuery["portfolio"]["projects"]
-  >(data.portfolio.projects || []);
   const [activeType, setActiveType] = useState<string | null>(null);
+  const shownProjects = activeType
+    ? data.portfolio.projects?.filter(
+        (project) => project && project.type === activeType
+      )
+    : data.portfolio.projects;
 
   const types = [
     "all",
@@ -43,23 +45,10 @@ export const PortfolioPage = (props: {
     ),
   ];
 
-  useEffect(() => {
-    if (activeType) {
-      setShownProjects(
-        data.portfolio.projects?.filter(
-          (project) => project && project.type === activeType
-        )
-      );
-    } else {
-      setShownProjects(data.portfolio.projects);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeType]);
-
   return (
     <div
       className={cn(
-        "flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent",
+        "flex flex-1 scrollbar-thin scrollbar-thumb-transparent flex-col overflow-y-scroll pb-5",
         props.className
       )}
     >
@@ -70,7 +59,7 @@ export const PortfolioPage = (props: {
           <BlurFade>
             <div
               data-tina-field={tinaField(data.portfolio, "description")}
-              className="markdown whitespace-pre-line text-base 2xl:text-lg"
+              className="markdown text-base whitespace-pre-line 2xl:text-lg"
             >
               <TinaMarkdown
                 content={data.portfolio.description}

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-var-requires */
 import defaultTheme from "tailwindcss/defaultTheme";
 import svgToDataUri from "mini-svg-data-uri";
 

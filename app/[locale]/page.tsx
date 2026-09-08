@@ -1,15 +1,11 @@
-import { setRequestLocale } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import { LeftSection } from "@/components/layout/left-section";
 import { AboutPage } from "@/components/pages/about-client";
 import client from "@/tina/__generated__/client";
 
-export default async function Home({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  setRequestLocale(locale);
+export default async function Home() {
+  const locale = await getLocale();
 
   const resAbout = await client.queries.about({
     relativePath: `${locale}/about.md`,

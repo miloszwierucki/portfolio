@@ -86,7 +86,7 @@ export const AboutPage = (props: {
 
                           <div className="flex flex-col">
                             <h3
-                              className="relative w-fit font-jakarta text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%_+_1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] 2xl:text-xl dark:after:dark:bg-cod-gray-200/5"
+                              className="relative w-fit font-jakarta text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:rounded-sm after:bg-cod-gray-200/10 after:content-[''] 2xl:text-xl dark:after:dark:bg-cod-gray-200/5"
                               data-tina-field={tinaField(item, "company")}
                             >
                               {item?.company}

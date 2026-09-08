@@ -1,14 +1,10 @@
-import { setRequestLocale } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import { ContactPage } from "@/components/pages/contact-client";
 import client from "@/tina/__generated__/client";
 
-export default async function Contact({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  setRequestLocale(locale);
+export default async function Contact() {
+  const locale = await getLocale();
 
   const res = await client.queries.contact({
     relativePath: `${locale}/contact.md`,

@@ -1,14 +1,10 @@
-import { setRequestLocale } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import { PortfolioPage } from "@/components/pages/portfolio-client";
 import client from "@/tina/__generated__/client";
 
-export default async function Portfolio({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  setRequestLocale(locale);
+export default async function Portfolio() {
+  const locale = await getLocale();
 
   const res = await client.queries.portfolio({
     relativePath: `${locale}/portfolio.md`,
