@@ -7,7 +7,6 @@ import { useRef } from "react";
 
 import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
-import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
@@ -46,7 +45,7 @@ export const AboutPage = (props: {
             >
               <TinaMarkdown
                 content={data.about.description}
-                components={MarkdownComponents(pointerCursor, defaultCursor)}
+                components={MarkdownComponents()}
               />
             </div>
           </BlurFade>
@@ -105,10 +104,7 @@ export const AboutPage = (props: {
                             >
                               <TinaMarkdown
                                 content={item?.description}
-                                components={MarkdownComponents(
-                                  pointerCursor,
-                                  defaultCursor
-                                )}
+                                components={MarkdownComponents()}
                               />
                             </div>
                           </div>

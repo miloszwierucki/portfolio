@@ -1,16 +1,29 @@
-import { MousePointer2 } from "lucide-react";
 import { create } from "zustand";
 
+export type CursorVariant =
+  | "default"
+  | "pointer"
+  | "language"
+  | "theme"
+  | "discovery"
+  | "path"
+  | "filter";
+
 type State = {
-  cursor: React.ReactNode;
+  cursor: CursorVariant;
 };
 
 type Action = {
-  changeCursor: (cursor: React.ReactNode) => void;
+  setCursor: (cursor: CursorVariant) => void;
+  resetCursor: () => void;
 };
 
-// Create your store, which includes both state and (optionally) actions
 export const useCursorStore = create<State & Action>()((set) => ({
-  cursor: <MousePointer2 size={28} strokeWidth={1} />,
-  changeCursor: (cursor) => set(() => ({ cursor: cursor })),
+  cursor: "default",
+  setCursor: (cursor) =>
+    set((state) => (state.cursor === cursor ? state : { cursor })),
+  resetCursor: () =>
+    set((state) =>
+      state.cursor === "default" ? state : { cursor: "default" }
+    ),
 }));

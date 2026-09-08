@@ -12,12 +12,6 @@ import {
   SettingsQuery,
   SettingsQueryVariables,
 } from "@/tina/__generated__/types";
-import {
-  defaultCursor,
-  languageCursor,
-  pointerCursor,
-  themeCursor,
-} from "@/lib/cursor";
 
 const colorSchemeQuery = "(prefers-color-scheme: dark)";
 
@@ -119,8 +113,7 @@ export default function ControllerClient(props: {
               <Link
                 key={item.label}
                 href={item.href}
-                onMouseEnter={pointerCursor}
-                onMouseLeave={defaultCursor}
+                data-cursor="pointer"
                 data-tina-field={tinaField(item, "label")}
                 className={`hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2 ${
                   pathname.includes(item.href) && "font-medium"
@@ -132,8 +125,7 @@ export default function ControllerClient(props: {
           )}
         <button
           className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-2 py-1.5 transition-[background] duration-500 md:hidden"
-          onMouseEnter={pointerCursor}
-          onMouseLeave={defaultCursor}
+          data-cursor="pointer"
           onClick={() => setOpen(!open)}
         >
           <EllipsisVertical className="size-4" />
@@ -147,8 +139,7 @@ export default function ControllerClient(props: {
       >
         <button
           onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
-          onMouseEnter={themeCursor}
-          onMouseLeave={defaultCursor}
+          data-cursor="theme"
           className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2"
         >
           <AnimatePresence mode="wait">
@@ -184,8 +175,7 @@ export default function ControllerClient(props: {
 
         <button
           className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg py-1.5 text-base transition-[background] duration-300 xl:text-lg"
-          onMouseEnter={languageCursor}
-          onMouseLeave={defaultCursor}
+          data-cursor="language"
         >
           <AnimatePresence mode="wait" initial={false}>
             {params.locale === "pl" && (

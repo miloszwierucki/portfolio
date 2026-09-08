@@ -6,7 +6,6 @@ import { useRef } from "react";
 
 import { MarkdownComponents } from "@/components/markdown-components";
 import { ContactForm } from "@/components/layout/contact-form";
-import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import {
@@ -47,7 +46,7 @@ export const ContactPage = (props: {
             >
               <TinaMarkdown
                 content={data.contact.description}
-                components={MarkdownComponents(pointerCursor, defaultCursor)}
+                components={MarkdownComponents()}
               />
             </div>
           </BlurFade>

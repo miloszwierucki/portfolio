@@ -5,7 +5,6 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { tinaField } from "tinacms/dist/react";
 
-import { defaultCursor, discoveryCursor, pointerCursor } from "@/lib/cursor";
 import { MarkdownComponents } from "@/components/markdown-components";
 import { PortfolioQuery } from "@/tina/__generated__/types";
 import { useOutsideClick } from "@/lib/use-outside-click";
@@ -72,11 +71,11 @@ export function ExpandableCardGrid({
       {/* Expandable Card */}
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="z-100 fixed inset-0 grid place-items-center">
+          <div className="fixed inset-0 z-100 grid place-items-center">
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="max-w-125 flex h-full w-full flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:bg-cod-gray-100/5 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit dark:bg-zinc-900 dark:ring-cod-gray-200/15"
+              className="ring-cod-gray-200/20 after:bg-cod-gray-100/5 dark:ring-cod-gray-200/15 flex h-full w-full max-w-125 flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 backdrop-blur after:pointer-events-none after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit dark:bg-zinc-900"
             >
               <motion.div
                 layoutId={`image-${active.title}-${id}`}
@@ -91,9 +90,9 @@ export function ExpandableCardGrid({
                       } as React.CSSProperties
                     }
                     className={cn(
-                      "bg-(image:--image-url) relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
+                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
                       // Preload hover image by setting it in a pseudo-element
-                      `before:bg-(image:--preview-url) before:absolute before:inset-0 before:z-[-1] before:opacity-0`,
+                      `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
                       "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
                       "transition-all duration-500"
                     )}
@@ -129,10 +128,9 @@ export function ExpandableCardGrid({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         href={active.previewLink}
-                        onMouseEnter={pointerCursor}
-                        onMouseLeave={defaultCursor}
+                        data-cursor="pointer"
                         target="_blank"
-                        className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-cod-gray-200/10 transition-[background] duration-500 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5"
+                        className="bg-cod-gray-200/10 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5 grid size-8 shrink-0 grow-0 place-content-center rounded-lg transition-[background] duration-500"
                       >
                         <ExternalLink size={20} />
                       </motion.a>
@@ -145,10 +143,9 @@ export function ExpandableCardGrid({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         href={active.codeLink}
-                        onMouseEnter={pointerCursor}
-                        onMouseLeave={defaultCursor}
+                        data-cursor="pointer"
                         target="_blank"
-                        className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-cod-gray-200/10 transition-[background] duration-500 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5"
+                        className="bg-cod-gray-200/10 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5 grid size-8 shrink-0 grow-0 place-content-center rounded-lg transition-[background] duration-500"
                       >
                         <CodeXml size={20} />
                       </motion.a>
@@ -162,14 +159,11 @@ export function ExpandableCardGrid({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-56 flex-col items-start gap-1 overflow-y-auto pb-8 scrollbar-none [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] lg:h-44 xl:h-fit"
+                    className="flex h-56 scrollbar-none flex-col items-start gap-1 overflow-y-auto pb-8 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] lg:h-44 xl:h-fit"
                   >
                     <TinaMarkdown
                       content={active.content}
-                      components={MarkdownComponents(
-                        pointerCursor,
-                        defaultCursor
-                      )}
+                      components={MarkdownComponents()}
                     />
                   </motion.div>
                 </div>
@@ -189,8 +183,7 @@ export function ExpandableCardGrid({
                   <motion.div
                     layoutId={`card-${card.title}-${id}`}
                     data-tina-field={tinaField(card, "title")}
-                    onMouseEnter={discoveryCursor}
-                    onMouseLeave={defaultCursor}
+                    data-cursor="discovery"
                     onClick={() => setActive(card)}
                     className="flex flex-col rounded-2xl p-2"
                   >
@@ -208,9 +201,9 @@ export function ExpandableCardGrid({
                               } as React.CSSProperties
                             }
                             className={cn(
-                              "bg-(image:--image-url) relative h-52 w-full overflow-hidden rounded-2xl bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
+                              "relative h-52 w-full overflow-hidden rounded-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
                               // Preload hover image by setting it in a pseudo-element
-                              `before:bg-(image:--preview-url) before:absolute before:inset-0 before:z-[-1] before:opacity-0`,
+                              `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
                               "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
                               "transition-all duration-500"
                             )}

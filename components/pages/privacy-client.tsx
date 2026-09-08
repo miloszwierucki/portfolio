@@ -4,7 +4,6 @@ import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import { MarkdownComponents } from "@/components/markdown-components";
-import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import {
@@ -43,7 +42,7 @@ export const PrivacyPage = (props: {
             >
               <TinaMarkdown
                 content={data.privacy.description}
-                components={MarkdownComponents(pointerCursor, defaultCursor)}
+                components={MarkdownComponents()}
               />
             </div>
           </BlurFade>

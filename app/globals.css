@@ -37,19 +37,13 @@
   grid-template-columns: repeat(13, minmax(0, 1fr));
 }
 
-*,
-button {
+html.custom-cursor-active *,
+html.custom-cursor-active button {
   cursor: none !important;
 }
 
-::-webkit-scrollbar {
+html.custom-cursor-active ::-webkit-scrollbar {
   cursor: none !important;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
 
 .__tina-quick-editing-enabled [data-tina-field] {

@@ -1,17 +1,13 @@
 import { Components } from "tinacms/dist/rich-text";
 import { Link } from "@/i18n/navigation";
 
-export const MarkdownComponents = (
-  pointerEnter: () => void,
-  pointerLeave: () => void
-) => {
+export const MarkdownComponents = () => {
   const components: Components<{
     a: { url: string; children: React.ReactNode };
   }> = {
     a: (props) => (
       <Link
-        onMouseEnter={pointerEnter}
-        onMouseLeave={pointerLeave}
+        data-cursor="pointer"
         href={props!.url}
         className="hover:underline hover:underline-offset-4"
       >

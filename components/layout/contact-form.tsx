@@ -7,7 +7,6 @@ import React, { useActionState } from "react";
 import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
 import { MarkdownComponents } from "@/components/markdown-components";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { pointerCursor, defaultCursor } from "@/lib/cursor";
 import { ContactQuery } from "@/tina/__generated__/types";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -98,7 +97,7 @@ export function ContactForm({
           >
             <TinaMarkdown
               content={privacy.label ?? ""}
-              components={MarkdownComponents(pointerCursor, defaultCursor)}
+              components={MarkdownComponents()}
             />
           </div>
         )}

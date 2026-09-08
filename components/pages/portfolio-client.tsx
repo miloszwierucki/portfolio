@@ -11,7 +11,6 @@ import {
   PortfolioQueryVariables,
 } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
-import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import { cn } from "@/lib/utils";
@@ -63,7 +62,7 @@ export const PortfolioPage = (props: {
             >
               <TinaMarkdown
                 content={data.portfolio.description}
-                components={MarkdownComponents(pointerCursor, defaultCursor)}
+                components={MarkdownComponents()}
               />
             </div>
           </BlurFade>
