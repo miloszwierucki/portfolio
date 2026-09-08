@@ -3,7 +3,7 @@ import { LucideProps } from "lucide-react";
 import dynamic from "next/dynamic";
 import React from "react";
 
-export interface IconProps extends LucideProps {
+interface IconProps extends LucideProps {
   name: keyof typeof dynamicIconImports;
 }
 

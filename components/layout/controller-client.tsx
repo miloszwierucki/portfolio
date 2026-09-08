@@ -2,13 +2,12 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { usePathname } from "next/navigation";
 import { useParams } from "next/navigation";
 import { Sun, Moon, EllipsisVertical } from "lucide-react";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   SettingsQuery,
   SettingsQueryVariables,
@@ -112,7 +111,7 @@ export default function ControllerClient(props: {
   };
 
   return (
-    <nav className="fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl bg-cod-gray-100/5 px-4 py-2 text-sm shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base dark:ring-cod-gray-200/15">
+    <nav className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl px-4 py-2 text-sm shadow-lg ring-1 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base">
       <div className="flex items-center space-x-1">
         {data.settings.navbar &&
           data.settings.navbar.map((item) =>
@@ -123,7 +122,7 @@ export default function ControllerClient(props: {
                 onMouseEnter={pointerCursor}
                 onMouseLeave={defaultCursor}
                 data-tina-field={tinaField(item, "label")}
-                className={`grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 xl:py-2 ${
+                className={`hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2 ${
                   pathname.includes(item.href) && "font-medium"
                 }`}
               >
@@ -132,7 +131,7 @@ export default function ControllerClient(props: {
             ) : null
           )}
         <button
-          className="grid max-h-9 place-content-center rounded-lg px-2 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 md:hidden"
+          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-2 py-1.5 transition-[background] duration-500 md:hidden"
           onMouseEnter={pointerCursor}
           onMouseLeave={defaultCursor}
           onClick={() => setOpen(!open)}
@@ -150,7 +149,7 @@ export default function ControllerClient(props: {
           onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
           onMouseEnter={themeCursor}
           onMouseLeave={defaultCursor}
-          className="grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 hover:bg-cod-gray-200/20 xl:py-2"
+          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2"
         >
           <AnimatePresence mode="wait">
             {isDark ? (
@@ -184,7 +183,7 @@ export default function ControllerClient(props: {
         </button>
 
         <button
-          className="grid max-h-9 place-content-center rounded-lg py-1.5 text-base transition-[background] duration-300 hover:bg-cod-gray-200/20 xl:text-lg"
+          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg py-1.5 text-base transition-[background] duration-300 xl:text-lg"
           onMouseEnter={languageCursor}
           onMouseLeave={defaultCursor}
         >
@@ -199,7 +198,7 @@ export default function ControllerClient(props: {
               >
                 <Link
                   className="size-full px-3 py-1.5 xl:py-2"
-                  href={`${pathname.replace("/pl", "/").replace("//", "/")}`}
+                  href={pathname}
                   locale="en"
                 >
                   🇵🇱
@@ -216,7 +215,7 @@ export default function ControllerClient(props: {
               >
                 <Link
                   className="size-full px-3 py-1.5 xl:py-2"
-                  href={`${pathname.replace("/en", "/").replace("//", "/")}`}
+                  href={pathname}
                   locale="pl"
                 >
                   🇬🇧
