@@ -86,7 +86,7 @@ export const LeftSection = (props: {
                     data-cursor="pointer"
                     data-tina-field={tinaField(block, "action")}
                   >
-                    <div className="flex w-full items-center gap-2 rounded-md px-4 py-2 text-base text-nowrap duration-300 hover:shadow-md md:w-fit md:text-sm lg:w-full lg:px-1 xl:gap-4 xl:px-2 2xl:px-4 2xl:text-lg">
+                    <div className="flex w-full items-center gap-2 px-4 py-2 text-base text-nowrap duration-300 hover:shadow-sm md:w-fit md:text-sm lg:w-full lg:px-1 xl:gap-4 xl:px-2 2xl:px-4 2xl:text-lg">
                       <div
                         className="bg-cod-gray-200/10 dark:bg-cod-gray-200/5 grid size-10 shrink-0 grow-0 place-content-center rounded-lg 2xl:size-12"
                         data-tina-field={tinaField(block, "icon")}
