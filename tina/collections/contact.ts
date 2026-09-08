@@ -1,5 +1,7 @@
 import { Collection } from "tinacms";
 
+import { createLocaleRouter } from "../utils/create-locale-router";
+
 const contact: Collection = {
   name: "contact",
   label: "Contact",
@@ -10,9 +12,7 @@ const contact: Collection = {
       create: false,
       delete: false,
     },
-    router: () => {
-      return "/contact";
-    },
+    router: createLocaleRouter("/contact"),
   },
   fields: [
     {

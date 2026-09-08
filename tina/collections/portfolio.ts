@@ -1,5 +1,8 @@
 import { Collection } from "tinacms";
 
+import { validateWebUrl } from "../fields/validation";
+import { createLocaleRouter } from "../utils/create-locale-router";
+
 const portfolio: Collection = {
   name: "portfolio",
   label: "Portfolio",
@@ -10,9 +13,7 @@ const portfolio: Collection = {
       create: false,
       delete: false,
     },
-    router: () => {
-      return "/portfolio";
-    },
+    router: createLocaleRouter("/portfolio"),
   },
   fields: [
     {
@@ -52,6 +53,7 @@ const portfolio: Collection = {
           name: "image",
           label: "Image",
           type: "image",
+          required: true,
         },
         {
           name: "preview",
@@ -62,11 +64,17 @@ const portfolio: Collection = {
           name: "codeLink",
           label: "Code link",
           type: "string",
+          ui: {
+            validate: validateWebUrl,
+          },
         },
         {
           name: "previewLink",
           label: "Preview link",
           type: "string",
+          ui: {
+            validate: validateWebUrl,
+          },
         },
         {
           name: "content",
@@ -76,6 +84,10 @@ const portfolio: Collection = {
         },
       ],
       ui: {
+        defaultItem: {
+          title: "New project",
+          type: "Website",
+        },
         itemProps: (item) => {
           // Field values are accessed by item?.<Field name>
           return { label: item?.title };

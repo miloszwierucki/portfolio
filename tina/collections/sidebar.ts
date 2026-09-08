@@ -1,6 +1,8 @@
 import { Collection } from "tinacms";
 
 import { iconSchemaRequired } from "../fields/icon";
+import { validateActionUrl } from "../fields/validation";
+import { createLocaleRouter } from "../utils/create-locale-router";
 
 const sidebar: Collection = {
   name: "sidebar",
@@ -12,9 +14,7 @@ const sidebar: Collection = {
       create: false,
       delete: false,
     },
-    router: () => {
-      return "/";
-    },
+    router: createLocaleRouter(),
   },
   fields: [
     {
@@ -60,6 +60,9 @@ const sidebar: Collection = {
           label: "Action",
           name: "action",
           required: true,
+          ui: {
+            validate: validateActionUrl,
+          },
         },
       ],
       ui: {

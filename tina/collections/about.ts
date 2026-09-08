@@ -1,6 +1,7 @@
 import { Collection, Template } from "tinacms";
 
 import { iconSchema } from "../fields/icon";
+import { createLocaleRouter } from "../utils/create-locale-router";
 
 const timelineBlock: Template = {
   name: "timelineBlock",
@@ -64,9 +65,7 @@ const about: Collection = {
       create: false,
       delete: false,
     },
-    router: () => {
-      return "/";
-    },
+    router: createLocaleRouter(),
   },
   fields: [
     {

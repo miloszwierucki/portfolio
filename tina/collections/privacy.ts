@@ -1,5 +1,7 @@
 import { Collection } from "tinacms";
 
+import { createLocaleRouter } from "../utils/create-locale-router";
+
 const privacy: Collection = {
   name: "privacy",
   label: "Privacy",
@@ -10,9 +12,7 @@ const privacy: Collection = {
       create: false,
       delete: false,
     },
-    router: () => {
-      return "/privacy";
-    },
+    router: createLocaleRouter("/privacy"),
   },
   fields: [
     {

@@ -1,5 +1,7 @@
 import { Collection } from "tinacms";
 
+import { createLocaleRouter } from "../utils/create-locale-router";
+
 const settings: Collection = {
   name: "settings",
   label: "Settings",
@@ -11,6 +13,7 @@ const settings: Collection = {
       delete: false,
     },
     global: true,
+    router: createLocaleRouter(),
   },
   fields: [
     {
@@ -30,21 +33,12 @@ const settings: Collection = {
           label: "Href",
           name: "href",
           required: true,
-          ui: {
-            validate: (value) => {
-              // const isValid = value.startsWith("/");
-              const isValid = [
-                "/",
-                "/about",
-                "/portfolio",
-                "/contact",
-              ].includes(value);
-              if (!isValid) {
-                // return "The href must start with a slash";
-                return "The href must be a valid path (/, /portfolio, /contact)";
-              }
-            },
-          },
+          options: [
+            { label: "Home", value: "/" },
+            { label: "About", value: "/about" },
+            { label: "Portfolio", value: "/portfolio" },
+            { label: "Contact", value: "/contact" },
+          ],
         },
       ],
       ui: {

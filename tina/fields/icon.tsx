@@ -26,7 +26,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
   }, [filter]);
 
   return (
-    <div className="relative z-[1000]">
+    <div className="relative z-1000">
       <input type="text" id={input.name} className="hidden" {...input} />
       <Popover>
         {({ open }) => (
@@ -51,7 +51,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
               </Button>
               <Icon name={input.value} className="h-auto w-6" />
             </PopoverButton>
-            <div className="absolute -bottom-2 left-0 z-[1000] w-full min-w-[192px] max-w-xl translate-y-full">
+            <div className="absolute -bottom-2 left-0 z-1000 w-full max-w-xl min-w-48 translate-y-full">
               <Transition
                 enter="transition duration-150 ease-out"
                 enterFrom="transform opacity-0 -translate-y-2"
@@ -62,7 +62,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
               >
                 <PopoverPanel className="border-gray-150 relative z-50 overflow-hidden rounded-lg border bg-white shadow-lg">
                   {({ close }) => (
-                    <div className="flex h-full max-h-[24rem] w-full flex-col">
+                    <div className="flex h-full max-h-96 w-full flex-col">
                       <div className="z-10 border-b border-gray-100 bg-gray-50 p-2 shadow-sm">
                         <input
                           type="text"
@@ -81,14 +81,14 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
                         />
                       </div>
                       {filteredBlocks.length === 0 && (
-                        <span className="relative bg-gray-50 px-2 py-3 text-center text-xs italic text-gray-300">
+                        <span className="relative bg-gray-50 px-2 py-3 text-center text-xs text-gray-300 italic">
                           No matches found
                         </span>
                       )}
                       {filteredBlocks.length > 0 && (
                         <div className="grid w-full auto-rows-auto grid-cols-5 overflow-y-auto p-2">
                           <button
-                            className="relative flex flex-1 items-center justify-center rounded-lg px-3 py-2 text-center text-xs outline-none transition-all duration-150 ease-out hover:bg-gray-50"
+                            className="relative flex flex-1 items-center justify-center rounded-lg px-3 py-2 text-center text-xs transition-all duration-150 ease-out outline-none hover:bg-gray-50"
                             key={"clear-input"}
                             onClick={() => {
                               input.onChange("");
@@ -102,7 +102,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
                           {filteredBlocks.map((name) => {
                             return (
                               <button
-                                className="relative flex flex-1 items-center justify-center rounded-lg px-3 py-2 text-center text-xs outline-none transition-all duration-150 ease-out hover:bg-gray-50"
+                                className="relative flex flex-1 items-center justify-center rounded-lg px-3 py-2 text-center text-xs transition-all duration-150 ease-out outline-none hover:bg-gray-50"
                                 key={name}
                                 onClick={() => {
                                   input.onChange(name);
