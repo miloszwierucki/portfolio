@@ -48,7 +48,7 @@ export const PortfolioPage = (props: {
   return (
     <div
       className={cn(
-        "flex flex-1 scrollbar-thin scrollbar-thumb-transparent flex-col overflow-y-scroll pb-5",
+        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
         props.className
       )}
     >

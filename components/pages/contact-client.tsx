@@ -31,7 +31,7 @@ export const ContactPage = (props: {
   return (
     <div
       className={cn(
-        "flex flex-1 flex-col overflow-y-scroll pb-5 scrollbar-thin scrollbar-thumb-transparent",
+        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
         props.className
       )}
       ref={containerRef}
@@ -43,7 +43,7 @@ export const ContactPage = (props: {
           <BlurFade>
             <div
               data-tina-field={tinaField(data.contact, "description")}
-              className="markdown whitespace-pre-line text-base 2xl:text-lg"
+              className="markdown text-base whitespace-pre-line 2xl:text-lg"
             >
               <TinaMarkdown
                 content={data.contact.description}
