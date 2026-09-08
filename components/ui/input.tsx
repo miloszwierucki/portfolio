@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionTemplate, useMotionValue, motion } from "motion/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import { cn } from "@/lib/utils";
@@ -15,23 +15,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, error, ...props }, ref) => {
     const radius = 80;
     const [visible, setVisible] = useState(false);
-    const [variant, setVariant] = useState({
-      gradient: "var(--zinc-50)",
-    });
-
     const { theme } = useThemeStore();
-
-    useEffect(() => {
-      setVariant(
-        theme === "dark"
-          ? {
-              gradient: "var(--zinc-50)",
-            }
-          : {
-              gradient: "var(--zinc-900)",
-            }
-      );
-    }, [theme]);
+    const gradient =
+      theme === "dark"
+        ? "color-mix(in srgb, var(--color-zinc-50) 50%, transparent)"
+        : "color-mix(in srgb, var(--color-zinc-900) 50%, transparent)";
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -54,7 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             background: useMotionTemplate`
         radial-gradient(
           ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
-          ${variant.gradient},
+          ${gradient},
           transparent 90%
         )
       `,

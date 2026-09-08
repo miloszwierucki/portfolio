@@ -24,12 +24,12 @@ export const Timeline = ({
     theme === "dark"
       ? {
           track: "var(--color-cod-gray-200)",
-          thumb: "var(--zinc-50)",
+          thumb: "var(--color-zinc-50)",
           opacity: 0.2,
         }
       : {
           track: "var(--color-cod-gray-200)",
-          thumb: "var(--zinc-900)",
+          thumb: "var(--color-zinc-900)",
           opacity: 0.4,
         };
 
