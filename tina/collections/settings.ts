@@ -1,6 +1,6 @@
 import { Collection } from "tinacms";
 
-import { createLocaleRouter } from "../utils/create-locale-router";
+import { createLocaleRouter } from "@/tina/utils/create-locale-router";
 
 const settings: Collection = {
   name: "settings",

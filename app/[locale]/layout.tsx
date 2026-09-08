@@ -6,9 +6,9 @@ import BackgroundPattern from "@/components/layout/background-pattern";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
 import VercelAnalytics from "@/components/vercel-analytics";
-import { plus_jakarta_sans, satoshi } from "../fonts";
+import { plus_jakarta_sans, satoshi } from "@/app/fonts";
 import { routing } from "@/i18n/routing";
-import "../globals.css";
+import "@/app/globals.css";
 
 // export const revalidate = 0;
 
@@ -31,28 +31,28 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${satoshi.variable} ${plus_jakarta_sans.variable} grid min-h-screen w-screen place-content-center overflow-x-hidden bg-zinc-50 font-satoshi text-neutral-900 antialiased scrollbar-none md:h-screen md:overflow-y-hidden dark:bg-zinc-900 dark:text-neutral-200`}
+        className={`${satoshi.variable} ${plus_jakarta_sans.variable} font-satoshi grid min-h-screen w-screen scrollbar-none place-content-center overflow-x-hidden bg-zinc-50 text-neutral-900 antialiased md:h-screen md:overflow-y-hidden dark:bg-zinc-900 dark:text-neutral-200`}
       >
         <NextIntlClientProvider messages={{}}>
           <BackgroundPattern />
 
-          <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pb-24 md:pt-16 xl:px-10 2xl:gap-8 2xl:px-16">
-            <aside className="relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 pb-6 pt-10 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20 dark:ring-cod-gray-200/15">
+          <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pt-16 md:pb-24 xl:px-10 2xl:gap-8 2xl:px-16">
+            <aside className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl px-4 pt-10 pb-6 shadow-lg ring-1 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20">
               {sidebar}
               {/* Gradient to bottom */}
-              <div className="mask-[linear-gradient(transparent,#000000DD_55%,#000000)] pointer-events-none absolute bottom-0 left-0 right-0 hidden h-20 w-full bg-zinc-50 md:h-28 lg:block dark:bg-zinc-800" />
+              <div className="pointer-events-none absolute right-0 bottom-0 left-0 hidden h-20 w-full bg-zinc-50 mask-[linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 lg:block dark:bg-zinc-800" />
             </aside>
 
-            <main className="relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-2xl bg-cod-gray-100/5 px-4 py-6 shadow-lg ring-1 ring-cod-gray-200/20 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8 dark:ring-cod-gray-200/15">
+            <main className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-2xl px-4 py-6 shadow-lg ring-1 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8">
               {children}
               {/* Gradient to bottom */}
-              <div className="mask-[linear-gradient(transparent,#000000DD_55%,#000000)] pointer-events-none absolute bottom-0 left-0 right-0 h-20 w-full bg-zinc-50 md:h-28 dark:bg-zinc-800" />
+              <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-20 w-full bg-zinc-50 mask-[linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 dark:bg-zinc-800" />
             </main>
 
             {controller}
           </div>
           <CustomCursor />
-          <div className="fixed bottom-0 right-0 flex h-16 w-40 items-center p-3">
+          <div className="fixed right-0 bottom-0 flex h-16 w-40 items-center p-3">
             <TextHoverEffect text="為了生存我擺脫了感情" />
           </div>
 

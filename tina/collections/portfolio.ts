@@ -1,7 +1,7 @@
 import { Collection } from "tinacms";
 
-import { validateWebUrl } from "../fields/validation";
-import { createLocaleRouter } from "../utils/create-locale-router";
+import { createLocaleRouter } from "@/tina/utils/create-locale-router";
+import { validateWebUrl } from "@/tina/fields/validation";
 
 const portfolio: Collection = {
   name: "portfolio",

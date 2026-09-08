@@ -1,8 +1,8 @@
 import { Collection } from "tinacms";
 
-import { iconSchemaRequired } from "../fields/icon";
-import { validateActionUrl } from "../fields/validation";
-import { createLocaleRouter } from "../utils/create-locale-router";
+import { createLocaleRouter } from "@/tina/utils/create-locale-router";
+import { validateActionUrl } from "@/tina/fields/validation";
+import { iconSchemaRequired } from "@/tina/fields/icon";
 
 const sidebar: Collection = {
   name: "sidebar",

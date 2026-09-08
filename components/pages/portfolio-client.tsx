@@ -10,7 +10,7 @@ import {
   PortfolioQuery,
   PortfolioQueryVariables,
 } from "@/tina/__generated__/types";
-import { MarkdownComponents } from "../markdown-components";
+import { MarkdownComponents } from "@/components/markdown-components";
 import { defaultCursor, pointerCursor } from "@/lib/cursor";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
