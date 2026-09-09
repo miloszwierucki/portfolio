@@ -14,6 +14,9 @@ import { useEffect, useState } from "react";
 
 import { CursorVariant, useCursorStore } from "@/store/useCursorStore";
 
+const customCursorQuery =
+  "(min-width: 1025px) and (hover: hover) and (pointer: fine)";
+
 const cursorIcons: Record<CursorVariant, React.ReactNode> = {
   default: <MousePointer2 size={28} strokeWidth={1} />,
   pointer: <Pointer size={28} strokeWidth={1} />,
@@ -34,6 +37,8 @@ const CustomCursor = () => {
   const cursorY = useMotionValue(-100);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(customCursorQuery);
+
     const deactivateCursor = () => {
       setVisible(false);
       resetCursor();
@@ -42,7 +47,7 @@ const CustomCursor = () => {
 
     const handlePointerMove = (event: PointerEvent) => {
       const supportsCustomCursor =
-        event.pointerType === "mouse" && window.innerWidth > 1024;
+        event.pointerType === "mouse" && mediaQuery.matches;
 
       if (!supportsCustomCursor) {
         deactivateCursor();
@@ -86,12 +91,14 @@ const CustomCursor = () => {
     window.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("pointerout", handlePointerOut);
     window.addEventListener("blur", deactivateCursor);
+    mediaQuery.addEventListener("change", deactivateCursor);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerout", handlePointerOut);
       window.removeEventListener("blur", deactivateCursor);
+      mediaQuery.removeEventListener("change", deactivateCursor);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       document.documentElement.classList.remove("custom-cursor-active");
     };

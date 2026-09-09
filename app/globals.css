@@ -46,13 +46,26 @@ html.custom-cursor-active ::-webkit-scrollbar {
   cursor: none !important;
 }
 
-.__tina-quick-editing-enabled [data-tina-field] {
+html.custom-cursor-active.__tina-quick-editing-enabled [data-tina-field] {
   cursor: none;
   /* outline: 2px dashed rgba(254, 34, 56, 0.5); */
 }
-.__tina-quick-editing-enabled [data-tina-field]:hover {
+html.custom-cursor-active.__tina-quick-editing-enabled [data-tina-field]:hover {
   cursor: none;
   /* outline: 2px dashed rgba(254, 34, 56, 1); */
+}
+
+@media not ((min-width: 1025px) and (hover: hover) and (pointer: fine)) {
+  html,
+  html * {
+    cursor: auto !important;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: pointer !important;
+  }
 }
 
 .gradient:after {
