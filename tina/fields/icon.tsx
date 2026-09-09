@@ -26,7 +26,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
   }, [filter]);
 
   return (
-    <div className="relative z-1000">
+    <div className="relative z-9999">
       <input type="text" id={input.name} className="hidden" {...input} />
       <Popover>
         {({ open }) => (
@@ -51,7 +51,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
               </Button>
               <Icon name={input.value} className="h-auto w-6" />
             </PopoverButton>
-            <div className="absolute -bottom-2 left-0 z-1000 w-full max-w-xl min-w-48 translate-y-full">
+            <div className="absolute -bottom-2 left-0 z-9999 w-full max-w-xl min-w-48 translate-y-full">
               <Transition
                 enter="transition duration-150 ease-out"
                 enterFrom="transform opacity-0 -translate-y-2"
@@ -60,7 +60,7 @@ export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
                 leaveFrom="transform opacity-100 translate-y-0"
                 leaveTo="transform opacity-0 -translate-y-2"
               >
-                <PopoverPanel className="border-gray-150 relative z-50 overflow-hidden rounded-lg border bg-white shadow-lg">
+                <PopoverPanel className="border-gray-150 relative z-9999 overflow-hidden rounded-lg border bg-white shadow-lg">
                   {({ close }) => (
                     <div className="flex h-full max-h-96 w-full flex-col">
                       <div className="z-10 border-b border-gray-100 bg-gray-50 p-2 shadow-sm">
