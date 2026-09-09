@@ -1,5 +1,8 @@
 ---
 title: About
+seo:
+  title: About | Miłosz Wierucki
+  description: I build web applications at 360SoftwareHouse using React, Next.js, TypeScript and Node.js.
 timeline:
   - icon: briefcase-business
     title: Experience

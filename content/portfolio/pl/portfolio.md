@@ -1,5 +1,8 @@
 ---
 title: Portfolio
+seo:
+  title: Portfolio | Miłosz Wierucki
+  description: Poznaj wybrane projekty i zobacz, co już stworzyłem.
 projects:
   - title: BlockDB.io
     type: Strona internetowa
@@ -29,4 +32,3 @@ projects:
     previewLink: 'https://v1.wierucki.com'
     content: ''
 ---
-

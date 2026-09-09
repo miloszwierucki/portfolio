@@ -1,5 +1,8 @@
 ---
 title: O mnie
+seo:
+  title: O mnie | Miłosz Wierucki
+  description: Na co dzień tworzę aplikacje webowe w 360SoftwareHouse, wykorzystując React, Next.js, TypeScript i Node.js.
 timeline:
   - icon: briefcase-business
     title: Doświadczenie

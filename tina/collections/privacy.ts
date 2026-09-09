@@ -1,6 +1,7 @@
 import { Collection } from "tinacms";
 
 import { createLocaleRouter } from "@tina/utils/create-locale-router";
+import { seoField } from "@tina/fields/seo";
 
 const privacy: Collection = {
   name: "privacy",
@@ -15,6 +16,7 @@ const privacy: Collection = {
     router: createLocaleRouter("/privacy"),
   },
   fields: [
+    seoField,
     {
       name: "title",
       label: "Title",

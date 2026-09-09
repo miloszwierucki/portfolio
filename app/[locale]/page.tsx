@@ -1,16 +1,30 @@
-import { getLocale } from "next-intl/server";
+import { cache } from "react";
+
+import type { Metadata } from "next";
 
 import { LeftSection } from "@/components/layout/left-section";
 import { AboutPage } from "@/components/pages/about-client";
+import { createPageMetadata } from "@/lib/seo";
 
 import client from "@tina/__generated__/client";
 
-export default async function Home() {
-  const locale = await getLocale();
+const getAbout = cache((locale: string) =>
+  client.queries.about({ relativePath: `${locale}/about.md` })
+);
 
-  const resAbout = await client.queries.about({
-    relativePath: `${locale}/about.md`,
-  });
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+  const { data } = await getAbout(locale);
+
+  return createPageMetadata({ locale, path: "", seo: data.about.seo });
+}
+
+export default async function Home({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+
+  const resAbout = await getAbout(locale);
 
   const resSidebar = await client.queries.sidebar({
     relativePath: `${locale}/sidebar.json`,

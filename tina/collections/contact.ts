@@ -1,6 +1,7 @@
 import { Collection } from "tinacms";
 
 import { createLocaleRouter } from "@tina/utils/create-locale-router";
+import { seoField } from "@tina/fields/seo";
 
 const contact: Collection = {
   name: "contact",
@@ -15,6 +16,7 @@ const contact: Collection = {
     router: createLocaleRouter("/contact"),
   },
   fields: [
+    seoField,
     {
       name: "title",
       label: "Title",

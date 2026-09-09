@@ -1,5 +1,8 @@
 ---
 title: Contact
+seo:
+  title: Contact | Miłosz Wierucki
+  description: Have a project in mind, a question or want to explore working together? Get in touch!
 email:
   label: Email address*
   placeholder: mail@example.com

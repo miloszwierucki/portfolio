@@ -1,5 +1,8 @@
 ---
 title: Polityka prywatności
+seo:
+  title: Polityka prywatności | Miłosz Wierucki
+  description: Polityka prywatności strony wierucki.com.
 ---
 
 Ta strona internetowa nie używa żadnego śledzenia po stronie klienta. Korzystam jedynie z prostej analityki po stronie serwera za pośrednictwem **Vercel Analytics**, aby uzyskać poczucie ruchu i tego, skąd pochodzi. Dane te nie mogą być wykorzystane do jednoznacznej identyfikacji.

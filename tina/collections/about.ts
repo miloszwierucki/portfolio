@@ -2,6 +2,7 @@ import { Collection, Template } from "tinacms";
 
 import { createLocaleRouter } from "@tina/utils/create-locale-router";
 import { iconSchema } from "@tina/fields/icon";
+import { seoField } from "@tina/fields/seo";
 
 const timelineBlock: Template = {
   name: "timelineBlock",
@@ -68,6 +69,7 @@ const about: Collection = {
     router: createLocaleRouter(),
   },
   fields: [
+    seoField,
     {
       name: "title",
       label: "Title",

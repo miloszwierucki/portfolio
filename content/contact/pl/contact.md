@@ -1,5 +1,8 @@
 ---
 title: Kontakt
+seo:
+  title: Kontakt | Miłosz Wierucki
+  description: Masz pomysł na projekt, pytanie albo chcesz porozmawiać o współpracy? Odezwij się!
 email:
   label: Adres e-mail*
   placeholder: mail@example.com

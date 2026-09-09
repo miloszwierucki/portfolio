@@ -2,6 +2,7 @@ import { Collection } from "tinacms";
 
 import { createLocaleRouter } from "@tina/utils/create-locale-router";
 import { validateWebUrl } from "@tina/fields/validation";
+import { seoField } from "@tina/fields/seo";
 
 const portfolio: Collection = {
   name: "portfolio",
@@ -16,6 +17,7 @@ const portfolio: Collection = {
     router: createLocaleRouter("/portfolio"),
   },
   fields: [
+    seoField,
     {
       name: "title",
       label: "Title",
