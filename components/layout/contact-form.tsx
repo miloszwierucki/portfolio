@@ -1,8 +1,8 @@
 "use client";
 
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { ReactNode, useActionState } from "react";
 import { tinaField } from "tinacms/dist/react";
-import React, { useActionState } from "react";
 
 import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
 import { MarkdownComponents } from "@/components/markdown-components";
@@ -126,7 +126,7 @@ const LabelInputContainer = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) => {
   return (

@@ -9,15 +9,15 @@ import {
   Pointer,
   WandSparkles,
 } from "lucide-react";
+import { ReactNode, useEffect, useState } from "react";
 import { motion, useMotionValue } from "motion/react";
-import { useEffect, useState } from "react";
 
 import { CursorVariant, useCursorStore } from "@/store/useCursorStore";
 
 const customCursorQuery =
   "(min-width: 1025px) and (hover: hover) and (pointer: fine)";
 
-const cursorIcons: Record<CursorVariant, React.ReactNode> = {
+const cursorIcons: Record<CursorVariant, ReactNode> = {
   default: <MousePointer2 size={28} strokeWidth={1} />,
   pointer: <Pointer size={28} strokeWidth={1} />,
   language: <Languages size={28} strokeWidth={1} />,

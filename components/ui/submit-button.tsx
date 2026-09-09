@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
+import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -9,8 +10,8 @@ export const SubmitButton = ({
   pendingLabel,
   className,
 }: {
-  label: React.ReactNode | string;
-  pendingLabel: React.ReactNode | string;
+  label: ReactNode;
+  pendingLabel: ReactNode;
   className?: string;
 }) => {
   const { pending } = useFormStatus();

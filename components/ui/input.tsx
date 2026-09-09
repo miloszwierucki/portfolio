@@ -1,12 +1,12 @@
 "use client";
 
+import { forwardRef, InputHTMLAttributes, MouseEvent, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import React, { forwardRef, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import { cn } from "@/lib/utils";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
@@ -27,7 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       currentTarget,
       clientX,
       clientY,
-    }: React.MouseEvent<HTMLDivElement>) {
+    }: MouseEvent<HTMLDivElement>) {
       const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);

@@ -1,12 +1,17 @@
 "use client";
 
+import {
+  forwardRef,
+  MouseEvent,
+  TextareaHTMLAttributes,
+  useState,
+} from "react";
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import React, { forwardRef, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import { cn } from "@/lib/utils";
 
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
 }
 
@@ -27,7 +32,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       currentTarget,
       clientX,
       clientY,
-    }: React.MouseEvent<HTMLDivElement>) {
+    }: MouseEvent<HTMLDivElement>) {
       const { left, top } = currentTarget.getBoundingClientRect();
 
       mouseX.set(clientX - left);

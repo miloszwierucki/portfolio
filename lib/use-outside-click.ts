@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import React, { useEffect } from "react";
+import { RefObject, useEffect } from "react";
 
 export const useOutsideClick = (
-  ref: React.RefObject<HTMLDivElement | null>,
+  ref: RefObject<HTMLDivElement | null>,
   callback: Function
 ) => {
   useEffect(() => {

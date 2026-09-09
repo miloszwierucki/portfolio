@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, RefObject, useEffect, useRef, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 
@@ -9,8 +9,8 @@ export const Timeline = ({
   children,
   containerRef,
 }: {
-  children: React.ReactNode;
-  containerRef: React.RefObject<HTMLDivElement | null>;
+  children: ReactNode;
+  containerRef: RefObject<HTMLDivElement | null>;
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({

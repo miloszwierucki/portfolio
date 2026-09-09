@@ -1,5 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
 import { Layers } from "lucide-react";
-import React from "react";
 
 export const ProjectFilter = ({
   types,
@@ -8,7 +8,7 @@ export const ProjectFilter = ({
 }: {
   types: string[];
   activeType: string | null;
-  setActiveType: React.Dispatch<React.SetStateAction<string | null>>;
+  setActiveType: Dispatch<SetStateAction<string | null>>;
 }) => {
   return (
     <div className="inset-x-0 bottom-5 z-20 flex w-full items-center space-x-1 py-2 text-base md:px-2 lg:px-4 lg:py-0 2xl:py-2">
@@ -36,7 +36,7 @@ const TagButton = ({
 }: {
   type: string;
   isActive?: boolean;
-  setActiveType: React.Dispatch<React.SetStateAction<string | null>>;
+  setActiveType: Dispatch<SetStateAction<string | null>>;
 }) => {
   return (
     <button

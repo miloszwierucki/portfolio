@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useEffect, useId, useRef, useState } from "react";
+import { CSSProperties, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { CodeXml, ExternalLink } from "lucide-react";
@@ -88,7 +88,7 @@ export function ExpandableCardGrid({
                       {
                         "--image-url": `url(${active.image})`,
                         "--preview-url": `url(${active.preview})`,
-                      } as React.CSSProperties
+                      } as CSSProperties
                     }
                     className={cn(
                       "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
@@ -199,7 +199,7 @@ export function ExpandableCardGrid({
                               {
                                 "--image-url": `url(${card.image})`,
                                 "--preview-url": `url(${card.preview})`,
-                              } as React.CSSProperties
+                              } as CSSProperties
                             }
                             className={cn(
                               "relative h-52 w-full overflow-hidden rounded-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",

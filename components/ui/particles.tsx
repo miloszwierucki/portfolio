@@ -1,11 +1,6 @@
 "use client";
 
-import React, {
-  ComponentPropsWithoutRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -77,7 +72,7 @@ type Circle = {
   magnetism: number;
 };
 
-const Particles: React.FC<ParticlesProps> = ({
+const Particles = ({
   className = "",
   quantity = 100,
   staticity = 50,
@@ -88,7 +83,7 @@ const Particles: React.FC<ParticlesProps> = ({
   vx = 0,
   vy = 0,
   ...props
-}) => {
+}: ParticlesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);

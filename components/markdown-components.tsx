@@ -1,10 +1,11 @@
 import { Components } from "tinacms/dist/rich-text";
+import { ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
 
 export const MarkdownComponents = () => {
   const components: Components<{
-    a: { url: string; children: React.ReactNode };
+    a: { url: string; children: ReactNode };
   }> = {
     a: (props) => (
       <Link

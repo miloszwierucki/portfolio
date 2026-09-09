@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 type State = {
-  theme: React.ReactNode;
+  theme: string;
 };
 
 type Action = {
