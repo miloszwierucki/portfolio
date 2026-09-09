@@ -39,14 +39,12 @@ export default async function RootLayout({
           <div className="container grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pt-16 md:pb-24 xl:px-10 2xl:gap-8 2xl:px-16">
             <aside className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden rounded-2xl px-4 pt-10 pb-6 shadow-lg ring-1 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20">
               {sidebar}
-              {/* Gradient to bottom */}
-              <div className="pointer-events-none absolute right-0 bottom-0 left-0 hidden h-20 w-full bg-zinc-50 mask-[linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 lg:block dark:bg-zinc-800" />
             </aside>
 
             <main className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-2xl px-4 py-6 shadow-lg ring-1 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8">
               {children}
               {/* Gradient to bottom */}
-              <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-20 w-full bg-zinc-50 mask-[linear-gradient(transparent,#000000DD_55%,#000000)] md:h-28 dark:bg-zinc-800" />
+              <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-12 w-full bg-zinc-50 mask-[linear-gradient(to_bottom,transparent,#000_85%)] md:h-14 dark:bg-zinc-800" />
             </main>
 
             {controller}

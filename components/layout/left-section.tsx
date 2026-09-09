@@ -2,6 +2,7 @@
 
 import { useTina, tinaField } from "tinacms/dist/react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 import Icon from "@/components/ui/icon";
 import { Link } from "@/i18n/navigation";
@@ -17,11 +18,41 @@ export const LeftSection = (props: {
   query: string;
   className?: string;
 }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showBottomFade, setShowBottomFade] = useState(false);
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
     data: props.data,
   });
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+
+    if (!scrollElement) return;
+
+    const updateBottomFade = () => {
+      const hasOverflow =
+        scrollElement.scrollHeight > scrollElement.clientHeight + 1;
+      const isAtBottom =
+        scrollElement.scrollTop + scrollElement.clientHeight >=
+        scrollElement.scrollHeight - 1;
+
+      setShowBottomFade(hasOverflow && !isAtBottom);
+    };
+
+    const resizeObserver = new ResizeObserver(updateBottomFade);
+    resizeObserver.observe(scrollElement);
+    scrollElement.addEventListener("scroll", updateBottomFade, {
+      passive: true,
+    });
+    updateBottomFade();
+
+    return () => {
+      resizeObserver.disconnect();
+      scrollElement.removeEventListener("scroll", updateBottomFade);
+    };
+  }, [data.sidebar.blocks]);
 
   return (
     <>
@@ -71,12 +102,13 @@ export const LeftSection = (props: {
 
       {data.sidebar.blocks && (
         <div
+          ref={scrollRef}
           className={cn(
-            "flex flex-1 scrollbar-none overflow-y-scroll",
+            "flex min-h-0 flex-1 scrollbar-none overflow-y-auto",
             props.className
           )}
         >
-          <div className="mb-10 flex h-max w-full flex-col gap-2 md:items-center lg:items-stretch 2xl:gap-3">
+          <div className="flex h-max w-full flex-col gap-2 md:items-center lg:items-stretch 2xl:gap-3">
             {data.sidebar.blocks.map(
               (block) =>
                 block && (
@@ -114,6 +146,10 @@ export const LeftSection = (props: {
             )}
           </div>
         </div>
+      )}
+
+      {showBottomFade && (
+        <div className="pointer-events-none absolute right-0 bottom-0 left-0 hidden h-14 bg-zinc-50 mask-[linear-gradient(to_bottom,transparent,#000_85%)] lg:block dark:bg-zinc-800" />
       )}
     </>
   );
