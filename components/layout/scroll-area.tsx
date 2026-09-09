@@ -33,7 +33,11 @@ export const ScrollArea = ({
     const mutationObserver = new MutationObserver(() => updateFades(element));
 
     resizeObserver.observe(element);
-    mutationObserver.observe(element, { childList: true, subtree: true });
+    mutationObserver.observe(element, {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
 
     return () => {
       resizeObserver.disconnect();
