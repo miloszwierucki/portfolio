@@ -7,11 +7,12 @@ import React, { useActionState } from "react";
 import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
 import { MarkdownComponents } from "@/components/markdown-components";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { ContactQuery } from "@/tina/__generated__/types";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+
+import { ContactQuery } from "@tina/__generated__/types";
 
 export function ContactForm({
   className,

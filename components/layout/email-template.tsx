@@ -26,7 +26,7 @@ const EmailTemplate = ({ name, email, message }: EmailTemplateProps) => {
         <Container className="w-full max-w-3xl border border-slate-200 bg-white px-5 py-10">
           <Section>
             <Text
-              className="text-base font-light leading-6 text-neutral-700"
+              className="text-base leading-6 font-light text-neutral-700"
               style={fontStyle}
             >
               Hi, <br /> New message from{" "}
@@ -34,7 +34,7 @@ const EmailTemplate = ({ name, email, message }: EmailTemplateProps) => {
             </Text>
 
             <Text
-              className="whitespace-pre-wrap font-light leading-6 text-neutral-700"
+              className="leading-6 font-light whitespace-pre-wrap text-neutral-700"
               style={fontStyle}
             >
               {message}

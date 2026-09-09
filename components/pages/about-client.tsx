@@ -1,19 +1,20 @@
 "use client";
 
-import { useTina, tinaField } from "tinacms/dist/react";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { CircleDotDashed } from "lucide-react";
 import { useRef } from "react";
 
-import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
-import { Copyright } from "@/components/layout/copyright";
 import { ScrollArea } from "@/components/layout/scroll-area";
+import { Copyright } from "@/components/layout/copyright";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import Icon from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
+
+import { AboutQuery, AboutQueryVariables } from "@tina/__generated__/types";
 
 export const AboutPage = (props: {
   data: AboutQuery;

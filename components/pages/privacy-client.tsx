@@ -1,17 +1,15 @@
 "use client";
 
-import { useTina, tinaField } from "tinacms/dist/react";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import { MarkdownComponents } from "@/components/markdown-components";
 import { ScrollArea } from "@/components/layout/scroll-area";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
-import {
-  PrivacyQuery,
-  PrivacyQueryVariables,
-} from "@/tina/__generated__/types";
 import { cn } from "@/lib/utils";
+
+import { PrivacyQuery, PrivacyQueryVariables } from "@tina/__generated__/types";
 
 export const PrivacyPage = (props: {
   data: PrivacyQuery;

@@ -1,20 +1,21 @@
 "use client";
 
-import { useTina, tinaField } from "tinacms/dist/react";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { useState } from "react";
 
+import { MarkdownComponents } from "@/components/markdown-components";
 import { ExpandableCardGrid } from "@/components/ui/ext-cards-grid";
 import { ProjectFilter } from "@/components/ui/project-filter";
-import {
-  PortfolioQuery,
-  PortfolioQueryVariables,
-} from "@/tina/__generated__/types";
-import { MarkdownComponents } from "@/components/markdown-components";
 import { ScrollArea } from "@/components/layout/scroll-area";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import { cn } from "@/lib/utils";
+
+import {
+  PortfolioQuery,
+  PortfolioQueryVariables,
+} from "@tina/__generated__/types";
 
 export const PortfolioPage = (props: {
   data: PortfolioQuery;

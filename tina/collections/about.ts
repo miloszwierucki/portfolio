@@ -1,7 +1,7 @@
 import { Collection, Template } from "tinacms";
 
-import { createLocaleRouter } from "@/tina/utils/create-locale-router";
-import { iconSchema } from "@/tina/fields/icon";
+import { createLocaleRouter } from "@tina/utils/create-locale-router";
+import { iconSchema } from "@tina/fields/icon";
 
 const timelineBlock: Template = {
   name: "timelineBlock",

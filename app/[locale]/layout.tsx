@@ -1,5 +1,6 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
+
 import type { Metadata } from "next";
 
 import BackgroundPattern from "@/components/layout/background-pattern";
@@ -8,6 +9,7 @@ import CustomCursor from "@/components/layout/custom-cursor";
 import VercelAnalytics from "@/components/vercel-analytics";
 import { plus_jakarta_sans, satoshi } from "@/app/fonts";
 import { routing } from "@/i18n/routing";
+
 import "@/app/globals.css";
 
 // export const revalidate = 0;

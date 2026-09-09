@@ -1,16 +1,14 @@
 "use client";
 
-import { useTina, tinaField } from "tinacms/dist/react";
-import Image from "next/image";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-import Icon from "@/components/ui/icon";
 import { Link } from "@/i18n/navigation";
-import {
-  SidebarQuery,
-  SidebarQueryVariables,
-} from "@/tina/__generated__/types";
+import Icon from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
+
+import { SidebarQuery, SidebarQueryVariables } from "@tina/__generated__/types";
 
 export const LeftSection = (props: {
   data: SidebarQuery;

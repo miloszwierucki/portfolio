@@ -3,15 +3,16 @@
 
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { CodeXml, ExternalLink } from "lucide-react";
 import { tinaField } from "tinacms/dist/react";
 
 import { MarkdownComponents } from "@/components/markdown-components";
-import { PortfolioQuery } from "@/tina/__generated__/types";
 import { useOutsideClick } from "@/lib/use-outside-click";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { CodeXml, ExternalLink } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
 import { cn } from "@/lib/utils";
+
+import { PortfolioQuery } from "@tina/__generated__/types";
 
 export function ExpandableCardGrid({
   data,

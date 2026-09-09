@@ -1,10 +1,10 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
+import { z } from "zod";
 
 import EmailTemplate from "@/components/layout/email-template";
-import { revalidatePath } from "next/cache";
-import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

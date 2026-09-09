@@ -1,7 +1,8 @@
 import { getLocale } from "next-intl/server";
 
 import { PrivacyPage } from "@/components/pages/privacy-client";
-import client from "@/tina/__generated__/client";
+
+import client from "@tina/__generated__/client";
 
 export default async function Privacy() {
   const locale = await getLocale();

@@ -1,7 +1,8 @@
 import { getLocale } from "next-intl/server";
 
 import ControllerClient from "@/components/layout/controller-client";
-import client from "@/tina/__generated__/client";
+
+import client from "@tina/__generated__/client";
 
 export default async function Controller() {
   const locale = await getLocale();

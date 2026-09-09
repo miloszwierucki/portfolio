@@ -1,16 +1,16 @@
 "use client";
 
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "@headlessui/react";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
 import { Button, wrapFieldsWithMeta } from "tinacms";
 import React, { useMemo, useState } from "react";
 import { BiChevronRight } from "react-icons/bi";
 import { GoCircleSlash } from "react-icons/go";
-import {
-  Popover,
-  PopoverButton,
-  Transition,
-  PopoverPanel,
-} from "@headlessui/react";
 
 import Icon from "@/components/ui/icon";
 

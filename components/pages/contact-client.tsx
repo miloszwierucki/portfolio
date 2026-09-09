@@ -1,19 +1,17 @@
 "use client";
 
-import { useTina, tinaField } from "tinacms/dist/react";
+import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import { MarkdownComponents } from "@/components/markdown-components";
 import { ContactForm } from "@/components/layout/contact-form";
-import { Copyright } from "@/components/layout/copyright";
 import { ScrollArea } from "@/components/layout/scroll-area";
+import { Copyright } from "@/components/layout/copyright";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
-import {
-  ContactQuery,
-  ContactQueryVariables,
-} from "@/tina/__generated__/types";
 import { cn } from "@/lib/utils";
+
+import { ContactQuery, ContactQueryVariables } from "@tina/__generated__/types";
 
 export const ContactPage = (props: {
   data: ContactQuery;

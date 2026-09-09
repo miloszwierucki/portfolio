@@ -1,4 +1,5 @@
 import { Components } from "tinacms/dist/rich-text";
+
 import { Link } from "@/i18n/navigation";
 
 export const MarkdownComponents = () => {

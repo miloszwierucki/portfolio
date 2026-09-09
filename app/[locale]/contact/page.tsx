@@ -1,7 +1,8 @@
 import { getLocale } from "next-intl/server";
 
 import { ContactPage } from "@/components/pages/contact-client";
-import client from "@/tina/__generated__/client";
+
+import client from "@tina/__generated__/client";
 
 export default async function Contact() {
   const locale = await getLocale();

@@ -1,13 +1,12 @@
 "use client";
 
-import { useMotionTemplate, useMotionValue, motion } from "motion/react";
+import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import React, { forwardRef, useState } from "react";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import { cn } from "@/lib/utils";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
@@ -58,7 +57,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               aria-invalid={error ? "true" : undefined}
               aria-describedby={error ? "input-error" : undefined}
               className={cn(
-                "dark:placeholder-text-neutral-600 flex w-full resize-none rounded-lg border-none bg-cod-gray-100/5 px-3.5 py-3 text-base shadow-sm ring-1 ring-cod-gray-200/20 backdrop-blur transition duration-300 placeholder:text-neutral-500 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base dark:ring-cod-gray-200/15",
+                "dark:placeholder-text-neutral-600 bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 flex w-full resize-none rounded-lg border-none px-3.5 py-3 text-base shadow-sm ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none placeholder:text-neutral-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
                 className
               )}
               ref={ref}
@@ -69,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {error && (
           <div
             role="alert"
-            className="ml-2 mt-1 flex flex-col text-xs text-red-600 md:col-span-2 md:text-sm"
+            className="mt-1 ml-2 flex flex-col text-xs text-red-600 md:col-span-2 md:text-sm"
           >
             {error}
           </div>

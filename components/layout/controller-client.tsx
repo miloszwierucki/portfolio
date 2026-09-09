@@ -1,17 +1,18 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
-import { tinaField, useTina } from "tinacms/dist/react";
-import { useParams } from "next/navigation";
-import { Sun, Moon, EllipsisVertical } from "lucide-react";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { EllipsisVertical, Moon, Sun } from "lucide-react";
+import { tinaField, useTina } from "tinacms/dist/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useParams } from "next/navigation";
 
 import { useThemeStore } from "@/store/useThemeStore";
 import { Link, usePathname } from "@/i18n/navigation";
+
 import {
   SettingsQuery,
   SettingsQueryVariables,
-} from "@/tina/__generated__/types";
+} from "@tina/__generated__/types";
 
 const colorSchemeQuery = "(prefers-color-scheme: dark)";
 

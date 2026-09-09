@@ -1,7 +1,8 @@
 import { getLocale } from "next-intl/server";
 
 import { PortfolioPage } from "@/components/pages/portfolio-client";
-import client from "@/tina/__generated__/client";
+
+import client from "@tina/__generated__/client";
 
 export default async function Portfolio() {
   const locale = await getLocale();
