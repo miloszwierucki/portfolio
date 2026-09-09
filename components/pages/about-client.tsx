@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
 import { Copyright } from "@/components/layout/copyright";
+import { ScrollArea } from "@/components/layout/scroll-area";
 import { Timeline } from "@/components/ui/timeline";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
@@ -28,16 +29,13 @@ export const AboutPage = (props: {
   });
 
   return (
-    <div
-      className={cn(
-        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
-        props.className
-      )}
-      ref={containerRef}
-    >
+    <div className={cn("flex min-h-0 flex-1 flex-col", props.className)}>
       <Header content={data.about} />
 
-      <div className="flex flex-1 flex-col px-1 md:px-2 xl:px-3">
+      <ScrollArea
+        ref={containerRef}
+        className="flex flex-col px-1 pb-5 md:px-2 xl:px-3"
+      >
         {data.about.description && (
           <BlurFade>
             <div
@@ -116,9 +114,9 @@ export const AboutPage = (props: {
             )}
           </Timeline>
         )}
-      </div>
 
-      <Copyright />
+        <Copyright />
+      </ScrollArea>
     </div>
   );
 };

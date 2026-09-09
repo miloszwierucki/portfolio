@@ -4,6 +4,7 @@ import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 import { MarkdownComponents } from "@/components/markdown-components";
+import { ScrollArea } from "@/components/layout/scroll-area";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import {
@@ -25,15 +26,10 @@ export const PrivacyPage = (props: {
   });
 
   return (
-    <div
-      className={cn(
-        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
-        props.className
-      )}
-    >
+    <div className={cn("flex min-h-0 flex-1 flex-col", props.className)}>
       <Header content={data.privacy} />
 
-      <div className="flex flex-1 flex-col px-1 md:px-2 xl:px-3">
+      <ScrollArea className="flex flex-col px-1 pb-5 md:px-2 xl:px-3">
         {data.privacy.description && (
           <BlurFade>
             <div
@@ -47,7 +43,7 @@ export const PrivacyPage = (props: {
             </div>
           </BlurFade>
         )}
-      </div>
+      </ScrollArea>
     </div>
   );
 };

@@ -43,8 +43,6 @@ export default async function RootLayout({
 
             <main className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-2xl px-4 py-6 shadow-lg ring-1 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8">
               {children}
-              {/* Gradient to bottom */}
-              <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-12 w-full bg-zinc-50 mask-[linear-gradient(to_bottom,transparent,#000_85%)] md:h-14 dark:bg-zinc-800" />
             </main>
 
             {controller}

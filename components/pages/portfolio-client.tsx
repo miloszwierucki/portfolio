@@ -11,6 +11,7 @@ import {
   PortfolioQueryVariables,
 } from "@/tina/__generated__/types";
 import { MarkdownComponents } from "@/components/markdown-components";
+import { ScrollArea } from "@/components/layout/scroll-area";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import { cn } from "@/lib/utils";
@@ -45,42 +46,38 @@ export const PortfolioPage = (props: {
   ];
 
   return (
-    <div
-      className={cn(
-        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
-        props.className
-      )}
-    >
+    <div className={cn("flex min-h-0 flex-1 flex-col", props.className)}>
       <Header content={data.portfolio} />
 
-      <div className="flex px-1 md:px-2 xl:px-3">
-        {data.portfolio.description && (
-          <BlurFade>
-            <div
-              data-tina-field={tinaField(data.portfolio, "description")}
-              className="markdown text-base whitespace-pre-line 2xl:text-lg"
-            >
-              <TinaMarkdown
-                content={data.portfolio.description}
-                components={MarkdownComponents()}
-              />
-            </div>
-          </BlurFade>
-        )}
-      </div>
-
-      {shownProjects && shownProjects.length > 0 && (
-        <div className="flex flex-col gap-4 md:gap-2 2xl:gap-4">
-          {types && (
-            <ProjectFilter
-              types={types}
-              activeType={activeType}
-              setActiveType={setActiveType}
-            />
-          )}
-          <ExpandableCardGrid data={shownProjects} />
-        </div>
+      {data.portfolio.projects && data.portfolio.projects.length > 0 && (
+        <ProjectFilter
+          types={types}
+          activeType={activeType}
+          setActiveType={setActiveType}
+        />
       )}
+
+      <ScrollArea className="pb-5">
+        <div className="flex px-1 md:px-2 xl:px-3">
+          {data.portfolio.description && (
+            <BlurFade>
+              <div
+                data-tina-field={tinaField(data.portfolio, "description")}
+                className="markdown text-base whitespace-pre-line 2xl:text-lg"
+              >
+                <TinaMarkdown
+                  content={data.portfolio.description}
+                  components={MarkdownComponents()}
+                />
+              </div>
+            </BlurFade>
+          )}
+        </div>
+
+        {shownProjects && shownProjects.length > 0 && (
+          <ExpandableCardGrid data={shownProjects} />
+        )}
+      </ScrollArea>
     </div>
   );
 };

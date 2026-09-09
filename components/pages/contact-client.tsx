@@ -2,11 +2,11 @@
 
 import { useTina, tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { useRef } from "react";
 
 import { MarkdownComponents } from "@/components/markdown-components";
 import { ContactForm } from "@/components/layout/contact-form";
 import { Copyright } from "@/components/layout/copyright";
+import { ScrollArea } from "@/components/layout/scroll-area";
 import BlurFade from "@/components/ui/blur-fade";
 import { Header } from "@/components/ui/header";
 import {
@@ -21,7 +21,6 @@ export const ContactPage = (props: {
   query: string;
   className?: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
@@ -29,16 +28,10 @@ export const ContactPage = (props: {
   });
 
   return (
-    <div
-      className={cn(
-        "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 flex flex-1 scrollbar-thin scrollbar-track-transparent flex-col overflow-y-auto pb-5",
-        props.className
-      )}
-      ref={containerRef}
-    >
+    <div className={cn("flex min-h-0 flex-1 flex-col", props.className)}>
       <Header content={data.contact} />
 
-      <div className="flex flex-col gap-4 px-1 md:px-2 xl:px-3">
+      <ScrollArea className="flex flex-col gap-4 px-1 pb-5 md:px-2 xl:px-3">
         {data.contact.description && (
           <BlurFade>
             <div
@@ -63,7 +56,7 @@ export const ContactPage = (props: {
             button={data.contact.button}
           />
         </BlurFade>
-      </div>
+      </ScrollArea>
 
       <Copyright className="hidden lg:block" />
     </div>
