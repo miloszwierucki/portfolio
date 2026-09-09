@@ -42,7 +42,12 @@ html.custom-cursor-active button {
   cursor: none !important;
 }
 
-html.custom-cursor-active ::-webkit-scrollbar {
+html.custom-cursor-active ::-webkit-scrollbar,
+html.custom-cursor-active ::-webkit-scrollbar-thumb,
+html.custom-cursor-active ::-webkit-scrollbar-track,
+html.custom-cursor-active ::-webkit-scrollbar-track-piece,
+html.custom-cursor-active ::-webkit-scrollbar-button,
+html.custom-cursor-active ::-webkit-scrollbar-corner {
   cursor: none !important;
 }
 
