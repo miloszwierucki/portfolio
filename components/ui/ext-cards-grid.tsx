@@ -174,7 +174,7 @@ export function ExpandableCardGrid({
       </AnimatePresence>
 
       {/* Cards */}
-      <ul className="mx-auto grid w-full grid-cols-1 items-start gap-1 md:grid-cols-2 md:gap-2 xl:grid-cols-3">
+      <ul className="grid w-full grid-cols-1 items-start gap-1 md:grid-cols-2 md:gap-2 xl:grid-cols-3">
         {data &&
           data.map(
             (card, idx) =>
