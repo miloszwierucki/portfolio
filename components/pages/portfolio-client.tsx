@@ -49,6 +49,20 @@ export const PortfolioPage = (props: {
     <div className={cn("flex min-h-0 flex-1 flex-col", props.className)}>
       <Header content={data.portfolio} />
 
+      {data.portfolio.description && (
+        <BlurFade>
+          <div
+            data-tina-field={tinaField(data.portfolio, "description")}
+            className="markdown px-1 text-base whitespace-pre-line md:px-2 xl:px-3 2xl:text-lg"
+          >
+            <TinaMarkdown
+              content={data.portfolio.description}
+              components={MarkdownComponents()}
+            />
+          </div>
+        </BlurFade>
+      )}
+
       {data.portfolio.projects && data.portfolio.projects.length > 0 && (
         <ProjectFilter
           types={types}
@@ -58,22 +72,6 @@ export const PortfolioPage = (props: {
       )}
 
       <ScrollArea className="pb-5">
-        <div className="flex px-1 md:px-2 xl:px-3">
-          {data.portfolio.description && (
-            <BlurFade>
-              <div
-                data-tina-field={tinaField(data.portfolio, "description")}
-                className="markdown text-base whitespace-pre-line 2xl:text-lg"
-              >
-                <TinaMarkdown
-                  content={data.portfolio.description}
-                  components={MarkdownComponents()}
-                />
-              </div>
-            </BlurFade>
-          )}
-        </div>
-
         {shownProjects && shownProjects.length > 0 && (
           <ExpandableCardGrid data={shownProjects} />
         )}
