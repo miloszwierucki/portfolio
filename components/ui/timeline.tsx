@@ -3,8 +3,6 @@
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { ReactNode, RefObject, useEffect, useRef, useState } from "react";
 
-import { useThemeStore } from "@/store/useThemeStore";
-
 export const Timeline = ({
   children,
   containerRef,
@@ -18,19 +16,6 @@ export const Timeline = ({
   });
 
   const [svgHeight, setSvgHeight] = useState(0);
-  const { theme } = useThemeStore();
-  const variant =
-    theme === "dark"
-      ? {
-          track: "var(--color-cod-gray-200)",
-          thumb: "var(--color-zinc-50)",
-          opacity: 0.2,
-        }
-      : {
-          track: "var(--color-cod-gray-200)",
-          thumb: "var(--color-zinc-900)",
-          opacity: 0.4,
-        };
 
   useEffect(() => {
     if (contentRef.current) {
@@ -73,8 +58,8 @@ export const Timeline = ({
         <motion.path
           d={`M 1 0V -36 l 9.5 24 V ${svgHeight}`}
           fill="none"
-          stroke={variant.track}
-          strokeOpacity={variant.opacity}
+          stroke="var(--timeline-track)"
+          strokeOpacity="var(--timeline-track-opacity)"
           transition={{
             duration: 10,
           }}
@@ -100,17 +85,21 @@ export const Timeline = ({
             y1={y1} // set y1 for gradient
             y2={y2} // set y2 for gradient
           >
-            <stop stopColor={variant.thumb} stopOpacity="0" />
-            <stop stopColor={variant.thumb} />
-            <stop offset="0.325" stopColor={variant.thumb} />
-            <stop offset="1" stopColor={variant.thumb} stopOpacity="0" />
+            <stop stopColor="var(--timeline-thumb)" stopOpacity="0" />
+            <stop stopColor="var(--timeline-thumb)" />
+            <stop offset="0.325" stopColor="var(--timeline-thumb)" />
+            <stop
+              offset="1"
+              stopColor="var(--timeline-thumb)"
+              stopOpacity="0"
+            />
           </motion.linearGradient>
           <filter id="shadow">
             <feDropShadow
               dx="0"
               dy="0"
               stdDeviation="0.4"
-              floodColor={variant.thumb}
+              floodColor="var(--timeline-thumb)"
               floodOpacity="1"
             />
           </filter>

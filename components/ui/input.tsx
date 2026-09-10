@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import { ComponentPropsWithRef, MouseEvent, useState } from "react";
+import { ComponentPropsWithRef } from "react";
+import { motion } from "motion/react";
 
-import { useThemeStore } from "@/store/useThemeStore";
+import { useControlSpotlight } from "@/components/ui/use-control-spotlight";
 import { cn } from "@/lib/utils";
 
 export interface InputProps extends ComponentPropsWithRef<"input"> {
@@ -17,52 +17,24 @@ export const Input = ({
   ref,
   ...props
 }: InputProps) => {
-  const radius = 80;
-  const [visible, setVisible] = useState(false);
-  const { theme } = useThemeStore();
-  const gradient =
-    theme === "dark"
-      ? "color-mix(in srgb, var(--color-zinc-50) 50%, transparent)"
-      : "color-mix(in srgb, var(--color-zinc-900) 50%, transparent)";
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: MouseEvent<HTMLDivElement>) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
+  const spotlight = useControlSpotlight();
 
   return (
     <div>
       <motion.div
-        style={{
-          background: useMotionTemplate`
-        radial-gradient(
-          ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
-          ${gradient},
-          transparent 90%
-        )
-      `,
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        className="group/input rounded-lg p-[1.5px] transition duration-300"
+        style={{ background: spotlight.background }}
+        onMouseMove={spotlight.handleMouseMove}
+        onMouseEnter={spotlight.handleMouseEnter}
+        onMouseLeave={spotlight.handleMouseLeave}
+        className="group/input rounded-control p-[1.5px] transition duration-300"
       >
-        <div className="rounded-lg bg-zinc-50 dark:bg-zinc-900">
+        <div className="bg-input-surface rounded-control">
           <input
             type={type}
             aria-invalid={error ? "true" : undefined}
             aria-describedby={error ? "input-error" : undefined}
             className={cn(
-              "dark:placeholder-text-neutral-600 bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 flex w-full resize-none rounded-lg border-none px-3.5 py-3 text-base shadow-sm ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none placeholder:text-neutral-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
+              "bg-input-background ring-input-border placeholder:text-input-placeholder rounded-control flex w-full resize-none border-none px-3.5 py-3 text-base shadow-sm ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
               className
             )}
             ref={ref}
@@ -74,7 +46,7 @@ export const Input = ({
       {error && (
         <div
           role="alert"
-          className="mt-1 ml-2 flex flex-col text-xs text-red-600 md:col-span-2 md:text-sm"
+          className="text-input-error mt-1 ml-2 flex flex-col text-xs md:col-span-2 md:text-sm"
         >
           {error}
         </div>

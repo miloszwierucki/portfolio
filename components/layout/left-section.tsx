@@ -61,7 +61,7 @@ export const LeftSection = (props: {
         )}
       >
         <div
-          className="bg-cod-gray-200/20 mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden rounded-xl shadow-lg"
+          className="bg-surface-strong rounded-navigation mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden shadow-lg"
           data-tina-field={tinaField(data.sidebar, "image")}
         >
           {data.sidebar.image && (
@@ -84,7 +84,7 @@ export const LeftSection = (props: {
         </h1>
 
         <div
-          className="dark:before:bg-[linear-gradient(45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%)]/50 bg-cod-gray-200/10 before:animate-backgroundMove dark:bg-cod-gray-200/5 relative inline-flex justify-center rounded-lg px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap text-slate-800 shadow before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat focus:ring focus:ring-slate-500/50 focus:outline-none focus-visible:ring focus-visible:ring-slate-500/50 focus-visible:outline-none md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm dark:text-neutral-200"
+          className="bg-surface-muted before:animate-backgroundMove text-foreground rounded-control relative inline-flex justify-center px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap shadow before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--shimmer)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm"
           data-tina-field={tinaField(data.sidebar, "role")}
         >
           {data.sidebar.role}
@@ -93,7 +93,7 @@ export const LeftSection = (props: {
 
       <div
         className={cn(
-          "bg-cod-gray-200/40 dark:bg-cod-gray-200/15 my-6 h-[1.5px] w-full md:my-4 lg:my-6",
+          "bg-separator my-6 h-[1.5px] w-full md:my-4 lg:my-6",
           props.className
         )}
       />
@@ -118,7 +118,7 @@ export const LeftSection = (props: {
                   >
                     <div className="flex w-full items-center gap-2 px-4 py-2 text-base text-nowrap duration-300 hover:shadow-sm md:w-fit md:text-sm lg:w-full lg:px-1 xl:gap-4 xl:px-2 2xl:px-4 2xl:text-lg">
                       <div
-                        className="bg-cod-gray-200/10 dark:bg-cod-gray-200/5 grid size-10 shrink-0 grow-0 place-content-center rounded-lg 2xl:size-12"
+                        className="bg-surface-muted rounded-control grid size-10 shrink-0 grow-0 place-content-center 2xl:size-12"
                         data-tina-field={tinaField(block, "icon")}
                       >
                         <Icon
@@ -131,7 +131,7 @@ export const LeftSection = (props: {
                         data-tina-field={tinaField(block, "text")}
                       >
                         <span
-                          className="text-xs text-neutral-500 md:text-sm lg:text-xs 2xl:text-sm"
+                          className="text-muted-foreground text-xs md:text-sm lg:text-xs 2xl:text-sm"
                           data-tina-field={tinaField(block, "label")}
                         >
                           {block.label}
@@ -147,7 +147,7 @@ export const LeftSection = (props: {
       )}
 
       {showBottomFade && (
-        <div className="pointer-events-none absolute right-0 bottom-0 left-0 hidden h-14 bg-zinc-50 mask-[linear-gradient(to_bottom,transparent,#000_85%)] lg:block dark:bg-zinc-800" />
+        <div className="bg-surface-fade pointer-events-none absolute right-0 bottom-0 left-0 hidden h-14 mask-[linear-gradient(to_bottom,transparent,#000_85%)] lg:block" />
       )}
     </>
   );

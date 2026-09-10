@@ -49,11 +49,11 @@ export const TextHoverEffect = ({
         >
           {hovered && (
             <>
-              <stop offset="0%" stopColor={"var(--color-yellow-500)"} />
-              <stop offset="25%" stopColor={"var(--color-red-500)"} />
-              <stop offset="50%" stopColor={"var(--color-blue-500)"} />
-              <stop offset="75%" stopColor={"var(--color-cyan-500)"} />
-              <stop offset="100%" stopColor={"var(--color-violet-500)"} />
+              <stop offset="0%" stopColor="var(--accent-gradient-1)" />
+              <stop offset="25%" stopColor="var(--accent-gradient-2)" />
+              <stop offset="50%" stopColor="var(--accent-gradient-3)" />
+              <stop offset="75%" stopColor="var(--accent-gradient-4)" />
+              <stop offset="100%" stopColor="var(--accent-gradient-5)" />
             </>
           )}
         </linearGradient>
@@ -95,7 +95,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.1"
-        className="fill-transparent stroke-neutral-200 font-[helvetica] text-3xl font-semibold dark:stroke-neutral-900"
+        className="stroke-decorative-stroke fill-transparent font-[helvetica] text-3xl font-semibold"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -106,7 +106,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.1"
-        className="fill-transparent stroke-neutral-200 font-[helvetica] text-3xl font-semibold dark:stroke-neutral-900"
+        className="stroke-decorative-stroke fill-transparent font-[helvetica] text-3xl font-semibold"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,

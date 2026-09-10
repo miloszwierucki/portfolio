@@ -64,7 +64,7 @@ export function ExpandableCardGrid({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-10 h-full w-full bg-black/15"
+            className="bg-overlay fixed inset-0 z-10 h-full w-full"
           />
         )}
       </AnimatePresence>
@@ -76,7 +76,7 @@ export function ExpandableCardGrid({
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="ring-cod-gray-200/20 after:bg-cod-gray-100/5 dark:ring-cod-gray-200/15 flex h-full w-full max-w-125 flex-col overflow-hidden rounded-2xl bg-zinc-50 shadow-lg ring-1 backdrop-blur after:pointer-events-none after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit dark:bg-zinc-900"
+              className="ring-border after:bg-surface bg-surface-elevated rounded-panel flex h-full w-full max-w-125 flex-col overflow-hidden shadow-lg ring-1 backdrop-blur after:pointer-events-none after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:content-[''] md:h-fit md:max-h-[90%] lg:h-[90%] xl:h-fit"
             >
               <motion.div
                 layoutId={`image-${active.title}-${id}`}
@@ -91,10 +91,10 @@ export function ExpandableCardGrid({
                       } as CSSProperties
                     }
                     className={cn(
-                      "relative h-64 w-full overflow-hidden rounded-tl-2xl rounded-tr-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
+                      "rounded-tl-media rounded-tr-media relative h-64 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
                       // Preload hover image by setting it in a pseudo-element
                       `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
-                      "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
+                      "hover:after:bg-overlay hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:content-['']",
                       "transition-all duration-500"
                     )}
                   />
@@ -114,7 +114,7 @@ export function ExpandableCardGrid({
                     <motion.p
                       layoutId={`type-${active.title}-${id}`}
                       data-tina-field={tinaField(active, "type")}
-                      className="text-base text-neutral-500"
+                      className="text-muted-foreground text-base"
                     >
                       {active.type}
                     </motion.p>
@@ -131,7 +131,7 @@ export function ExpandableCardGrid({
                         href={active.previewLink}
                         data-cursor="pointer"
                         target="_blank"
-                        className="bg-cod-gray-200/10 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5 grid size-8 shrink-0 grow-0 place-content-center rounded-lg transition-[background] duration-500"
+                        className="bg-surface-muted hover:bg-surface-hover rounded-control grid size-8 shrink-0 grow-0 place-content-center transition-[background] duration-500"
                       >
                         <ExternalLink size={20} />
                       </motion.a>
@@ -146,7 +146,7 @@ export function ExpandableCardGrid({
                         href={active.codeLink}
                         data-cursor="pointer"
                         target="_blank"
-                        className="bg-cod-gray-200/10 hover:bg-cod-gray-200/20 dark:bg-cod-gray-200/5 grid size-8 shrink-0 grow-0 place-content-center rounded-lg transition-[background] duration-500"
+                        className="bg-surface-muted hover:bg-surface-hover rounded-control grid size-8 shrink-0 grow-0 place-content-center transition-[background] duration-500"
                       >
                         <CodeXml size={20} />
                       </motion.a>
@@ -186,7 +186,7 @@ export function ExpandableCardGrid({
                     data-tina-field={tinaField(card, "title")}
                     data-cursor="discovery"
                     onClick={() => setActive(card)}
-                    className="flex flex-col rounded-2xl p-2"
+                    className="rounded-panel flex flex-col p-2"
                   >
                     <div className="flex w-full flex-col gap-2">
                       <motion.div
@@ -202,10 +202,10 @@ export function ExpandableCardGrid({
                               } as CSSProperties
                             }
                             className={cn(
-                              "relative h-52 w-full overflow-hidden rounded-2xl bg-(image:--image-url) bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
+                              "rounded-media relative h-52 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
                               // Preload hover image by setting it in a pseudo-element
                               `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
-                              "hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-15 hover:after:content-['']",
+                              "hover:after:bg-overlay hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:content-['']",
                               "transition-all duration-500"
                             )}
                           />
@@ -222,7 +222,7 @@ export function ExpandableCardGrid({
                         <motion.p
                           layoutId={`type-${card.title}-${id}`}
                           data-tina-field={tinaField(card, "type")}
-                          className="text-sm text-neutral-500 md:text-xs 2xl:text-sm"
+                          className="text-muted-foreground text-sm md:text-xs 2xl:text-sm"
                         >
                           {card.type}
                         </motion.p>

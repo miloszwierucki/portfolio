@@ -106,7 +106,7 @@ export default function ControllerClient(props: {
   };
 
   return (
-    <nav className="bg-cod-gray-100/5 ring-cod-gray-200/20 dark:ring-cod-gray-200/15 fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 rounded-xl px-4 py-2 text-sm shadow-lg ring-1 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base">
+    <nav className="bg-surface ring-border rounded-navigation fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 px-4 py-2 text-sm shadow-lg ring-1 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base">
       <div className="flex items-center space-x-1">
         {data.settings.navbar &&
           data.settings.navbar.map((item) =>
@@ -116,7 +116,7 @@ export default function ControllerClient(props: {
                 href={item.href}
                 data-cursor="pointer"
                 data-tina-field={tinaField(item, "label")}
-                className={`hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2 ${
+                className={`hover:bg-surface-hover rounded-control grid max-h-9 place-content-center px-3 py-1.5 transition-[background] duration-500 xl:py-2 ${
                   pathname.includes(item.href) && "font-medium"
                 }`}
               >
@@ -125,7 +125,7 @@ export default function ControllerClient(props: {
             ) : null
           )}
         <button
-          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-2 py-1.5 transition-[background] duration-500 md:hidden"
+          className="hover:bg-surface-hover rounded-control grid max-h-9 place-content-center px-2 py-1.5 transition-[background] duration-500 md:hidden"
           data-cursor="pointer"
           onClick={() => setOpen(!open)}
         >
@@ -141,7 +141,7 @@ export default function ControllerClient(props: {
         <button
           onClick={() => handleThemeChange(theme === "dark" ? "light" : "dark")}
           data-cursor="theme"
-          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg px-3 py-1.5 transition-[background] duration-500 xl:py-2"
+          className="hover:bg-surface-hover rounded-control grid max-h-9 place-content-center px-3 py-1.5 transition-[background] duration-500 xl:py-2"
         >
           <AnimatePresence mode="wait">
             {isDark ? (
@@ -175,7 +175,7 @@ export default function ControllerClient(props: {
         </button>
 
         <button
-          className="hover:bg-cod-gray-200/20 grid max-h-9 place-content-center rounded-lg py-1.5 text-base transition-[background] duration-300 xl:text-lg"
+          className="hover:bg-surface-hover rounded-control grid max-h-9 place-content-center py-1.5 text-base transition-[background] duration-300 xl:text-lg"
           data-cursor="language"
         >
           <AnimatePresence mode="wait" initial={false}>

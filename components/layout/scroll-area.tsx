@@ -55,7 +55,7 @@ export const ScrollArea = ({
           else if (ref) ref.current = element;
         }}
         className={cn(
-          "scrollbar-thumb-cod-gray-200 dark:scrollbar-thumb-cod-gray-200 h-full scrollbar-thin scrollbar-track-transparent overflow-y-auto",
+          "scrollbar-thumb-scrollbar-thumb hover:scrollbar-thumb-scrollbar-thumb-hover scrollbar-track-scrollbar-track scrollbar-thumb-rounded-scrollbar h-full scrollbar-thin overflow-y-auto",
           showTopFade &&
             showBottomFade &&
             "mask-[linear-gradient(to_bottom,transparent_0,#000_1.5rem,#000_calc(100%-1.5rem),transparent_100%)]",

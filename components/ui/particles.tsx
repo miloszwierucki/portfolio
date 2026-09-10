@@ -37,7 +37,7 @@ interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
   ease?: number;
   size?: number;
   refresh?: boolean;
-  color?: string;
+  color: string;
   vx?: number;
   vy?: number;
 }
@@ -79,7 +79,7 @@ const Particles = ({
   ease = 50,
   size = 0.4,
   refresh = false,
-  color = "#ffffff",
+  color,
   vx = 0,
   vy = 0,
   ...props

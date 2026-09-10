@@ -6,13 +6,133 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --background: #fafafa;
+  --foreground: #171717;
+  --muted-foreground: #737373;
+  --subtle-foreground: #888888;
+
+  --surface: rgb(231 231 231 / 5%);
+  --surface-muted: rgb(209 209 209 / 10%);
+  --surface-strong: rgb(209 209 209 / 20%);
+  --surface-hover: rgb(209 209 209 / 20%);
+  --surface-elevated: #fafafa;
+  --surface-fade: #fafafa;
+  --icon-surface: #f2f2f1;
+  --border: rgb(209 209 209 / 20%);
+  --separator: rgb(209 209 209 / 40%);
+  --overlay: rgb(0 0 0 / 15%);
+
+  --input-background: rgb(231 231 231 / 5%);
+  --input-surface: #fafafa;
+  --input-border: rgb(209 209 209 / 20%);
+  --input-placeholder: #737373;
+  --input-glow: rgb(24 24 27 / 50%);
+  --input-glow-radius: 5rem;
+  --input-error: #dc2626;
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #d1d1d1;
+  --scrollbar-thumb-hover: #888888;
+
+  --inverse-background: rgb(24 24 27 / 90%);
+  --inverse-foreground: #e5e5e5;
+  --decorative-stroke: #e5e5e5;
+  --particle-color: #000000;
+  --timeline-track: #d1d1d1;
+  --timeline-track-opacity: 0.4;
+  --timeline-thumb: #18181b;
+  --shimmer: #ffffff;
+  --accent-gradient-1: #eab308;
+  --accent-gradient-2: #ef4444;
+  --accent-gradient-3: #3b82f6;
+  --accent-gradient-4: #06b6d4;
+  --accent-gradient-5: #8b5cf6;
+
+  --control-radius: 0.5rem;
+  --navigation-radius: 0.75rem;
+  --panel-radius: 1rem;
+  --media-radius: 1rem;
+  --highlight-radius: 0.25rem;
+  --scrollbar-radius: 9999px;
+
+  --ambient-1: rgb(0 139 248);
+  --ambient-2: rgb(250 25 139);
+  --ambient-3: rgb(0 255 255);
+  --ambient-4: rgb(137 252 0);
+  --ambient-5: rgb(82 173 156);
+  --ambient-6: rgb(255 100 100);
+  --ambient-7: rgb(87 93 144);
+  --ambient-8: rgb(255 123 156);
+}
+
+.dark {
+  --background: #18181b;
+  --foreground: #e5e5e5;
+  --muted-foreground: #737373;
+  --subtle-foreground: #888888;
+
+  --surface: rgb(231 231 231 / 5%);
+  --surface-muted: rgb(209 209 209 / 5%);
+  --surface-strong: rgb(209 209 209 / 15%);
+  --surface-hover: rgb(209 209 209 / 20%);
+  --surface-elevated: #18181b;
+  --surface-fade: #27272a;
+  --icon-surface: #2e3031;
+  --border: rgb(209 209 209 / 15%);
+  --separator: rgb(209 209 209 / 15%);
+
+  --input-background: rgb(231 231 231 / 5%);
+  --input-surface: #18181b;
+  --input-border: rgb(209 209 209 / 15%);
+  --input-placeholder: #525252;
+  --input-glow: rgb(250 250 250 / 50%);
+
+  --inverse-background: rgb(250 250 250 / 90%);
+  --inverse-foreground: #171717;
+  --decorative-stroke: #171717;
+  --particle-color: #ffffff;
+  --timeline-track-opacity: 0.2;
+  --timeline-thumb: #fafafa;
+  --shimmer: rgb(255 255 255 / 50%);
+}
+
 @theme inline {
   --font-satoshi: var(--font-satoshi-sans);
   --font-jakarta: var(--font-plus-jakarta-sans);
 
-  --color-cod-gray-100: #e7e7e7;
-  --color-cod-gray-200: #d1d1d1;
-  --color-cod-gray-400: #888888;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-fade: var(--surface-fade);
+  --color-icon-surface: var(--icon-surface);
+  --color-border: var(--border);
+  --color-separator: var(--separator);
+  --color-overlay: var(--overlay);
+  --color-input-background: var(--input-background);
+  --color-input-surface: var(--input-surface);
+  --color-input-border: var(--input-border);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-input-error: var(--input-error);
+  --color-scrollbar-track: var(--scrollbar-track);
+  --color-scrollbar-thumb: var(--scrollbar-thumb);
+  --color-scrollbar-thumb-hover: var(--scrollbar-thumb-hover);
+  --color-inverse-background: var(--inverse-background);
+  --color-inverse-foreground: var(--inverse-foreground);
+  --color-decorative-stroke: var(--decorative-stroke);
+
+  --radius-control: var(--control-radius);
+  --radius-navigation: var(--navigation-radius);
+  --radius-panel: var(--panel-radius);
+  --radius-media: var(--media-radius);
+  --radius-highlight: var(--highlight-radius);
+  --radius-scrollbar: var(--scrollbar-radius);
 
   --animate-backgroundMove: backgroundPosition 6500ms linear infinite;
   --animate-spin-slow: spin 5s linear infinite;
@@ -83,14 +203,14 @@ html.custom-cursor-active.__tina-quick-editing-enabled [data-tina-field]:hover {
   left: 0;
   filter: blur(100px) saturate(100%);
   background-image:
-    radial-gradient(at 40% 45%, rgb(0, 139, 248) 0px, transparent 50%),
-    radial-gradient(at 90% 10%, rgb(250, 25, 139) 0px, transparent 50%),
-    radial-gradient(at 50% 95%, rgb(0, 255, 255) 0px, transparent 50%),
-    radial-gradient(at 20% 35%, rgb(137, 252, 0) 0px, transparent 50%),
-    radial-gradient(at 90% 90%, rgb(82, 173, 156) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, rgb(255, 100, 100) 0px, transparent 50%),
-    radial-gradient(at 75% 50%, rgb(87, 93, 144) 0px, transparent 50%),
-    radial-gradient(at 10% 95%, rgb(255, 123, 156) 0px, transparent 50%);
+    radial-gradient(at 40% 45%, var(--ambient-1) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, var(--ambient-2) 0px, transparent 50%),
+    radial-gradient(at 50% 95%, var(--ambient-3) 0px, transparent 50%),
+    radial-gradient(at 20% 35%, var(--ambient-4) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, var(--ambient-5) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, var(--ambient-6) 0px, transparent 50%),
+    radial-gradient(at 75% 50%, var(--ambient-7) 0px, transparent 50%),
+    radial-gradient(at 10% 95%, var(--ambient-8) 0px, transparent 50%);
 }
 
 .markdown strong {

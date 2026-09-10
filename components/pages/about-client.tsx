@@ -59,7 +59,7 @@ export const AboutPage = (props: {
                   <BlurFade inView key={i}>
                     <div className="font-jakarta mt-2 mb-3 flex w-fit items-center gap-3 text-xl font-medium xl:mt-3 xl:mb-4 xl:gap-4 xl:text-2xl 2xl:mt-4 2xl:mb-6 2xl:text-[1.75rem]">
                       {timeline.icon && (
-                        <div className="grid size-8 shrink-0 grow-0 place-content-center rounded-lg bg-[#F2F2F1] xl:size-9 2xl:size-10 dark:bg-[#2E3031]">
+                        <div className="bg-icon-surface rounded-control grid size-8 shrink-0 grow-0 place-content-center xl:size-9 2xl:size-10">
                           <Icon
                             name={timeline.icon as keyof typeof Icon}
                             data-tina-field={tinaField(timeline, "icon")}
@@ -80,19 +80,19 @@ export const AboutPage = (props: {
                         >
                           <CircleDotDashed
                             className="group-hover:animate-spin-slow z-50 size-5 shrink-0 grow-0 2xl:size-6"
-                            stroke="var(--color-cod-gray-400)"
+                            stroke="var(--subtle-foreground)"
                           />
 
                           <div className="flex flex-col">
                             <h3
-                              className="font-jakarta after:bg-cod-gray-200/10 dark:after:dark:bg-cod-gray-200/5 relative w-fit text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:rounded-sm after:content-[''] 2xl:text-xl"
+                              className="font-jakarta after:bg-surface-muted after:rounded-highlight relative w-fit text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:content-[''] 2xl:text-xl"
                               data-tina-field={tinaField(item, "company")}
                             >
                               {item?.company}
                             </h3>
 
                             <p
-                              className="text-cod-gray-400 mb-2 text-sm font-medium xl:text-base 2xl:text-lg"
+                              className="text-subtle-foreground mb-2 text-sm font-medium xl:text-base 2xl:text-lg"
                               data-tina-field={tinaField(item, "period")}
                             >
                               {item?.period}
