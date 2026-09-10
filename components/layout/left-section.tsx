@@ -103,6 +103,8 @@ export const LeftSection = (props: {
           ref={scrollRef}
           className={cn(
             "flex min-h-0 flex-1 scrollbar-none overflow-y-auto",
+            showBottomFade &&
+              "mask-[linear-gradient(to_bottom,#000_calc(100%-1.5rem),transparent_100%)]",
             props.className
           )}
         >
@@ -144,10 +146,6 @@ export const LeftSection = (props: {
             )}
           </div>
         </div>
-      )}
-
-      {showBottomFade && (
-        <div className="bg-surface-fade pointer-events-none absolute right-0 bottom-0 left-0 hidden h-14 mask-[linear-gradient(to_bottom,transparent,#000_85%)] lg:block" />
       )}
     </>
   );
