@@ -106,7 +106,7 @@ const CustomCursor = () => {
 
   return visible ? (
     <motion.div
-      className="text-subtle-foreground pointer-events-none fixed top-0 left-0 z-50 drop-shadow-lg"
+      className="text-subtle-foreground pointer-events-none fixed top-0 left-0 z-9999 drop-shadow-lg"
       style={{
         translateX: cursorX,
         translateY: cursorY,

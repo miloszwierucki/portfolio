@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
+const customCursorEnabled = process.env.CUSTOM_CURSOR !== "false";
+
 export default async function RootLayout({
   sidebar,
   children,
@@ -57,7 +59,7 @@ export default async function RootLayout({
 
             {controller}
           </div>
-          <CustomCursor />
+          {customCursorEnabled && <CustomCursor />}
           <div className="fixed right-0 bottom-0 flex h-16 w-40 items-center p-3">
             <TextHoverEffect text="為了生存我擺脫了感情" />
           </div>
