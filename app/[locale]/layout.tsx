@@ -3,15 +3,21 @@ import { getLocale } from "next-intl/server";
 
 import type { Metadata } from "next";
 
+import {
+  noto_sans,
+  noto_sans_mono,
+  plus_jakarta_sans,
+  satoshi,
+  shippori_mincho,
+} from "@/app/fonts";
 import BackgroundPattern from "@/components/layout/background-pattern";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
 import VercelAnalytics from "@/components/vercel-analytics";
-import { plus_jakarta_sans, satoshi } from "@/app/fonts";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/seo";
 
-import "@/app/globals.css";
+import "@/app/zen.css";
 
 // export const revalidate = 0;
 
@@ -43,7 +49,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${satoshi.variable} ${plus_jakarta_sans.variable} bg-background text-foreground font-body grid min-h-screen w-screen scrollbar-none grid-cols-1 place-content-center overflow-x-hidden antialiased md:h-screen md:overflow-y-hidden`}
+        className={`${satoshi.variable} ${plus_jakarta_sans.variable} ${noto_sans.variable} ${shippori_mincho.variable} ${noto_sans_mono.variable} bg-background text-foreground font-body grid min-h-screen w-screen scrollbar-none grid-cols-1 place-content-center overflow-x-hidden antialiased md:h-screen md:overflow-y-hidden`}
       >
         <NextIntlClientProvider messages={{}}>
           <BackgroundPattern />

@@ -1,7 +1,10 @@
 import {
   Architects_Daughter,
   Inter,
+  Noto_Sans,
+  Noto_Sans_Mono,
   Plus_Jakarta_Sans,
+  Shippori_Mincho_B1,
 } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -20,6 +23,25 @@ export const plus_jakarta_sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-plus-jakarta-sans",
+});
+
+export const noto_sans = Noto_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans",
+});
+
+export const noto_sans_mono = Noto_Sans_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans-mono",
+});
+
+export const shippori_mincho = Shippori_Mincho_B1({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-shippori-mincho",
 });
 
 export const satoshi = localFont({

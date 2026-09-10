@@ -63,6 +63,7 @@ body {
   --contact-button-foreground: var(--inverse-foreground);
   --decorative-stroke: #e5e5e5;
   --particle-color: #000000;
+  --background-pattern: particles;
   --timeline-track: #d1d1d1;
   --timeline-track-opacity: 0.4;
   --timeline-thumb: #18181b;
