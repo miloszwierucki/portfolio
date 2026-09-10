@@ -115,7 +115,7 @@ export function ExpandableCardGrid({
                           <motion.h3
                             layoutId={`title-${active.title}-${id}`}
                             data-tina-field={tinaField(active, "title")}
-                            className="font-jakarta text-base font-semibold"
+                            className="font-heading text-base font-semibold"
                           >
                             {active.title}
                           </motion.h3>
@@ -225,7 +225,7 @@ export function ExpandableCardGrid({
                         <motion.h3
                           layoutId={`title-${card.title}-${id}`}
                           data-tina-field={tinaField(card, "title")}
-                          className="font-jakarta text-base font-semibold md:text-sm 2xl:text-base"
+                          className="font-heading text-base font-semibold md:text-sm 2xl:text-base"
                         >
                           {card.title}
                         </motion.h3>

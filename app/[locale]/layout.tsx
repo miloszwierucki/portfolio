@@ -43,7 +43,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${satoshi.variable} ${plus_jakarta_sans.variable} bg-background text-foreground font-satoshi grid min-h-screen w-screen scrollbar-none grid-cols-1 place-content-center overflow-x-hidden antialiased md:h-screen md:overflow-y-hidden`}
+        className={`${satoshi.variable} ${plus_jakarta_sans.variable} bg-background text-foreground font-body grid min-h-screen w-screen scrollbar-none grid-cols-1 place-content-center overflow-x-hidden antialiased md:h-screen md:overflow-y-hidden`}
       >
         <NextIntlClientProvider messages={{}}>
           <BackgroundPattern />

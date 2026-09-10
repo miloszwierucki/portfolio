@@ -6,11 +6,18 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+body {
+  --body-font: var(--font-satoshi-sans);
+  --heading-font: var(--font-plus-jakarta-sans);
+}
+
 :root {
   --background: #fafafa;
   --foreground: #171717;
   --muted-foreground: #737373;
   --subtle-foreground: #888888;
+  --accent: #18181b;
+  --accent-foreground: #fafafa;
 
   --surface: rgb(231 231 231 / 5%);
   --surface-muted: rgb(209 209 209 / 10%);
@@ -80,6 +87,8 @@
   --foreground: #e5e5e5;
   --muted-foreground: #737373;
   --subtle-foreground: #888888;
+  --accent: #fafafa;
+  --accent-foreground: #171717;
 
   --surface: rgb(231 231 231 / 5%);
   --surface-muted: rgb(209 209 209 / 5%);
@@ -107,13 +116,15 @@
 }
 
 @theme inline {
-  --font-satoshi: var(--font-satoshi-sans);
-  --font-jakarta: var(--font-plus-jakarta-sans);
+  --font-body: var(--body-font);
+  --font-heading: var(--heading-font);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-subtle-foreground: var(--subtle-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-surface-strong: var(--surface-strong);

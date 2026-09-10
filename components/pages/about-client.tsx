@@ -57,7 +57,7 @@ export const AboutPage = (props: {
               (timeline, i) =>
                 timeline && (
                   <BlurFade inView key={i}>
-                    <div className="font-jakarta mt-2 mb-3 flex w-fit items-center gap-3 text-xl font-medium xl:mt-3 xl:mb-4 xl:gap-4 xl:text-2xl 2xl:mt-4 2xl:mb-6 2xl:text-[1.75rem]">
+                    <div className="font-heading mt-2 mb-3 flex w-fit items-center gap-3 text-xl font-medium xl:mt-3 xl:mb-4 xl:gap-4 xl:text-2xl 2xl:mt-4 2xl:mb-6 2xl:text-[1.75rem]">
                       {timeline.icon && (
                         <div className="bg-icon-surface rounded-control grid size-8 shrink-0 grow-0 place-content-center xl:size-9 2xl:size-10">
                           <Icon
@@ -85,7 +85,7 @@ export const AboutPage = (props: {
 
                           <div className="flex flex-col">
                             <h3
-                              className="font-jakarta after:bg-surface-muted after:rounded-highlight relative w-fit text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:content-[''] 2xl:text-xl"
+                              className="font-heading after:bg-surface-muted after:rounded-highlight relative w-fit text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:content-[''] 2xl:text-xl"
                               data-tina-field={tinaField(item, "company")}
                             >
                               {item?.company}

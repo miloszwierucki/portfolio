@@ -77,7 +77,7 @@ export const LeftSection = (props: {
         </div>
 
         <h1
-          className="font-jakarta text-center text-3xl font-semibold md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl"
+          className="font-heading text-center text-3xl font-semibold md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl"
           data-tina-field={tinaField(data.sidebar, "name")}
         >
           {data.sidebar.name}
