@@ -46,7 +46,7 @@ export const ScrollArea = ({
   }, [children]);
 
   return (
-    <div className="relative min-h-0 flex-1">
+    <div className="relative min-h-0 flex-1 overflow-hidden">
       <div
         ref={(element) => {
           scrollRef.current = element;
