@@ -64,15 +64,19 @@ export const LeftSection = (props: {
           className="bg-surface-strong rounded-navigation shadow-panel mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden"
           data-tina-field={tinaField(data.sidebar, "image")}
         >
-          {data.sidebar.image && (
+          {data.sidebar.image ? (
             <Image
-              className="drop-shadow-media pointer-events-none mx-auto w-11/12 object-contain saturate-[1.25]"
+              className="drop-shadow-media pointer-events-none mx-auto aspect-square w-11/12 object-cover object-top saturate-[1.25]"
               src={data.sidebar.image}
               alt="Person profile picture"
               width={400}
               height={400}
               loading="eager"
             />
+          ) : (
+            <h1 className="font-heading text-accent text-6xl font-semibold md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              MW
+            </h1>
           )}
         </div>
 

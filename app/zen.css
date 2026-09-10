@@ -26,7 +26,7 @@ body {
 
   --surface: rgb(247 245 240 / 82%);
   --surface-muted: #e8e5df;
-  --surface-strong: #d8d4cc;
+  --surface-strong: #f7f5f0;
   --surface-hover: #dedad2;
   --surface-elevated: #f7f5f0;
   --surface-fade: #efede8;
@@ -99,7 +99,7 @@ body {
 
   --surface: rgb(17 17 16 / 84%);
   --surface-muted: #1a1a18;
-  --surface-strong: #222220;
+  --surface-strong: #111110;
   --surface-hover: #292925;
   --surface-elevated: #111110;
   --surface-fade: #111110;
