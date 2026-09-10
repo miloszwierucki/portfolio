@@ -88,13 +88,13 @@ export const AboutPage = (props: {
                               className="font-company w-fit text-lg font-semibold 2xl:text-xl"
                               data-tina-field={tinaField(item, "company")}
                             >
-                              <span className="rounded-highlight bg-[linear-gradient(to_top,var(--company-highlight)_50%,transparent_50%)] box-decoration-clone px-2">
+                              <span className="rounded-highlight -ml-2 bg-[linear-gradient(to_top,var(--company-highlight)_50%,transparent_50%)] box-decoration-clone px-2">
                                 {item?.company}
                               </span>
                             </h3>
 
                             <p
-                              className="text-subtle-foreground font-period mb-2 text-sm font-medium xl:text-base 2xl:text-lg"
+                              className="text-subtle-foreground font-period mb-2 text-xs font-medium xl:text-sm 2xl:text-base"
                               data-tina-field={tinaField(item, "period")}
                             >
                               {item?.period}
