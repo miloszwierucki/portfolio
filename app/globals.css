@@ -10,6 +10,9 @@ body {
   --body-font: var(--font-satoshi-sans);
   --heading-font: var(--font-plus-jakarta-sans);
   --label-font: var(--font-satoshi-sans);
+  --company-font: var(--heading-font);
+  --period-font: var(--body-font);
+  --project-font: var(--heading-font);
 }
 
 :root {
@@ -19,6 +22,7 @@ body {
   --subtle-foreground: #888888;
   --accent: #18181b;
   --accent-foreground: #fafafa;
+  --link-hover: currentColor;
 
   --surface: rgb(231 231 231 / 5%);
   --surface-muted: rgb(209 209 209 / 10%);
@@ -26,6 +30,7 @@ body {
   --surface-hover: rgb(209 209 209 / 20%);
   --surface-elevated: #fafafa;
   --surface-fade: #fafafa;
+  --company-highlight: var(--surface-muted);
   --icon-surface: #f2f2f1;
   --border: rgb(209 209 209 / 20%);
   --separator: rgb(209 209 209 / 40%);
@@ -54,6 +59,8 @@ body {
 
   --inverse-background: rgb(24 24 27 / 90%);
   --inverse-foreground: #e5e5e5;
+  --contact-button: var(--inverse-background);
+  --contact-button-foreground: var(--inverse-foreground);
   --decorative-stroke: #e5e5e5;
   --particle-color: #000000;
   --timeline-track: #d1d1d1;
@@ -90,6 +97,7 @@ body {
   --subtle-foreground: #888888;
   --accent: #fafafa;
   --accent-foreground: #171717;
+  --link-hover: currentColor;
 
   --surface: rgb(231 231 231 / 5%);
   --surface-muted: rgb(209 209 209 / 5%);
@@ -97,6 +105,7 @@ body {
   --surface-hover: rgb(209 209 209 / 20%);
   --surface-elevated: #18181b;
   --surface-fade: #27272a;
+  --company-highlight: var(--surface-muted);
   --icon-surface: #2e3031;
   --border: rgb(209 209 209 / 15%);
   --separator: rgb(209 209 209 / 15%);
@@ -109,6 +118,8 @@ body {
 
   --inverse-background: rgb(250 250 250 / 90%);
   --inverse-foreground: #171717;
+  --contact-button: var(--inverse-background);
+  --contact-button-foreground: var(--inverse-foreground);
   --decorative-stroke: #171717;
   --particle-color: #ffffff;
   --timeline-track-opacity: 0.2;
@@ -120,6 +131,9 @@ body {
   --font-body: var(--body-font);
   --font-heading: var(--heading-font);
   --font-label: var(--label-font);
+  --font-company: var(--company-font);
+  --font-period: var(--period-font);
+  --font-project: var(--project-font);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -127,12 +141,14 @@ body {
   --color-subtle-foreground: var(--subtle-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-link-hover: var(--link-hover);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-surface-strong: var(--surface-strong);
   --color-surface-hover: var(--surface-hover);
   --color-surface-elevated: var(--surface-elevated);
   --color-surface-fade: var(--surface-fade);
+  --color-company-highlight: var(--company-highlight);
   --color-icon-surface: var(--icon-surface);
   --color-border: var(--border);
   --color-separator: var(--separator);
@@ -147,6 +163,8 @@ body {
   --color-scrollbar-thumb-hover: var(--scrollbar-thumb-hover);
   --color-inverse-background: var(--inverse-background);
   --color-inverse-foreground: var(--inverse-foreground);
+  --color-contact-button: var(--contact-button);
+  --color-contact-button-foreground: var(--contact-button-foreground);
   --color-decorative-stroke: var(--decorative-stroke);
 
   --radius-control: var(--control-radius);

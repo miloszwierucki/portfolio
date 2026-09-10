@@ -11,7 +11,7 @@ export const MarkdownComponents = () => {
       <Link
         data-cursor="pointer"
         href={props!.url}
-        className="hover:underline hover:underline-offset-4"
+        className="hover:text-link-hover transition-colors hover:underline hover:underline-offset-4"
       >
         {props!.children}
       </Link>

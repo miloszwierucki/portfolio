@@ -85,14 +85,16 @@ export const AboutPage = (props: {
 
                           <div className="flex flex-col">
                             <h3
-                              className="font-heading after:bg-surface-muted after:rounded-highlight relative w-fit text-lg font-semibold after:absolute after:-bottom-0.5 after:-left-2 after:-z-10 after:h-3/5 after:w-[calc(100%+1rem)] after:content-[''] 2xl:text-xl"
+                              className="font-company w-fit text-lg font-semibold 2xl:text-xl"
                               data-tina-field={tinaField(item, "company")}
                             >
-                              {item?.company}
+                              <span className="rounded-highlight bg-[linear-gradient(to_top,var(--company-highlight)_50%,transparent_50%)] box-decoration-clone px-2">
+                                {item?.company}
+                              </span>
                             </h3>
 
                             <p
-                              className="text-subtle-foreground mb-2 text-sm font-medium xl:text-base 2xl:text-lg"
+                              className="text-subtle-foreground font-period mb-2 text-sm font-medium xl:text-base 2xl:text-lg"
                               data-tina-field={tinaField(item, "period")}
                             >
                               {item?.period}
