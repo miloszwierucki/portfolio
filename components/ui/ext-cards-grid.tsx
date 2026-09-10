@@ -122,7 +122,7 @@ export function ExpandableCardGrid({
                           <motion.p
                             layoutId={`type-${active.title}-${id}`}
                             data-tina-field={tinaField(active, "type")}
-                            className="text-muted-foreground text-base"
+                            className="text-muted-foreground font-label text-base"
                           >
                             {active.type}
                           </motion.p>
@@ -232,7 +232,7 @@ export function ExpandableCardGrid({
                         <motion.p
                           layoutId={`type-${card.title}-${id}`}
                           data-tina-field={tinaField(card, "type")}
-                          className="text-muted-foreground text-sm md:text-xs 2xl:text-sm"
+                          className="text-muted-foreground font-label text-sm md:text-xs 2xl:text-sm"
                         >
                           {card.type}
                         </motion.p>

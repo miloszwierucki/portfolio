@@ -11,7 +11,7 @@ export const ProjectFilter = ({
   setActiveType: Dispatch<SetStateAction<string | null>>;
 }) => {
   return (
-    <div className="inset-x-0 bottom-5 z-20 flex w-full items-center space-x-1 py-2 text-base md:px-2 lg:px-4 lg:py-0 2xl:py-2">
+    <div className="font-label inset-x-0 bottom-5 z-20 flex w-full items-center space-x-1 py-2 text-base md:px-2 lg:px-4 lg:py-0 2xl:py-2">
       <div className="text-muted-foreground w-max pr-1">Filter:</div>
       <div className="flex w-3/4 flex-1 scrollbar-none overflow-x-scroll">
         <div className="flex w-max flex-row items-center space-x-1">

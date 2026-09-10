@@ -9,6 +9,7 @@
 body {
   --body-font: var(--font-satoshi-sans);
   --heading-font: var(--font-plus-jakarta-sans);
+  --label-font: var(--font-satoshi-sans);
 }
 
 :root {
@@ -118,6 +119,7 @@ body {
 @theme inline {
   --font-body: var(--body-font);
   --font-heading: var(--heading-font);
+  --font-label: var(--label-font);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

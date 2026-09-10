@@ -13,7 +13,7 @@ const Label = ({
   <LabelPrimitive.Root
     ref={ref}
     className={cn(
-      "text-base leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:text-sm 2xl:text-base",
+      "font-label text-base leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 lg:text-sm 2xl:text-base",
       className
     )}
     {...props}

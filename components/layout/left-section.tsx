@@ -84,7 +84,7 @@ export const LeftSection = (props: {
         </h1>
 
         <div
-          className="bg-surface-muted before:animate-backgroundMove text-foreground rounded-control shadow-control relative inline-flex justify-center px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--shimmer)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm"
+          className="bg-surface-muted before:animate-backgroundMove text-foreground rounded-control shadow-control font-label relative inline-flex justify-center px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--shimmer)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm"
           data-tina-field={tinaField(data.sidebar, "role")}
         >
           {data.sidebar.role}
@@ -131,7 +131,7 @@ export const LeftSection = (props: {
                         data-tina-field={tinaField(block, "text")}
                       >
                         <span
-                          className="text-muted-foreground text-xs md:text-sm lg:text-xs 2xl:text-sm"
+                          className="text-muted-foreground font-label text-xs md:text-sm lg:text-xs 2xl:text-sm"
                           data-tina-field={tinaField(block, "label")}
                         >
                           {block.label}
