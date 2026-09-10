@@ -35,6 +35,15 @@
   --scrollbar-thumb: #d1d1d1;
   --scrollbar-thumb-hover: #888888;
 
+  --control-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+  --media-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --panel-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --media-drop-shadow: 0 4px 4px rgb(0 0 0 / 15%);
+  --cursor-drop-shadow: 0 4px 4px rgb(0 0 0 / 15%);
+
   --inverse-background: rgb(24 24 27 / 90%);
   --inverse-foreground: #e5e5e5;
   --decorative-stroke: #e5e5e5;
@@ -133,6 +142,12 @@
   --radius-media: var(--media-radius);
   --radius-highlight: var(--highlight-radius);
   --radius-scrollbar: var(--scrollbar-radius);
+
+  --shadow-control: var(--control-shadow);
+  --shadow-media: var(--media-shadow);
+  --shadow-panel: var(--panel-shadow);
+  --drop-shadow-media: var(--media-drop-shadow);
+  --drop-shadow-cursor: var(--cursor-drop-shadow);
 
   --animate-backgroundMove: backgroundPosition 6500ms linear infinite;
   --animate-spin-slow: spin 5s linear infinite;

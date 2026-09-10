@@ -34,7 +34,7 @@ export const Input = ({
             aria-invalid={error ? "true" : undefined}
             aria-describedby={error ? "input-error" : undefined}
             className={cn(
-              "bg-input-background ring-input-border placeholder:text-input-placeholder rounded-control flex w-full resize-none border-none px-3.5 py-3 text-base shadow-sm ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
+              "bg-input-background ring-input-border placeholder:text-input-placeholder rounded-control shadow-control flex w-full resize-none border-none px-3.5 py-3 text-base ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
               className
             )}
             ref={ref}

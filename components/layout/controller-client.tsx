@@ -106,7 +106,7 @@ export default function ControllerClient(props: {
   };
 
   return (
-    <nav className="bg-surface ring-border rounded-navigation fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 px-4 py-2 text-sm shadow-lg ring-1 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base">
+    <nav className="bg-surface ring-border rounded-navigation shadow-panel fixed inset-x-0 bottom-3 z-20 mx-auto flex max-w-fit flex-col items-center justify-center gap-1 px-4 py-2 text-sm ring-1 backdrop-blur-md md:flex-row xl:bottom-5 xl:text-base">
       <div className="flex items-center space-x-1">
         {data.settings.navbar &&
           data.settings.navbar.map((item) =>

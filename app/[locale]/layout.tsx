@@ -49,11 +49,11 @@ export default async function RootLayout({
           <BackgroundPattern />
 
           <div className="container mx-auto grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pt-16 md:pb-24 xl:px-10 2xl:gap-8 2xl:px-16">
-            <aside className="bg-surface ring-border rounded-panel relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden px-4 pt-10 pb-6 shadow-lg ring-1 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20">
+            <aside className="bg-surface ring-border rounded-panel shadow-panel relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden px-4 pt-10 pb-6 ring-1 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20">
               {sidebar}
             </aside>
 
-            <main className="bg-surface ring-border rounded-panel relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden px-4 py-6 shadow-lg ring-1 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8">
+            <main className="bg-surface ring-border rounded-panel shadow-panel relative flex h-[calc(100vh-4rem)] flex-col overflow-hidden px-4 py-6 ring-1 backdrop-blur-md md:col-span-10 md:h-[calc(100vh-10rem)] lg:p-8">
               {children}
             </main>
 

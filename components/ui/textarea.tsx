@@ -33,7 +33,7 @@ export const Textarea = ({
             aria-describedby={error ? "message-error" : undefined}
             rows={6}
             className={cn(
-              "bg-input-background ring-input-border placeholder:text-input-placeholder scrollbar-thumb-scrollbar-thumb hover:scrollbar-thumb-scrollbar-thumb-hover scrollbar-track-scrollbar-track scrollbar-thumb-rounded-scrollbar rounded-control flex w-full resize-none scrollbar-thin border-none px-3.5 py-3 text-base shadow-sm ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
+              "bg-input-background ring-input-border placeholder:text-input-placeholder scrollbar-thumb-scrollbar-thumb hover:scrollbar-thumb-scrollbar-thumb-hover scrollbar-track-scrollbar-track scrollbar-thumb-rounded-scrollbar rounded-control shadow-control flex w-full resize-none scrollbar-thin border-none px-3.5 py-3 text-base ring-1 backdrop-blur transition duration-300 group-hover/input:shadow-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:py-2 lg:text-sm xl:py-2.5 2xl:py-3 2xl:text-base",
               className
             )}
             ref={ref}

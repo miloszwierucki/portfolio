@@ -83,7 +83,7 @@ export function ExpandableCardGrid({
                     role="dialog"
                     aria-modal="true"
                     aria-label={active.title}
-                    className="ring-border after:bg-surface bg-surface-elevated rounded-panel grid max-h-[calc(100dvh-2rem)] w-full max-w-125 grid-rows-[auto_minmax(0,1fr)] overflow-hidden shadow-lg ring-1 backdrop-blur after:pointer-events-none after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:content-[''] md:max-h-[85dvh]"
+                    className="ring-border after:bg-surface bg-surface-elevated rounded-panel shadow-panel grid max-h-[calc(100dvh-2rem)] w-full max-w-125 grid-rows-[auto_minmax(0,1fr)] overflow-hidden ring-1 backdrop-blur after:pointer-events-none after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:content-[''] md:max-h-[85dvh]"
                   >
                     <motion.div
                       layoutId={`image-${active.title}-${id}`}
@@ -99,7 +99,7 @@ export function ExpandableCardGrid({
                             } as CSSProperties
                           }
                           className={cn(
-                            "rounded-tl-media rounded-tr-media relative h-64 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 shadow-md xl:h-72 2xl:h-80",
+                            "rounded-tl-media rounded-tr-media shadow-media relative h-64 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 xl:h-72 2xl:h-80",
                             // Preload hover image by setting it in a pseudo-element
                             `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
                             "hover:after:bg-overlay hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:content-['']",
@@ -212,7 +212,7 @@ export function ExpandableCardGrid({
                               } as CSSProperties
                             }
                             className={cn(
-                              "rounded-media relative h-52 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 shadow-lg md:h-44 lg:h-56 xl:h-48 2xl:h-60",
+                              "rounded-media shadow-panel relative h-52 w-full overflow-hidden bg-(image:--image-url) bg-cover bg-top p-2 md:h-44 lg:h-56 xl:h-48 2xl:h-60",
                               // Preload hover image by setting it in a pseudo-element
                               `before:absolute before:inset-0 before:z-[-1] before:bg-(image:--preview-url) before:opacity-0`,
                               "hover:after:bg-overlay hover:bg-(image:--preview-url) hover:after:absolute hover:after:inset-0 hover:after:content-['']",

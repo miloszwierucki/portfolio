@@ -61,12 +61,12 @@ export const LeftSection = (props: {
         )}
       >
         <div
-          className="bg-surface-strong rounded-navigation mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden shadow-lg"
+          className="bg-surface-strong rounded-navigation shadow-panel mt-2 grid aspect-square w-3/5 place-content-center overflow-hidden"
           data-tina-field={tinaField(data.sidebar, "image")}
         >
           {data.sidebar.image && (
             <Image
-              className="pointer-events-none mx-auto w-11/12 object-contain drop-shadow-lg saturate-[1.25]"
+              className="drop-shadow-media pointer-events-none mx-auto w-11/12 object-contain saturate-[1.25]"
               src={data.sidebar.image}
               alt="Person profile picture"
               width={400}
@@ -84,7 +84,7 @@ export const LeftSection = (props: {
         </h1>
 
         <div
-          className="bg-surface-muted before:animate-backgroundMove text-foreground rounded-control relative inline-flex justify-center px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap shadow before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--shimmer)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm"
+          className="bg-surface-muted before:animate-backgroundMove text-foreground rounded-control shadow-control relative inline-flex justify-center px-3.5 py-2.5 text-center text-sm font-medium whitespace-nowrap before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(45deg,transparent_25%,var(--shimmer)_50%,transparent_75%,transparent_100%)] before:bg-size-[250%_250%,100%_100%] before:bg-position-[200%_0,0_0] before:bg-no-repeat md:text-xs md:whitespace-normal lg:whitespace-nowrap 2xl:text-sm"
           data-tina-field={tinaField(data.sidebar, "role")}
         >
           {data.sidebar.role}
@@ -116,7 +116,7 @@ export const LeftSection = (props: {
                     data-cursor="pointer"
                     data-tina-field={tinaField(block, "action")}
                   >
-                    <div className="flex w-full items-center gap-2 px-4 py-2 text-base text-nowrap duration-300 hover:shadow-sm md:w-fit md:text-sm lg:w-full lg:px-1 xl:gap-4 xl:px-2 2xl:px-4 2xl:text-lg">
+                    <div className="hover:shadow-control flex w-full items-center gap-2 px-4 py-2 text-base text-nowrap duration-300 md:w-fit md:text-sm lg:w-full lg:px-1 xl:gap-4 xl:px-2 2xl:px-4 2xl:text-lg">
                       <div
                         className="bg-surface-muted rounded-control grid size-10 shrink-0 grow-0 place-content-center 2xl:size-12"
                         data-tina-field={tinaField(block, "icon")}
