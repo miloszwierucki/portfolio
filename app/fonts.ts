@@ -4,7 +4,8 @@ import {
   Noto_Sans,
   Noto_Sans_Mono,
   Plus_Jakarta_Sans,
-  Shippori_Mincho_B1,
+  // Shippori_Mincho_B1,
+  Sawarabi_Mincho,
 } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -37,11 +38,18 @@ export const noto_sans_mono = Noto_Sans_Mono({
   variable: "--font-noto-sans-mono",
 });
 
-export const shippori_mincho = Shippori_Mincho_B1({
-  weight: ["400", "500", "600"],
+// export const shippori_mincho = Shippori_Mincho_B1({
+//   weight: ["400", "500", "600"],
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-shippori-mincho",
+// });
+
+export const sawarabi_mincho = Sawarabi_Mincho({
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-shippori-mincho",
+  variable: "--font-sawarabi-mincho",
 });
 
 export const satoshi = localFont({
