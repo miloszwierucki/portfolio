@@ -1,8 +1,8 @@
 ---
-title: O mnie
 seo:
   title: O mnie | Miłosz Wierucki
-  description: Na co dzień tworzę aplikacje webowe w 360SoftwareHouse, wykorzystując React, Next.js, TypeScript i Node.js.
+  description: 'Na co dzień tworzę aplikacje webowe w 360SoftwareHouse, wykorzystując React, Next.js, TypeScript i Node.js.'
+title: O mnie
 timeline:
   - icon: briefcase-business
     title: Doświadczenie
@@ -13,11 +13,9 @@ timeline:
           *Łódź, Łódzkie, Polska*
       - company: Samorząd Studencki Politechniki Łódzkiej
         period: 2023 - obecnie
-        description: >
+        description: |
           **Przewodniczący Komisji ds. IT**
-
           *Łódź, Łódzkie, Polska*
-
           Koordynowanie i współpraca z społecznością SSPŁ nad projektami wspierając rozwój systemów uczelni i jednostek podległych.
     _template: timelineBlock
   - icon: book-open
@@ -28,6 +26,13 @@ timeline:
         description: |
           *Łódź, Łódzkie, Polska*
 
+          Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
+      - company: Politechnika Łódzka
+        period: 2026 - obecnie
+        description: |
+          *Łódź, Łódzkie, Polska*
+
+          Informatyka stosowana st. II\
           Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
     _template: timelineBlock
 ---
