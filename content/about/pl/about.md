@@ -11,6 +11,8 @@ timeline:
         period: 2024 - obecnie
         description: |
           *Łódź, Łódzkie, Polska*
+
+          **Full-stack Developer / Front-end Developer**
       - company: Samorząd Studencki Politechniki Łódzkiej
         period: 2023 - 2026
         description: |
