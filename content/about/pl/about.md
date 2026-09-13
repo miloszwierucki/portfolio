@@ -22,9 +22,11 @@ timeline:
     title: Edukacja
     items:
       - company: Politechnika Łódzka
-        period: 2022 - obecnie
+        period: 2022 - 2026
         description: |
           *Łódź, Łódzkie, Polska*
+
+          Informatyka stosowana st. I
 
           Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
       - company: Politechnika Łódzka
