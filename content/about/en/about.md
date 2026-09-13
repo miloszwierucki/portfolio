@@ -11,24 +11,32 @@ timeline:
         period: 2024 - current
         description: |
           *Lodz, Lodz Voivodeship, Poland*
-      - company: Student Government of the Lodz University of Technology
-        period: 2023 - current
-        description: >
-          **Chairman of the IT Committee**
 
+          **Full-stack Developer / Front-end Developer**
+      - company: Student Government of the Lodz University of Technology
+        period: 2023 - 2026
+        description: >
           *Lodz, Lodz Voivodeship, Poland*
 
-
+          **Chairman of the IT Committee**
           Coordinating and collaborating with the SSPŁ community on projects supporting the development of university systems and subordinate units
     _template: timelineBlock
   - icon: book-open
     title: Education
     items:
       - company: Lodz University of Technology
-        period: 2022 - current
+        period: 2026 - current
         description: |
           *Lodz, Lodz Voivodeship, Poland*
 
+          **Applied Computer Science, M.Sc.**
+          Faculty of Technical Physics, Information Technology and Applied Mathematics
+      - company: Lodz University of Technology
+        period: 2022 - 2026
+        description: |
+          *Lodz, Lodz Voivodeship, Poland*
+
+          **Applied Computer Science, B.Sc.**
           Faculty of Technical Physics, Information Technology and Applied Mathematics
     _template: timelineBlock
 ---
