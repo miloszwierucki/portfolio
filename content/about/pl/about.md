@@ -12,7 +12,7 @@ timeline:
         description: |
           *Łódź, Łódzkie, Polska*
       - company: Samorząd Studencki Politechniki Łódzkiej
-        period: 2023 - obecnie
+        period: 2023 - 2026
         description: |
           **Przewodniczący Komisji ds. IT**
           *Łódź, Łódzkie, Polska*
