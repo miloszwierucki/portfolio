@@ -33,8 +33,7 @@ timeline:
         description: |
           *Łódź, Łódzkie, Polska*
 
-          Informatyka stosowana st. I
-
+          **Informatyka stosowana st. I**\
           Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
     _template: timelineBlock
 ---
