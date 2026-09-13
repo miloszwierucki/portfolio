@@ -14,8 +14,9 @@ timeline:
       - company: Samorząd Studencki Politechniki Łódzkiej
         period: 2023 - 2026
         description: |
-          **Przewodniczący Komisji ds. IT**
           *Łódź, Łódzkie, Polska*
+
+          **Przewodniczący Komisji ds. IT**
           Koordynowanie i współpraca z społecznością SSPŁ nad projektami wspierając rozwój systemów uczelni i jednostek podległych.
     _template: timelineBlock
   - icon: book-open
