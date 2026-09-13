@@ -26,7 +26,7 @@ timeline:
         description: |
           *Łódź, Łódzkie, Polska*
 
-          Informatyka stosowana st. II\
+          **Informatyka stosowana st. II**\
           Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej
       - company: Politechnika Łódzka
         period: 2022 - 2026
