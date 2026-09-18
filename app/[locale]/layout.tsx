@@ -14,10 +14,9 @@ import BackgroundPattern from "@/components/layout/background-pattern";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import CustomCursor from "@/components/layout/custom-cursor";
 import VercelAnalytics from "@/components/vercel-analytics";
+import { backgroundPattern } from "@/app/themes/zen";
 import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/seo";
-
-import "@/app/zen.css";
 
 // export const revalidate = 0;
 
@@ -52,7 +51,7 @@ export default async function RootLayout({
         className={`${satoshi.variable} ${plus_jakarta_sans.variable} ${noto_sans.variable} ${sawarabi_mincho.variable} ${noto_sans_mono.variable} bg-background text-foreground font-body grid min-h-screen w-screen scrollbar-none grid-cols-1 place-content-center overflow-x-hidden antialiased md:h-screen md:overflow-y-hidden`}
       >
         <NextIntlClientProvider messages={{}}>
-          <BackgroundPattern />
+          <BackgroundPattern pattern={backgroundPattern} />
 
           <div className="container mx-auto grid grid-cols-1 gap-4 p-4 md:grid-cols-13 md:gap-6 md:pt-16 md:pb-24 xl:px-10 2xl:gap-8 2xl:px-16">
             <aside className="bg-surface ring-border rounded-panel shadow-panel relative hidden h-[calc(100vh-10rem)] flex-col overflow-hidden px-4 pt-10 pb-6 ring-1 backdrop-blur-md md:col-span-3 md:flex lg:pb-8 2xl:pt-20">

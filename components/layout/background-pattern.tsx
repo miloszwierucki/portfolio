@@ -6,41 +6,52 @@ import Particles from "@/components/ui/particles";
 
 type BackgroundPatternType = "particles" | "editorial";
 
-export default function BackgroundPattern() {
+function ParticlePattern() {
   const [particleColor, setParticleColor] = useState<string | null>(null);
-  const [pattern, setPattern] = useState<BackgroundPatternType | null>(null);
 
   useEffect(() => {
     const root = document.documentElement;
-    const updatePattern = () => {
-      const styles = getComputedStyle(root);
-      const nextPattern = styles
-        .getPropertyValue("--background-pattern")
+    const updateParticleColor = () => {
+      const color = getComputedStyle(root)
+        .getPropertyValue("--particle-color")
         .trim();
 
-      setParticleColor(styles.getPropertyValue("--particle-color").trim());
-      setPattern(nextPattern === "editorial" ? "editorial" : "particles");
+      setParticleColor(color);
     };
-    const observer = new MutationObserver(updatePattern);
+    const observer = new MutationObserver(updateParticleColor);
 
-    updatePattern();
+    updateParticleColor();
     observer.observe(root, { attributes: true, attributeFilter: ["class"] });
 
     return () => observer.disconnect();
   }, []);
 
+  if (!particleColor) return null;
+
   return (
-    <div className="gradient after:opacity-[0.03]">
-      {pattern === "particles" && particleColor && (
-        <Particles
-          className="absolute inset-0 opacity-50"
-          quantity={120}
-          ease={80}
-          size={1.5}
-          color={particleColor}
-          refresh
-        />
-      )}
+    <Particles
+      className="absolute inset-0 opacity-50"
+      quantity={120}
+      ease={80}
+      size={1.5}
+      color={particleColor}
+      refresh
+    />
+  );
+}
+
+export default function BackgroundPattern({
+  pattern,
+}: {
+  pattern: BackgroundPatternType;
+}) {
+  return (
+    <div
+      className={
+        pattern === "particles" ? "gradient after:opacity-[0.03]" : undefined
+      }
+    >
+      {pattern === "particles" && <ParticlePattern />}
       {pattern === "editorial" && (
         <div className="editorial-pattern" aria-hidden="true">
           <div className="editorial-pattern__grid" />
