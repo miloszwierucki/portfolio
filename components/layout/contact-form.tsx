@@ -1,7 +1,8 @@
 "use client";
 
+import { ReactNode, useActionState, useCallback, useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { ReactNode, useActionState } from "react";
 import { tinaField } from "tinacms/dist/react";
 
 import { sendEmailAction } from "@/app/[locale]/contact/actions/send-email";
@@ -30,13 +31,23 @@ export function ContactForm({
   button: ContactQuery["contact"]["button"];
 }) {
   const [stateEmail, actionEmail] = useActionState(sendEmailAction, undefined);
+  const [verifiedState, setVerifiedState] = useState<unknown>(null);
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const handleTurnstileSuccess = useCallback(
+    () => setVerifiedState(stateEmail),
+    [stateEmail]
+  );
+  const clearTurnstileVerification = useCallback(
+    () => setVerifiedState(null),
+    []
+  );
 
   if (!email || !name || !message || !button || !privacy) return null;
 
   return (
     <div className={cn("mx-auto w-full", className)}>
       <form
-        className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-6"
+        className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-5"
         action={actionEmail}
       >
         <LabelInputContainer>
@@ -106,6 +117,7 @@ export function ContactForm({
         <SubmitButton
           label={button.label ?? ""}
           pendingLabel={button.pendingLabel ?? ""}
+          disabled={verifiedState === null || verifiedState !== stateEmail}
           data-tina-field={tinaField(button, "label")}
           className="lg:col-end-3"
         />
@@ -117,6 +129,32 @@ export function ContactForm({
             {stateEmail.message}
           </p>
         )}
+
+        <div className="w-full">
+          {turnstileSiteKey ? (
+            <Turnstile
+              siteKey={turnstileSiteKey}
+              onSuccess={handleTurnstileSuccess}
+              onExpire={clearTurnstileVerification}
+              onError={clearTurnstileVerification}
+              rerenderOnCallbackChange
+              options={{
+                action: "contact",
+                appearance: "interaction-only",
+                theme: "auto",
+              }}
+            />
+          ) : (
+            <p role="alert" className="text-sm opacity-70">
+              Verification is temporarily unavailable.
+            </p>
+          )}
+          {stateEmail?.errors?.turnstile && (
+            <p role="alert" className="mt-2 text-sm opacity-70">
+              {stateEmail.errors.turnstile[0]}
+            </p>
+          )}
+        </div>
       </form>
     </div>
   );

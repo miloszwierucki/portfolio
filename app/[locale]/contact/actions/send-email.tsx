@@ -4,14 +4,17 @@ import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
 import { z } from "zod";
 
+import type { TurnstileServerValidationResponse } from "@marsidev/react-turnstile";
+
 import EmailTemplate from "@/components/layout/email-template";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const TURNSTILE_VERIFY_URL =
+  "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const TURNSTILE_ACTION = "contact";
 
 const FormSchema = z.object({
   email: z
-    .string()
-    .min(1, { message: "Email is required." })
     .email({ message: "Something went wrong, the email is invalid." })
     .trim(),
   name: z
@@ -25,6 +28,12 @@ const FormSchema = z.object({
       message: "The message body is too long, maximum 350 characters.",
     })
     .trim(),
+  turnstile: z.string().min(1).max(2048),
+});
+
+const TurnstileResponseSchema = z.object({
+  success: z.boolean(),
+  action: z.string().optional(),
 });
 
 type FormState =
@@ -33,6 +42,7 @@ type FormState =
         email?: string[];
         name?: string[];
         message?: string[];
+        turnstile?: string[];
       };
       message?: string;
     }
@@ -43,6 +53,7 @@ export async function sendEmailAction(state: FormState, formData: FormData) {
     email: formData.get("email"),
     name: formData.get("name"),
     message: formData.get("message"),
+    turnstile: formData.get("cf-turnstile-response"),
   });
 
   if (!validatedFields.success) {
@@ -51,7 +62,55 @@ export async function sendEmailAction(state: FormState, formData: FormData) {
     };
   }
 
-  const { email, name, message } = validatedFields.data;
+  const { email, name, message, turnstile } = validatedFields.data;
+  const turnstileSecretKey = process.env.TURNSTILE_SECRET_KEY;
+
+  if (!turnstileSecretKey) {
+    console.error("TURNSTILE_SECRET_KEY is not configured");
+
+    return {
+      errors: {
+        turnstile: ["Verification is temporarily unavailable."],
+      },
+    };
+  }
+
+  try {
+    const response = await fetch(TURNSTILE_VERIFY_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: turnstileSecretKey,
+        response: turnstile,
+      }),
+      cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
+    });
+    const verification = TurnstileResponseSchema.safeParse(
+      (await response.json()) as TurnstileServerValidationResponse
+    );
+
+    if (
+      !response.ok ||
+      !verification.success ||
+      !verification.data.success ||
+      verification.data.action !== TURNSTILE_ACTION
+    ) {
+      return {
+        errors: {
+          turnstile: ["Verification failed. Please try again."],
+        },
+      };
+    }
+  } catch (error) {
+    console.error("Turnstile verification failed", error);
+
+    return {
+      errors: {
+        turnstile: ["Verification is temporarily unavailable."],
+      },
+    };
+  }
 
   const { data } = await resend.emails.send({
     from: process.env.SENDER_EMAIL as string,
