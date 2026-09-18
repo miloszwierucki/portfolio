@@ -38,8 +38,14 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(customCursorQuery);
+    let activeTarget: EventTarget | null = null;
+    let isActive = false;
 
     const deactivateCursor = () => {
+      if (!isActive) return;
+
+      activeTarget = null;
+      isActive = false;
       setVisible(false);
       resetCursor();
       document.documentElement.classList.remove("custom-cursor-active");
@@ -57,23 +63,30 @@ const CustomCursor = () => {
       cursorX.set(event.clientX - 8);
       cursorY.set(event.clientY - 8);
 
-      const cursorTarget =
-        event.target instanceof Element
-          ? event.target.closest<HTMLElement>("[data-cursor]")
-          : null;
-      const cursorVariant = cursorTarget?.dataset.cursor;
-      const nextCursor =
-        cursorVariant && cursorVariant in cursorIcons
-          ? (cursorVariant as CursorVariant)
-          : "default";
+      if (event.target !== activeTarget) {
+        activeTarget = event.target;
 
-      if (useCursorStore.getState().cursor !== nextCursor) {
-        if (nextCursor === "default") resetCursor();
-        else setCursor(nextCursor);
+        const cursorTarget =
+          event.target instanceof Element
+            ? event.target.closest<HTMLElement>("[data-cursor]")
+            : null;
+        const cursorVariant = cursorTarget?.dataset.cursor;
+        const nextCursor =
+          cursorVariant && cursorVariant in cursorIcons
+            ? (cursorVariant as CursorVariant)
+            : "default";
+
+        if (useCursorStore.getState().cursor !== nextCursor) {
+          if (nextCursor === "default") resetCursor();
+          else setCursor(nextCursor);
+        }
       }
 
-      setVisible(true);
-      document.documentElement.classList.add("custom-cursor-active");
+      if (!isActive) {
+        isActive = true;
+        setVisible(true);
+        document.documentElement.classList.add("custom-cursor-active");
+      }
     };
 
     const handlePointerOut = (event: PointerEvent) => {
@@ -106,7 +119,7 @@ const CustomCursor = () => {
 
   return visible ? (
     <motion.div
-      className="text-subtle-foreground drop-shadow-cursor pointer-events-none fixed top-0 left-0 z-9999"
+      className="text-subtle-foreground drop-shadow-cursor pointer-events-none fixed top-0 left-0 z-9999 will-change-transform"
       style={{
         translateX: cursorX,
         translateY: cursorY,
